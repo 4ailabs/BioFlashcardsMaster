@@ -72,6 +72,7 @@ const flashcards: Flashcard[] = [
       metabolicType: "obligate_aerobe",
       cellWall: "acid_fast"
     },
+    classificationCode: "A40", // Código según Centrobioenergetica (Bacilo de la Tuberculosis)
     isFavorite: false
   },
   {
