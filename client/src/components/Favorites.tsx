@@ -3,8 +3,12 @@ import { Button } from "@/components/ui/button";
 import { useFlashcards } from "@/context/FlashcardContext";
 import { getCategoryColor, getCategoryLabel } from "@/lib/utils";
 
-const Favorites = () => {
-  const { flashcards, toggleFavorite, setCurrentCardIndex, activeTab, setActiveTab } = useFlashcards();
+interface FavoritesProps {
+  setActiveTab: (tab: "study" | "dashboard" | "favorites" | "assistant" | "gallery") => void;
+}
+
+const Favorites = ({ setActiveTab }: FavoritesProps) => {
+  const { flashcards, toggleFavorite, setCurrentCardIndex } = useFlashcards();
   
   const favoriteCards = flashcards.filter(card => card.isFavorite);
   

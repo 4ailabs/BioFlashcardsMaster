@@ -28,9 +28,9 @@ function App() {
               <main className="w-full md:ml-64 p-4 md:p-8">
                 {activeTab === "study" && <StudyView />}
                 {activeTab === "dashboard" && <Dashboard />}
-                {activeTab === "favorites" && <Favorites />}
+                {activeTab === "favorites" && <Favorites setActiveTab={setActiveTab} />}
                 {activeTab === "assistant" && <AIAssistant />}
-                {activeTab === "gallery" && <GridView />}
+                {activeTab === "gallery" && <GridView setActiveTab={setActiveTab} />}
               </main>
             </div>
           </TooltipProvider>
