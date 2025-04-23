@@ -99,22 +99,37 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       const bacteriasFlashcards = loadBacteriasFromJson();
       console.log(`Cargadas ${bacteriasFlashcards.length} bacterias desde JSON`);
       
-      // Combinar las flashcards - primero las base, luego las bacterias del JSON
-      const updatedFlashcards = [...baseFlashcards, ...bacteriasFlashcards];
-      console.log(`Total de flashcards: ${updatedFlashcards.length}`);
+      // En lugar de combinar directamente, vamos a eliminar duplicados por código de clasificación
+      // Crear un mapa para realizar un seguimiento de las tarjetas por código de clasificación
+      const cardsByClassCode = new Map<string, Flashcard>();
       
-      // Verificar que no hay duplicados por ID
-      const idSet = new Set<string>();
-      const uniqueFlashcards = updatedFlashcards.filter(card => {
-        if (idSet.has(card.id)) {
-          return false; // Es un duplicado
+      // Primero, agregar todas las bacterias del JSON (tienen prioridad)
+      bacteriasFlashcards.forEach(card => {
+        if (card.classificationCode) {
+          cardsByClassCode.set(card.classificationCode, card);
+        } else {
+          // Si no tiene código de clasificación, usar el ID
+          cardsByClassCode.set(card.id, card);
         }
-        idSet.add(card.id);
-        return true;
       });
       
-      if (uniqueFlashcards.length < updatedFlashcards.length) {
-        console.log(`Se eliminaron ${updatedFlashcards.length - uniqueFlashcards.length} flashcards duplicadas`);
+      // Luego, agregar las flashcards base que no sean bacterias o que no tengan un código duplicado
+      baseFlashcards.forEach(card => {
+        const key = card.classificationCode || card.id;
+        // Solo agregar si no existe o si no es una bacteria (las bacterias del JSON tienen prioridad)
+        if (!cardsByClassCode.has(key) || card.category !== 'bacteria') {
+          cardsByClassCode.set(key, card);
+        }
+      });
+      
+      // Convertir el mapa de vuelta a un array
+      const uniqueFlashcards = Array.from(cardsByClassCode.values());
+      console.log(`Total de flashcards después de eliminar duplicados: ${uniqueFlashcards.length}`);
+      
+      // Calcular cuántas flashcards serían si hubiéramos concatenado directamente
+      const totalRawCount = baseFlashcards.length + bacteriasFlashcards.length;
+      if (uniqueFlashcards.length < totalRawCount) {
+        console.log(`Se eliminaron ${totalRawCount - uniqueFlashcards.length} flashcards duplicadas`);
       }
       
       // Actualizar el estado solo si hay cambios o si acabamos de inicializar
