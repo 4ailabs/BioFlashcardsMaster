@@ -42,7 +42,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             <button 
               className={cn("text-amber-500", card.isFavorite && "fill-current")} 
               onClick={handleFavoriteClick} 
-              aria-label={card.isFavorite ? "Remove from favorites" : "Add to favorites"}
+              aria-label={card.isFavorite ? "Quitar de favoritos" : "Añadir a favoritos"}
             >
               <Star className="h-5 w-5" />
             </button>
@@ -56,7 +56,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           </div>
           
           <div className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-            <p>Click to see details</p>
+            <p>Clic para ver detalles</p>
             <ArrowDown className="h-4 w-4 mx-auto mt-1" />
           </div>
         </div>
@@ -73,7 +73,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             <button 
               className={cn("text-amber-500", card.isFavorite && "fill-current")}
               onClick={handleFavoriteClick}
-              aria-label={card.isFavorite ? "Remove from favorites" : "Add to favorites"}
+              aria-label={card.isFavorite ? "Quitar de favoritos" : "Añadir a favoritos"}
             >
               <Star className="h-5 w-5" />
             </button>
@@ -84,22 +84,22 @@ const Flashcard = ({ card }: FlashcardProps) => {
           
           <div className="space-y-4 flex-1 overflow-auto pr-2">
             <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Characteristics</h3>
+              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Características</h3>
               <p className="mt-1">{card.characteristics}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Conflict Basis</h3>
+              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Base Conflictual</h3>
               <p className="mt-1">{card.conflictBasis}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Notes</h3>
+              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Notas</h3>
               <p className="mt-1">{card.notes}</p>
             </div>
             
             <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Code Mapping</h3>
+              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Código Patógeno</h3>
               <div className="mt-1 font-mono text-sm p-2 bg-slate-100 dark:bg-slate-700 rounded">
                 <code>
                   {JSON.stringify(card.codeMapping, null, 2)}
@@ -109,7 +109,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           </div>
           
           <div className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-            <p>Click to flip back</p>
+            <p>Clic para volver</p>
             <ArrowUp className="h-4 w-4 mx-auto mt-1" />
           </div>
         </div>

@@ -44,7 +44,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
               )}
             >
               <BookOpen className="mr-2 h-5 w-5" />
-              <span>Study</span>
+              <span>Estudiar</span>
             </button>
           </li>
           <li>
@@ -58,7 +58,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
               )}
             >
               <LayoutDashboard className="mr-2 h-5 w-5" />
-              <span>Dashboard</span>
+              <span>Estadísticas</span>
             </button>
           </li>
           <li>
@@ -72,7 +72,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
               )}
             >
               <Star className="mr-2 h-5 w-5 text-amber-500" />
-              <span>Favorites</span>
+              <span>Favoritos</span>
             </button>
           </li>
         </ul>
@@ -80,7 +80,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
       
       {/* Filter Section */}
       <div className="p-4 border-t border-slate-200 dark:border-slate-700">
-        <h2 className="font-medium mb-3">Filters</h2>
+        <h2 className="font-medium mb-3">Filtros</h2>
         
         {/* Search */}
         <div className="mb-4 relative">
@@ -89,7 +89,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
           </div>
           <input 
             type="text" 
-            placeholder="Search flashcards..." 
+            placeholder="Buscar tarjetas..." 
             className="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary"
             value={searchQuery}
             onChange={handleSearchChange}
@@ -97,7 +97,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
         </div>
         
         {/* Categories */}
-        <h3 className="text-sm font-medium mb-2">Categories</h3>
+        <h3 className="text-sm font-medium mb-2">Categorías</h3>
         <CategoryFilter />
         
         {/* Favorites toggle */}
@@ -109,7 +109,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
             checked={favoritesOnly}
             onChange={handleFavoritesToggle}
           />
-          <label htmlFor="favorites-only" className="ml-2 text-sm">Show favorites only</label>
+          <label htmlFor="favorites-only" className="ml-2 text-sm">Mostrar solo favoritos</label>
         </div>
       </div>
     </aside>

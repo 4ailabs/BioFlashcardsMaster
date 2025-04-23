@@ -45,12 +45,12 @@ const StudyView = () => {
             className="p-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 disabled:opacity-50"
           >
             <ChevronLeft className="h-5 w-5" />
-            <span className="sr-only">Previous card</span>
+            <span className="sr-only">Tarjeta anterior</span>
           </Button>
           <span className="text-sm font-medium">
             {totalFilteredCards > 0 
-              ? `Card ${currentPosition} of ${totalFilteredCards}` 
-              : "No cards to display"}
+              ? `Tarjeta ${currentPosition} de ${totalFilteredCards}` 
+              : "No hay tarjetas para mostrar"}
           </span>
           <Button
             variant="outline"
@@ -60,7 +60,7 @@ const StudyView = () => {
             className="p-2 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 disabled:opacity-50"
           >
             <ChevronRight className="h-5 w-5" />
-            <span className="sr-only">Next card</span>
+            <span className="sr-only">Siguiente tarjeta</span>
           </Button>
         </div>
         
@@ -73,7 +73,7 @@ const StudyView = () => {
             className="flex items-center px-3 py-1.5 text-sm rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600"
           >
             <Shuffle className="h-4 w-4 mr-1" />
-            Shuffle
+            Mezclar
           </Button>
           <Button
             variant="outline"
@@ -82,7 +82,7 @@ const StudyView = () => {
             className="flex items-center px-3 py-1.5 text-sm rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600"
           >
             <RefreshCw className="h-4 w-4 mr-1" />
-            Reset
+            Reiniciar
           </Button>
         </div>
       </div>
@@ -92,8 +92,8 @@ const StudyView = () => {
         <Flashcard card={filteredFlashcards[currentCardIndex]} />
       ) : (
         <div className="text-center py-12 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
-          <h3 className="text-lg font-medium mb-2">No flashcards match your filters</h3>
-          <p className="text-slate-500 dark:text-slate-400 mb-4">Try changing your search or category filters</p>
+          <h3 className="text-lg font-medium mb-2">No hay tarjetas que coincidan con tus filtros</h3>
+          <p className="text-slate-500 dark:text-slate-400 mb-4">Intenta cambiar tu búsqueda o los filtros de categoría</p>
         </div>
       )}
       
@@ -107,20 +107,20 @@ const StudyView = () => {
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
-            <span className="ml-3 text-sm font-medium">{progress}% complete</span>
+            <span className="ml-3 text-sm font-medium">{progress}% completado</span>
           </div>
           
           <div className="flex space-x-3">
             <div className="text-center">
-              <p className="text-sm text-slate-500 dark:text-slate-400">Remaining</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Restantes</p>
               <p className="text-lg font-medium">{totalFilteredCards - studyStats.studied}</p>
             </div>
             <div className="text-center">
-              <p className="text-sm text-slate-500 dark:text-slate-400">Studied</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Estudiadas</p>
               <p className="text-lg font-medium">{studyStats.studied}</p>
             </div>
             <div className="text-center">
-              <p className="text-sm text-slate-500 dark:text-slate-400">Mastered</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Dominadas</p>
               <p className="text-lg font-medium">{studyStats.mastered}</p>
             </div>
           </div>

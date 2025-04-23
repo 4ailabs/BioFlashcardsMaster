@@ -26,7 +26,7 @@ const CategoryFilter = () => {
         }`}
         onClick={() => handleCategoryClick('all')}
       >
-        <span>All Categories</span>
+        <span>Todas las Categorías</span>
         <span className="px-2 py-0.5 text-xs rounded-full bg-slate-200 dark:bg-slate-600">{categoryCounts.all}</span>
       </button>
       
@@ -38,7 +38,7 @@ const CategoryFilter = () => {
         }`}
         onClick={() => handleCategoryClick('bacteria')}
       >
-        <span>Bacteria</span>
+        <span>Bacterias</span>
         <span className="px-2 py-0.5 text-xs rounded-full bg-slate-200 dark:bg-slate-600">{categoryCounts.bacteria}</span>
       </button>
       
@@ -74,7 +74,7 @@ const CategoryFilter = () => {
         }`}
         onClick={() => handleCategoryClick('parasito')}
       >
-        <span>Parasitos</span>
+        <span>Parásitos</span>
         <span className="px-2 py-0.5 text-xs rounded-full bg-slate-200 dark:bg-slate-600">{categoryCounts.parasito}</span>
       </button>
       
