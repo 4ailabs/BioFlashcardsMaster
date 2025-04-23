@@ -51,7 +51,12 @@ const Flashcard = ({ card }: FlashcardProps) => {
           <div className="flex-1 flex items-center justify-center">
             <div className="text-center">
               <h2 className="text-3xl font-bold mb-2">{card.name}</h2>
-              <p className="text-lg font-mono text-slate-600 dark:text-slate-400">{card.scientificName}</p>
+              <p className="text-lg font-mono text-slate-600 dark:text-slate-400 mb-2">{card.scientificName}</p>
+              {card.classificationCode && (
+                <div className="inline-flex items-center justify-center bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm font-bold">
+                  Código: {card.classificationCode}
+                </div>
+              )}
             </div>
           </div>
           

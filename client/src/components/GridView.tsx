@@ -1,12 +1,53 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFlashcards } from '@/context/FlashcardContext';
 import { Flashcard as FlashcardType } from '@/data/flashcards';
 import { getCategoryColor, getCategoryLabel } from '@/lib/utils';
-import { Star, Layers } from 'lucide-react';
+import { Star, Layers, Tag } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { findClassificationCode } from '@/lib/classificationCodes';
 
 const GridView = () => {
   const { flashcards, toggleFavorite, setCurrentCardIndex, setActiveTab } = useFlashcards();
+  
+  // Efecto para asignar códigos de clasificación a las flashcards que no los tienen
+  useEffect(() => {
+    // Esta función solo se ejecuta en el cliente, no en el servidor
+    if (typeof window !== 'undefined') {
+      // Verificar si hay flashcards sin código de clasificación
+      const flashcardsWithoutCodes = flashcards.filter(card => !card.classificationCode);
+      
+      if (flashcardsWithoutCodes.length > 0) {
+        console.log(`Asignando códigos de clasificación a ${flashcardsWithoutCodes.length} flashcards...`);
+        
+        // Crear una copia de las flashcards para no modificar el estado directamente
+        const updatedFlashcards = [...flashcards];
+        
+        // Asignar códigos de clasificación
+        flashcardsWithoutCodes.forEach(card => {
+          const index = updatedFlashcards.findIndex(c => c.id === card.id);
+          if (index !== -1) {
+            // Usar la función de búsqueda para encontrar el código correspondiente
+            const code = findClassificationCode(card.name, card.category);
+            if (code) {
+              updatedFlashcards[index] = {
+                ...updatedFlashcards[index],
+                classificationCode: code
+              };
+              console.log(`Asignado código ${code} a ${card.name}`);
+            }
+          }
+        });
+        
+        // Guardar flashcards actualizadas en localStorage para persistencia
+        localStorage.setItem('flashcards', JSON.stringify(updatedFlashcards));
+        
+        // Forzar recarga para aplicar los cambios (solo en desarrollo)
+        if (process.env.NODE_ENV === 'development') {
+          window.location.reload();
+        }
+      }
+    }
+  }, []);
 
   // Agrupar flashcards por categoría
   const groupedFlashcards = flashcards.reduce((acc, card) => {
@@ -72,9 +113,11 @@ const GridView = () => {
                 
                 {/* Mostrar código de clasificación si existe */}
                 {card.classificationCode && (
-                  <div className="text-xs mt-2 p-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded inline-block">
-                    <span className="font-bold">Código: </span>
-                    <span>{card.classificationCode}</span>
+                  <div className="absolute top-2 right-10 flex items-center">
+                    <Tag className="h-3 w-3 mr-1 text-purple-500" />
+                    <span className="text-xs font-bold bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-1.5 py-0.5 rounded">
+                      {card.classificationCode}
+                    </span>
                   </div>
                 )}
               </div>
