@@ -1,8 +1,8 @@
 import { createContext, useContext, ReactNode, useState, useEffect, useMemo } from 'react';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { Flashcard, StudyStats, RecentActivity } from '@/data/flashcards';
-import initializeFlashcards from '@/lib/generateFlashcards';
-import { loadBacteriasFromJson, mergeFlashcards } from '@/lib/loadBacterias';
+import { generateFlashcardsFromPatogenosData } from '@/lib/generateFlashcards';
+import { loadBacteriasFromJson } from '@/lib/loadBacterias';
 
 interface FlashcardContextType {
   flashcards: Flashcard[];
@@ -64,18 +64,29 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   // Inicializar o actualizar flashcards
   useEffect(() => {
     try {
-      // Limpiar localStorage para evitar duplicados (solo una vez)
-      if (localStorage.getItem('flashcards_reset_needed') === null) {
+      // Verificar si hay un forzado de reset para solucionar problemas de duplicación
+      const forceReset = localStorage.getItem('force_reset') === 'true';
+      if (forceReset) {
+        console.log("Detectado reseteo forzado. Limpiando datos...");
+        localStorage.removeItem('force_reset');
         localStorage.removeItem('flashcards');
-        localStorage.setItem('flashcards_reset_needed', 'false');
-        console.log("Reinicio de localStorage realizado para evitar duplicados");
+        // Continuar con inicialización normal después de limpiar
       }
       
-      // Generar flashcards base (categorías, virus, parasitos, hongos)
+      // Comprobar si hay demasiadas flashcards (más de 100) - posible indicador de duplicación
+      if (flashcards.length > 100) {
+        console.log(`Detectada posible duplicación: ${flashcards.length} flashcards. Limpiando...`);
+        localStorage.removeItem('flashcards');
+        // Forzar recarga para reiniciar desde cero
+        window.location.reload();
+        return;
+      }
+      
+      // Generar flashcards iniciales 
       let baseFlashcards: Flashcard[] = [];
       if (flashcards.length === 0) {
         // Solo generamos las flashcards base si no hay datos
-        console.log("Inicializando flashcards base...");
+        console.log("Inicializando flashcards base desde cero...");
         baseFlashcards = generateFlashcardsFromPatogenosData();
       } else {
         // Filtrar las flashcards existentes para mantener solo las que NO son bacterias
@@ -92,16 +103,30 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       const updatedFlashcards = [...baseFlashcards, ...bacteriasFlashcards];
       console.log(`Total de flashcards: ${updatedFlashcards.length}`);
       
+      // Verificar que no hay duplicados por ID
+      const idSet = new Set<string>();
+      const uniqueFlashcards = updatedFlashcards.filter(card => {
+        if (idSet.has(card.id)) {
+          return false; // Es un duplicado
+        }
+        idSet.add(card.id);
+        return true;
+      });
+      
+      if (uniqueFlashcards.length < updatedFlashcards.length) {
+        console.log(`Se eliminaron ${updatedFlashcards.length - uniqueFlashcards.length} flashcards duplicadas`);
+      }
+      
       // Actualizar el estado solo si hay cambios o si acabamos de inicializar
-      if (updatedFlashcards.length !== flashcards.length || flashcards.length === 0) {
-        console.log(`Actualizando flashcards: ${flashcards.length} → ${updatedFlashcards.length}`);
-        setFlashcards(updatedFlashcards);
+      if (uniqueFlashcards.length !== flashcards.length || flashcards.length === 0) {
+        console.log(`Actualizando flashcards: ${flashcards.length} → ${uniqueFlashcards.length}`);
+        setFlashcards(uniqueFlashcards);
         
         // Añadir actividad de actualización
         const newActivity: RecentActivity = {
           type: 'completed',
           title: 'Actualización de flashcards',
-          description: `Flashcards actualizadas: total ${updatedFlashcards.length}`,
+          description: `Flashcards actualizadas: total ${uniqueFlashcards.length}`,
           timestamp: new Date().toISOString()
         };
         

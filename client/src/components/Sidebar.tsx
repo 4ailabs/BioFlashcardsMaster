@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { BookOpen, LayoutDashboard, Star, Search, Brain, Grid } from "lucide-react";
+import { BookOpen, LayoutDashboard, Star, Search, Brain, Grid, RotateCcw } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { useFlashcards } from "@/context/FlashcardContext";
 import CategoryFilter from "./CategoryFilter";
 import { cn } from "@/lib/utils";
+import { forceResetStorage } from "@/lib/resetLocalStorage";
 
 interface SidebarProps {
   activeTab: "study" | "dashboard" | "favorites" | "assistant" | "gallery";
@@ -139,6 +140,21 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
           />
           <label htmlFor="favorites-only" className="ml-2 text-sm">Mostrar solo favoritos</label>
         </div>
+      </div>
+      
+      {/* Reset Button */}
+      <div className="p-4 border-t border-slate-200 dark:border-slate-700">
+        <button
+          onClick={() => {
+            if (window.confirm('¿Estás seguro de que deseas reiniciar la aplicación? Esta acción eliminará tus datos guardados y es útil para resolver problemas.')) {
+              forceResetStorage();
+            }
+          }}
+          className="flex items-center w-full p-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg"
+        >
+          <RotateCcw className="mr-2 h-4 w-4" />
+          <span>Reiniciar aplicación</span>
+        </button>
       </div>
     </aside>
   );
