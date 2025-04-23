@@ -35,37 +35,37 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">Study Dashboard</h1>
+      <h1 className="text-2xl font-bold mb-6">Panel de Estadísticas</h1>
       
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <Card className="shadow">
           <CardContent className="p-5">
-            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Total Cards</h3>
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Total de Tarjetas</h3>
             <p className="text-3xl font-bold">{totalCards}</p>
             <div className="mt-4 flex items-center text-sm text-green-600">
               <TrendingUp className="h-4 w-4 mr-1" />
-              <span>+{cardsAddedThisWeek} added this week</span>
+              <span>+{cardsAddedThisWeek} añadidas esta semana</span>
             </div>
           </CardContent>
         </Card>
         
         <Card className="shadow">
           <CardContent className="p-5">
-            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Cards Mastered</h3>
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Tarjetas Dominadas</h3>
             <p className="text-3xl font-bold">{cardsMastered}</p>
             <div className="mt-4 flex items-center text-sm text-slate-500 dark:text-slate-400">
-              <span>{masteredPercentage}% of total</span>
+              <span>{masteredPercentage}% del total</span>
             </div>
           </CardContent>
         </Card>
         
         <Card className="shadow">
           <CardContent className="p-5">
-            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Study Sessions</h3>
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Sesiones de Estudio</h3>
             <p className="text-3xl font-bold">{totalSessions}</p>
             <div className="mt-4 flex items-center text-sm text-slate-500 dark:text-slate-400">
-              <span>Last session: {lastSession ? formatDate(lastSession) : 'Never'}</span>
+              <span>Última sesión: {lastSession ? formatDate(lastSession) : 'Nunca'}</span>
             </div>
           </CardContent>
         </Card>
@@ -75,12 +75,12 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <Card className="shadow">
           <CardContent className="p-5">
-            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Category Distribution</h3>
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Distribución por Categoría</h3>
             <div className="h-64">
               <ChartComponent
                 type="doughnut" 
                 data={{
-                  labels: ['Bacteria', 'Virus ADN', 'Virus ARN', 'Parasito', 'Hongo'],
+                  labels: ['Bacterias', 'Virus ADN', 'Virus ARN', 'Parásitos', 'Hongos'],
                   datasets: [
                     {
                       data: [
@@ -120,15 +120,15 @@ const Dashboard = () => {
         
         <Card className="shadow">
           <CardContent className="p-5">
-            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Learning Progress</h3>
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Progreso de Aprendizaje</h3>
             <div className="h-64">
               <ChartComponent
                 type="line" 
                 data={{
-                  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                  labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
                   datasets: [
                     {
-                      label: 'Cards Studied',
+                      label: 'Tarjetas Estudiadas',
                       data: studyStats.dailyProgress,
                       borderColor: 'hsl(246, 86%, 67%)',
                       tension: 0.1,
@@ -175,7 +175,7 @@ const Dashboard = () => {
       {/* Recent Activity */}
       <Card className="shadow">
         <CardContent className="p-5">
-          <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Recent Activity</h3>
+          <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">Actividad Reciente</h3>
           
           <div className="space-y-4">
             {recentActivity.length > 0 ? (
@@ -215,7 +215,7 @@ const Dashboard = () => {
                 );
               })
             ) : (
-              <p className="text-slate-500">No recent activity</p>
+              <p className="text-slate-500">No hay actividad reciente</p>
             )}
           </div>
         </CardContent>

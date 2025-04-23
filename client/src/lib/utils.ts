@@ -6,10 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-US', { 
+  return new Intl.DateTimeFormat('es-ES', { 
     hour: 'numeric', 
     minute: '2-digit', 
-    hour12: true,
+    hour12: false,
     day: 'numeric',
     month: 'short'
   }).format(date);
@@ -69,17 +69,17 @@ export function getCategoryHoverColor(category: string): string {
 export function getCategoryLabel(category: string): string {
   switch (category) {
     case 'bacteria':
-      return 'Bacteria';
+      return 'Bacterias';
     case 'virus_adn':
       return 'Virus ADN';
     case 'virus_arn':
       return 'Virus ARN';
     case 'parasito':
-      return 'Parasito';
+      return 'Parásitos';
     case 'hongo':
-      return 'Hongo';
+      return 'Hongos';
     default:
-      return 'Unknown';
+      return 'Desconocido';
   }
 }
 

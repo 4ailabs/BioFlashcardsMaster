@@ -21,7 +21,7 @@ const Favorites = () => {
   
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">Favorite Flashcards</h1>
+      <h1 className="text-2xl font-bold mb-6">Tarjetas Favoritas</h1>
       
       {favoriteCards.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -44,7 +44,7 @@ const Favorites = () => {
                     <button 
                       className="text-amber-500 fill-current" 
                       onClick={(e) => handleRemoveFavorite(e, card.id)} 
-                      aria-label="Remove from favorites"
+                      aria-label="Quitar de favoritos"
                     >
                       <Star className="h-5 w-5" />
                     </button>
@@ -62,7 +62,7 @@ const Favorites = () => {
                     className="text-primary text-sm font-medium"
                     onClick={() => handleCardClick(index)}
                   >
-                    Study this card
+                    Estudiar esta tarjeta
                   </button>
                 </div>
               </div>
@@ -74,13 +74,13 @@ const Favorites = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-700 mb-4">
             <Star className="h-8 w-8 text-slate-400" />
           </div>
-          <h3 className="text-lg font-medium mb-2">No favorite flashcards yet</h3>
-          <p className="text-slate-500 dark:text-slate-400 mb-4">Start marking cards as favorites during your study sessions</p>
+          <h3 className="text-lg font-medium mb-2">Aún no tienes tarjetas favoritas</h3>
+          <p className="text-slate-500 dark:text-slate-400 mb-4">Comienza a marcar tarjetas como favoritas durante tus sesiones de estudio</p>
           <Button 
             className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90"
             onClick={() => setActiveTab("study")}
           >
-            Go to Study
+            Ir a Estudiar
           </Button>
         </div>
       )}
