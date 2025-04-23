@@ -208,10 +208,10 @@ const AIAssistant: React.FC = () => {
             >
               <div className="mb-1">
                 {mensaje.contenido.split('\n').map((line, i) => (
-                  <React.Fragment key={i}>
+                  <span key={i} className="block">
                     {line}
                     {i < mensaje.contenido.split('\n').length - 1 && <br />}
-                  </React.Fragment>
+                  </span>
                 ))}
               </div>
               <div className="text-xs opacity-70 text-right">
