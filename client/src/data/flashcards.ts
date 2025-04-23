@@ -120,6 +120,7 @@ const flashcards: Flashcard[] = [
       envelope: "non_enveloped",
       oncogenic: "high_risk_types"
     },
+    classificationCode: "B5", // Código según Centrobioenergetica
     isFavorite: false
   },
   {
@@ -135,6 +136,7 @@ const flashcards: Flashcard[] = [
       envelope: "enveloped",
       replication: "reverse_transcription"
     },
+    classificationCode: "B3", // Código según Centrobioenergetica
     isFavorite: true
   },
   {
@@ -183,6 +185,7 @@ const flashcards: Flashcard[] = [
       replication: "reverse_transcription",
       targetCells: "CD4_T_cells"
     },
+    classificationCode: "C2", // Código según Centrobioenergetica
     isFavorite: false
   },
   {
@@ -249,6 +252,7 @@ const flashcards: Flashcard[] = [
       vector: "anopheles_mosquito",
       targetCells: "erythrocytes_hepatocytes"
     },
+    classificationCode: "D8", // Código según Centrobioenergetica
     isFavorite: true
   },
   {
@@ -315,6 +319,7 @@ const flashcards: Flashcard[] = [
       status: "commensal_opportunistic",
       targetTissues: "mucosal_systemic"
     },
+    classificationCode: "E4", // Código según Centrobioenergetica
     isFavorite: false
   },
   {

@@ -170,6 +170,11 @@ const AIAssistant: React.FC = () => {
             <span className="text-xs">
               Consultando específicamente sobre:{' '}
               {flashcards.find(c => c.id === selectedCardId)?.name}
+              {(flashcards.find(c => c.id === selectedCardId)?.classificationCode) && (
+                <span className="ml-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-1.5 py-0.5 rounded text-xs">
+                  Código: {flashcards.find(c => c.id === selectedCardId)?.classificationCode}
+                </span>
+              )}
             </span>
           </div>
         )}

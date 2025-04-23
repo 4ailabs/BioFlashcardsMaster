@@ -11,7 +11,7 @@ const ASSISTANT_ID = process.env.OPENAI_ASSISTANT_ID;
 
 export async function handleAsistenteIA(req: Request, res: Response) {
   try {
-    const { pregunta, idPatogeno } = req.body;
+    const { pregunta, idPatogeno, classificationCode } = req.body;
 
     if (!pregunta) {
       return res.status(400).json({ error: "Se requiere una pregunta" });
@@ -32,7 +32,15 @@ export async function handleAsistenteIA(req: Request, res: Response) {
     
     // Si hay un patógeno seleccionado, añadir esa información al mensaje
     if (idPatogeno) {
-      contenidoMensaje = `[Consulta específica sobre patógeno ID: ${idPatogeno}] ${pregunta}`;
+      let infoPatogeno = `[Consulta específica sobre patógeno ID: ${idPatogeno}`;
+      
+      // Si además tiene código de clasificación, lo añadimos
+      if (classificationCode) {
+        infoPatogeno += `, Código Centrobioenergetica: ${classificationCode}`;
+      }
+      
+      infoPatogeno += `] ${pregunta}`;
+      contenidoMensaje = infoPatogeno;
     }
     
     await openai.beta.threads.messages.create(thread.id, {
