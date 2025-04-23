@@ -894,12 +894,12 @@
       "efectos_disbiosis": "Cuando hay disbiosis intestinal, produce inflamación."
     }
   },
-   {
+  {
     "nombre_comun": "Actinomyces*",
     "nombre_cientifico": "Actinomyces",
     "tipo": "Bacteria",
     "descripcion": "Grampositiva. Forman estructuras semejantes a las hifas de los hongos.",
-    "id_referencia": "D8", // Note: ID here is D8, not A#
+    "id_referencia": "D8",
     "codigo_patogeno": [
       "Bursa - bursa"
     ],

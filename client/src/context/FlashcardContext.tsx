@@ -2,6 +2,7 @@ import { createContext, useContext, ReactNode, useState, useEffect, useMemo } fr
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { Flashcard, StudyStats, RecentActivity } from '@/data/flashcards';
 import initializeFlashcards from '@/lib/generateFlashcards';
+import { loadBacteriasFromJson, mergeFlashcards } from '@/lib/loadBacterias';
 
 interface FlashcardContextType {
   flashcards: Flashcard[];
@@ -62,17 +63,46 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   
   // Inicializar o actualizar flashcards
   useEffect(() => {
-    // Siempre llamamos a initializeFlashcards, que se encargará de verificar
-    // si necesitamos actualizar con las nuevas bacterias
-    console.log("Verificando si hay actualizaciones en las flashcards...");
-    const cards = initializeFlashcards();
-    
-    // Si hay diferencia en la cantidad, actualizamos
-    if (cards.length !== flashcards.length) {
-      console.log(`Actualizando flashcards: ${flashcards.length} → ${cards.length}`);
-      setFlashcards(cards);
-    } else {
-      console.log("No se necesita actualización de flashcards");
+    try {
+      // Cargar las flashcards base
+      let cards: Flashcard[] = [];
+      if (flashcards.length === 0) {
+        // Si no hay flashcards, generamos las nuevas
+        console.log("Inicializando flashcards desde cero...");
+        cards = initializeFlashcards();
+      } else {
+        // Si ya hay flashcards, las usamos como base
+        cards = [...flashcards];
+      }
+      
+      // Cargar las bacterias desde el JSON
+      console.log("Cargando bacterias desde JSON...");
+      const bacteriasFlashcards = loadBacteriasFromJson();
+      console.log(`Cargadas ${bacteriasFlashcards.length} bacterias desde JSON`);
+      
+      // Combinar las flashcards existentes con las nuevas sin duplicados
+      const updatedFlashcards = mergeFlashcards(cards, bacteriasFlashcards);
+      console.log(`Total de flashcards después de la combinación: ${updatedFlashcards.length}`);
+      
+      // Actualizar el estado solo si hay cambios
+      if (updatedFlashcards.length !== flashcards.length) {
+        console.log(`Actualizando flashcards: ${flashcards.length} → ${updatedFlashcards.length}`);
+        setFlashcards(updatedFlashcards);
+        
+        // Añadir actividad de actualización
+        const newActivity: RecentActivity = {
+          type: 'completed',
+          title: 'Actualización de flashcards',
+          description: `Se agregaron ${updatedFlashcards.length - flashcards.length} nuevas bacterias`,
+          timestamp: new Date().toISOString()
+        };
+        
+        setRecentActivity(prevActivity => [newActivity, ...prevActivity.slice(0, 9)]);
+      } else {
+        console.log("No se necesita actualización de flashcards");
+      }
+    } catch (error) {
+      console.error("Error al actualizar las flashcards:", error);
     }
   }, []);
   
