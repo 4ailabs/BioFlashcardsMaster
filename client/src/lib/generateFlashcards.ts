@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Flashcard } from '@/data/flashcards';
 import { findClassificationCode } from './classificationCodes';
+import { bacteriasData } from './bacteriasData';
+import { convertirBacteriasAFlashcards } from './bacteriasImporter';
 
 // Definir la estructura de datos del archivo JSON de patógenos
 interface PatogenosData {
@@ -14,6 +16,8 @@ interface PatogenosData {
 // Datos de patógenos directamente en el código
 const patogenosData: PatogenosData = {
   "bacterias": [
+    // Mantenemos estos strings por compatibilidad con el código que los procesa
+    // pero en realidad usaremos el dataset completo de bacteriasData
     "Estafilococo dorado A1",
     "Estafilococo albus A2",
     "Neumococo A3",
@@ -385,7 +389,54 @@ export function generateFlashcardsFromPatogenosData(): Flashcard[] {
 
 // Función para inicializar las flashcards (primera vez o cuando no hay datos en localStorage)
 export function initializeFlashcards(): Flashcard[] {
-  return generateFlashcardsFromPatogenosData();
+  const storedFlashcards = localStorage.getItem('flashcards');
+  
+  // Si ya hay flashcards almacenadas, devolverlas
+  if (storedFlashcards) {
+    try {
+      const parsedFlashcards = JSON.parse(storedFlashcards);
+      // Verificar si necesitamos actualizar con nuevas bacterias
+      // Contamos cuántas bacterias hay en las flashcards almacenadas
+      const numBacterias = parsedFlashcards.filter((card: Flashcard) => 
+        card.category === 'bacteria' && card.classificationCode && card.classificationCode.startsWith('A')
+      ).length;
+      
+      // Si hay menos bacterias que en nuestro dataset completo, actualizamos
+      if (numBacterias < bacteriasData.length) {
+        console.log(`Actualizando flashcards: tenemos ${numBacterias} bacterias almacenadas y ${bacteriasData.length} en el dataset`);
+        // Convertir las bacterias del JSON a flashcards
+        const bacteriasFlashcards = convertirBacteriasAFlashcards(bacteriasData);
+        // Combinar con las existentes sin duplicados
+        const updatedFlashcards = combinarFlashcardsSinDuplicados(parsedFlashcards, bacteriasFlashcards);
+        // Guardar en localStorage
+        localStorage.setItem('flashcards', JSON.stringify(updatedFlashcards));
+        return updatedFlashcards;
+      }
+      
+      return parsedFlashcards;
+    } catch (error) {
+      console.error("Error parsing stored flashcards:", error);
+      // Si hay error al parsear, generar nuevas
+      const newFlashcards = generateFlashcardsFromPatogenosData();
+      // Convertir las bacterias del JSON a flashcards
+      const bacteriasFlashcards = convertirBacteriasAFlashcards(bacteriasData);
+      // Combinar con las generadas sin duplicados
+      const combinedFlashcards = combinarFlashcardsSinDuplicados(newFlashcards, bacteriasFlashcards);
+      // Guardar en localStorage
+      localStorage.setItem('flashcards', JSON.stringify(combinedFlashcards));
+      return combinedFlashcards;
+    }
+  }
+  
+  // Si no hay flashcards almacenadas, generar nuevas
+  const newFlashcards = generateFlashcardsFromPatogenosData();
+  // Convertir las bacterias del JSON a flashcards
+  const bacteriasFlashcards = convertirBacteriasAFlashcards(bacteriasData);
+  // Combinar con las generadas sin duplicados
+  const combinedFlashcards = combinarFlashcardsSinDuplicados(newFlashcards, bacteriasFlashcards);
+  // Guardar en localStorage
+  localStorage.setItem('flashcards', JSON.stringify(combinedFlashcards));
+  return combinedFlashcards;
 }
 
 // Exportar la función principal

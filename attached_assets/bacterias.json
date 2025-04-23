@@ -1,0 +1,913 @@
+[
+  {
+    "nombre_comun": "Estafilococo dorado",
+    "nombre_cientifico": "Staphylococcus aureus",
+    "tipo": "Bacteria",
+    "descripcion": "Grampositiva. Bacterias esféricas dispuestas en forma en racimos irregulares. Producen catalasa. Coagulasa positiva.",
+    "id_referencia": "A1",
+    "codigo_patogeno": [
+      "Cabeza de páncreas - hígado",
+      "Pericardio - pericardio",
+      "Cabeza de páncreas - suprarrenales",
+      "Apéndice - pleura"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "1ª y 2ª etapa: Agresión a las corazas, activación del sistema de defensa, protección.",
+      "sensaciones": "Vulnerabilidad, agresión, amenaza, rechazo, hostilidad, abandono, peligro en el nido. Indefenso, lastimado. El guardian de la integridad.",
+      "otros_conflictos": "Conflictos relacionados con la madre."
+    },
+    "notas": {
+      "toxinas": "Produce toxina estafilococcica, exotoxinas y enterotoxinas.",
+      "enfermedades_relacionadas": "Infecciones de heridas en la piel, foliculitis, abscesos, acné, osteomielitis, impetigo, síndrome del shock tóxico, síndrome de la piel escaldada, endocarditis, neumonia, intoxicación alimentaria, náusea, vómito, diarrea, mastitis."
+    }
+  },
+  {
+    "nombre_comun": "Estafilococo albus",
+    "nombre_cientifico": "Staphylococcus epidermidis",
+    "tipo": "Bacteria",
+    "descripcion": "Grampositiva. Bacterias esféricas dispuestas en forma en racimos irregulares. Producen catalasa. Coagulasa negativo.",
+    "id_referencia": "A2",
+    "codigo_patogeno": [
+      "Epiplón - epiplón"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "2ª etapa: Agresión a las corazas. Activación del sistema de defensa.",
+      "sensaciones": "Agresión, ataque, vulnerabilidad, amenaza."
+    },
+    "notas": {
+      "habitat": "Se le encuentra en abundancia en el microbioma normal de la piel.",
+      "caracteristicas": "Puede generar biofilm y ser responsable de infecciones en implantes, catéteres.",
+      "enfermedades_relacionadas": "Acné, infección de heridas en la piel."
+    }
+  },
+  {
+    "nombre_comun": "Neumococo",
+    "nombre_cientifico": "Streptococcus pneumoniae",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo encapsulado e inmovil. Tiene forma de lanceta y suele presentarse en parejas.",
+    "id_referencia": "A3",
+    "codigo_patogeno": [
+      "Hueco poplíteo - hueco poplíteo"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "1ª y 2ª etapa.",
+      "sensaciones": "Miedo y vulnerabilidad. Miedo a morir. Miedo y susto en el territorio. Amenaza territorial. Sentirse solo y abandonado."
+    },
+    "notas": {
+      "virulencia": "La cápsula es la estructura más externa y el principal factor de virulencia. Produce autolisina y neumolisina.",
+      "enfermedades_relacionadas": "Neumonía, otitis media, meningitis, bacteremia/sepsis."
+    }
+  },
+  {
+    "nombre_comun": "Estreptococo Beta hemolítico",
+    "nombre_cientifico": "Streptococcus pyogenes",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo. Se presenta en forma de largas cadenas o individual. B- hemolitico del grupo A.",
+    "id_referencia": "A4",
+    "codigo_patogeno": [
+      "Braquial - braquial",
+      "Cardias - suprarrenales"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "1ª etapa: Carencia.",
+      "sensaciones": "Carencia afectiva, frustración, abandono, insatisfacción. Devaluación. Sensación infantil de rechazo e ignominia.",
+      "otros_conflictos": "Dificutad para obtener el bocado (de alimento, de dinero, de afecto, de pertenencia). Se relaciona con conflictos con el padre."
+    },
+    "notas": {
+      "caracteristicas": "Cápsula con ácido hialurónico idéntico al que se encuentra en el tejido conjuntivo humano. Produce estreptolisinas y estreptocinasa.",
+      "enfermedades_relacionadas": "Faringitis, faringoamigdalitis, amigdalitis, impétigo, erisipela, sepsis puerperal, fiebre reumática, glomerulonefritis aguda, sindrome de shock tóxico, escarlatina."
+    }
+  },
+  {
+    "nombre_comun": "Estreptococo fragilis*",
+    "nombre_cientifico": "Streptococcus sp. (actualmente Streptococcus mutans)",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo. Se presenta en forma de cadenas.",
+    "id_referencia": "A5",
+    "codigo_patogeno": [
+      "Ángulo de la mandíbula (gonion) - Ángulo de la mandíbula"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "1ª etapa: Carencia.",
+      "sensaciones": "Impotencia, insatisfacción, hambre.",
+      "otros_conflictos": "Dificultad para morder u obtener el bocado esencial. Dificultad para expresar lo que se siente y lo que se piensa. Conflicto de no poder decir lo que se piensa. Ira reprimida."
+    },
+    "notas": {
+      "habitat": "Se encuentra normalmente en la cavidad oral. Forma parte de la placa dental o biofilm dental. Metaboliza la sacarosa.",
+      "enfermedades_relacionadas": "Caries, enfermedad periodontal, piorrea, gingivitis, abscesos dentales."
+    }
+  },
+  {
+    "nombre_comun": "Estreptococo faecalis*",
+    "nombre_cientifico": "Streptococcus sp. (actualmente Enterococcus faecalis)",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo.",
+    "id_referencia": "A6",
+    "codigo_patogeno": [
+      "Plexo cervical - plexo cervical"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "1ª etapa: Carencia y vulnerabilidad."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Infecciones dentales. Bacteremia. Infecciones de la vejiga, próstata, epidídimo. Endocarditis."
+    }
+  },
+  {
+    "nombre_comun": "Estreptococo alfa*",
+    "nombre_cientifico": "Streptococcus sp. (actualmente Streptococcus viridans)",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo. Catalasa negativos.",
+    "id_referencia": "A7",
+    "codigo_patogeno": [
+      "Coronarias - pulmón"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de devaluación. Perdida del territorio.",
+      "sensaciones": "Carencia, vulnerabilidad."
+    },
+    "notas": {
+      "habitat": "Forman parte de la flora bucal facultativa.",
+      "enfermedades_relacionadas": "Aterosclerosis, endocarditis, espondilitis, caries dental."
+    }
+  },
+  {
+    "nombre_comun": "Estreptococo G*",
+    "nombre_cientifico": "Estreptococo sp.",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo.",
+    "id_referencia": "A8",
+    "codigo_patogeno": [
+      "Vejiga - vejiga"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto territorial. Agresión territorial. Marcaje de territorio. No poder expresar la ira. Bloqueo al drenar la energía emocional.",
+      "sensaciones": "Impotencia, agresión."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Faringitis, faringoamigdalitis, rectitis."
+    }
+  },
+  {
+    "nombre_comun": "Estreptococo C*",
+    "nombre_cientifico": "Streptococcus sp.",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo.",
+    "id_referencia": "A9",
+    "codigo_patogeno": [
+      "Rama isquiatica - rama isquiatica"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Devaluación. He fallado. Me siento devaluado."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Afecciones dentales, bacteriemia, erisipela."
+    }
+  },
+  {
+    "nombre_comun": "Estreptococo B agalactie*",
+    "nombre_cientifico": "Streptococcus sp.",
+    "tipo": "Bacteria",
+    "descripcion": "Coco grampositivo. B-hemolitico, catalasa negativo, oxidasa negativo.",
+    "id_referencia": "A10",
+    "codigo_patogeno": [
+      "Ligamento externo de la rodilla - ligamento externo de la rodilla"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de impotencia y devaluación. No podré desplegarme. He fallado.",
+      "sensaciones": "Angustia, vacio, infelicidad."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Infección de las membranas placentarias. Infección posparto. Infección del recien nacido. Bacteremia."
+    }
+  },
+  {
+    "nombre_comun": "Bacilo antráx",
+    "nombre_cientifico": "Bacillus anthracis",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo grampositivo. Catalasa positivo.",
+    "id_referencia": "A11",
+    "codigo_patogeno": [
+      "Craneal - craneal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de agresión territorial. Amenaza."
+    },
+    "notas": {
+      "caracteristicas": "Hay 89 cepas conocidas, varian desde muy virulentas a formas benignas. Producen endosporas. Tiene dos factores de virulencia: Sustancia P y Factor B, estas proteinas estan codificadas por plasmidos. Ante circunstancias ambientales adversas la bacteria produce exotoxinas.",
+      "enfermedades_relacionadas": "Carbunco."
+    }
+  },
+  {
+    "nombre_comun": "Bacilo de Klebs-löffler (Difteria)",
+    "nombre_cientifico": "Corynebacterium diphtheriae",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo grampositivo. Catalasa positivo.",
+    "id_referencia": "A12",
+    "codigo_patogeno": [
+      "Subclavio - subclavio"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Rechazo. Sentirse herido. No merecedor. Mi padre no se ocupará de mi. Ya no soy el preferido. Soledad y abandono. Separación del núcleo afectivo."
+    },
+    "notas": {
+      "virulencia": "Produce toxina diftérica que es el principal factor de virulencia. Esta toxina se activa con un bacteriófago.",
+      "afectaciones": "Lesiones de las vías respiratorias, orofaringe, miocardio, sistema nervioso y riñones."
+    }
+  },
+  {
+    "nombre_comun": "Listeria",
+    "nombre_cientifico": "Listeria monocytogenes",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilos grampositivos cortos y delgados, que no forman esporas. Catalasa positivos.",
+    "id_referencia": "A13",
+    "codigo_patogeno": [
+      "Hígado - píloro"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Personalidad rígida y perfeccionista. Yo tengo la razón."
+    },
+    "notas": {
+      "virulencia": "Produce listeriolisina O, que daña las membranas celulares. Reorganiza la actina celular para saltar de una célula vecina a otra.",
+      "enfermedades_relacionadas": "Infección gastrointestinal, septicemia, neumonía, lesiones cutáneas, abscesos, conjuntivitis, endocarditis."
+    }
+  },
+  {
+    "nombre_comun": "Neisseria catarrhalis",
+    "nombre_cientifico": "Moraxella catarrhalis",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativa. Oxidasa positiva con forma de diplococos.",
+    "id_referencia": "A14",
+    "codigo_patogeno": [
+      "Párpado - párpado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión territorial. Amenaza territorial. Confrontación de nuevos ambientes. Hay un peligro en el mundo. Conflicto de bocado auditivo. Dificultad para asimilar información auditiva. Oido derecho: Información auditiva que se escucha y es dificil de asimilar. Oido izquierdo: Información auditiva que se emite y es dificil de escuchar y decir."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Otitis media, sinusitis, bronquitis, laringitis, bronconeumonía."
+    }
+  },
+  {
+    "nombre_comun": "Gonococo, gonorrea",
+    "nombre_cientifico": "Neisseria gonorrhoeae",
+    "tipo": "Bacteria",
+    "descripcion": "Diplococo gramnegativo. Oxidasa positivo.",
+    "id_referencia": "A15",
+    "codigo_patogeno": [
+      "Mandíbula - mandíbula",
+      "4ª lumbar - 4ª lumbar"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Enojo respecto a su vida sexual. Fastidio con la pareja. Sensación de culpabilidad. Relación exasperante. Frustración."
+    },
+    "notas": {
+      "virulencia": "Contiene pilis que es el factor de adherencia y ademas protegen a la bacteria de la fagocitosis.",
+      "enfermedades_relacionadas": "Leucorrea, uretritis, enfermerdad inflamatoria pelvica, vaginitis, cervicitis, endometritis, salpingitis, prostatitis, artritis."
+    }
+  },
+  {
+    "nombre_comun": "Meningococo",
+    "nombre_cientifico": "Neisseria meningitidis",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativa. Diplococo.",
+    "id_referencia": "A16",
+    "codigo_patogeno": [
+      "Dorso - lumbar"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Amenaza a la integridad, agresión. Sentirse lastimado, cohibido. Sobrecogido. Aterrorizado. Muy vulnerable. Incapacitado. Miedo profundo."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Bacteremia, fiebre, meningitis, artralgia, artritis, erupción recurrente, shock séptico."
+    }
+  },
+  {
+    "nombre_comun": "Campylobacter",
+    "nombre_cientifico": "Campylobacter jejuni",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo. Con flajelo polar. Microaerófilo.",
+    "id_referencia": "A17",
+    "codigo_patogeno": [
+      "Píloro - píloro",
+      "Estomago - válvula ileocecal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Enojo indigesto. No poder digerir una vivencia. Dificultad para asimilar una experiencia. Adaptación a un nuevo ambiente. Intolerancia."
+    },
+    "notas": {
+      "habitat_transmision": "Es una bacteria que se encuentra en el intestino de los animales incluyendo las aves comerciales. La carne de pollo es la fuente de infección más importante.",
+      "enfermedades_relacionadas": "Gastroenteritis, diarrea, fiebre, artritis reactiva."
+    }
+  },
+  {
+    "nombre_comun": "Enterobacter cloacae",
+    "nombre_cientifico": "Enterobacter sp.",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo.",
+    "id_referencia": "A18",
+    "codigo_patogeno": [
+      "Colon descendente - colon descendente"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Enojo indigesto, sensación indigesta con la sociedad. Vivencia dificil de asimilar. Asimilación dolorosa de una experiencia. Sentirse contrariado. Dificultad para digerir y vaciar una experiencia. Marranada. Sentirse amenazado en el territorio."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Colitis, gastroenteritis, infecciones intra-abdominales. Neumonía. Infecciones urinarias."
+    }
+  },
+  {
+    "nombre_comun": "Escherichia",
+    "nombre_cientifico": "Escherichia Coli",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo. Oxidasa negativo. Fimbriado y flagelos perítricos.",
+    "id_referencia": "A19",
+    "codigo_patogeno": [
+      "Índice - índice",
+      "Timo - hígado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "El exceso de control. Rigidez emocional. Resistencia a una persona, a un lugar o a una situación. La lucha por el poder. La supresión del otro. Agresividad. Las pruebas dificiles de asimilar que se mantienen en negación. El control del territorio sexual. Me mantengo controlando la vida."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Diarrea, gastroenteritis, invasión epitelial, síndrome urémico hemolítico, artritis, arteriosclerosis, diarrea del viajero, intoxicación alimentaria. Infeccion de vías urinarias, pielonefritis."
+    }
+  },
+  {
+    "nombre_comun": "Helicobacter",
+    "nombre_cientifico": "Helicobacter pylori",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo helicoidal gramnegativo. Ureasa positivo. Oxidasa y catalasa positivo.",
+    "id_referencia": "A20",
+    "codigo_patogeno": [
+      "Hiato esofágico - testículo derecho"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Dificulta para digerir la estructura de una experiencia, sensación de ser agredido o invadido por sucesos del entorno, eventos difíciles de digerir; influencia muy fuerte del funcionamiento y la estructura de otros. Resentimiento. Conflicto de ira y rencor en el territorio. El coaching del estómago."
+    },
+    "notas": {
+      "funciones": "Participa en la constitución de la inmunidad. Modula la ganancia de peso.",
+      "enfermedades_relacionadas": "Gastritis, ulcera péptica, Parkinson, placas de ateroma (accidente cerebrovascular), aumento de agregación plaquetaria, maltoma."
+    }
+  },
+  {
+    "nombre_comun": "Klebsiella",
+    "nombre_cientifico": "Klebsiella pneumoniae",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo. También conocido como el \"bacilo de Friedländer\".",
+    "id_referencia": "A21",
+    "codigo_patogeno": [
+      "Colon ascendente - hígado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de abandono. Me siento solo y abandonado. Quedar separado del grupo. Exclusión y abandono del grupo. Sentirse inferior y vulnerable. Dificultad para expresar una vivencia. Sufrimiento de la infancia en situación de pobreza afectiva y fragilidad."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Infecciones del tracto respirtorio, neumonia. Espondilitis anquilosante. Abscesos. Infección de vías urinarias. Infecciones de tejidos blandos."
+    }
+  },
+  {
+    "nombre_comun": "Proteus",
+    "nombre_cientifico": "Proteus mirabilis",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativa. Ureasa positivo. Oxidasa negativo.",
+    "id_referencia": "A22",
+    "codigo_patogeno": [
+      "Mediastino - mediastino",
+      "Costal costal",
+      "Cápsula renal - cápsula renal",
+      "Sacro sacro"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Medio frontal. Agresión territorial. Conflicto territorial. Prueba difícil. Libertad obstruida. Lleno de miedo. Miedo a morir. Desilusión."
+    },
+    "notas": {
+      "caracteristicas": "La ureasa hidroliza la urea a amoniaco y esto alcaliniza la orina y puede inducir la formación de cálculos que contienen fosfatos insolubles de magnesio y fósforo.",
+      "enfermedades_relacionadas": "Infección de vias urinarias, enteritis, abscesos hepáticos, meningitis, otitis media, neumonía, empiema."
+    }
+  },
+  {
+    "nombre_comun": "Salmonella",
+    "nombre_cientifico": "Salmonella typhi",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo. Producen ácido sulfhídrico ($H_2S$). También se le llama: Bacilo de Eberth.",
+    "id_referencia": "A23",
+    "codigo_patogeno": [
+      "Trocanter mayor - trocanter mayor"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Prueba difícil de asimilar. Confrontación. Experiencia dorolosa. Adaptación al nuevo ambiente difícil. No puedo asimilar lo que estoy viviendo, sufro. Cambio de creencias. No poder soportar el sufrimiento. Incertidumbre. Sentirse amenazado."
+    },
+    "notas": {
+      "metabolismo": "La bacteria crece cuando hay estres oxidativo en el intestino, oxida compuestos de azufre endógenos para generar un aceptor de electrones respiratorio, tetrationato. Como resultado de esto puede usar la respiración via tetrationato para superar los microbios fermentadores lo que promueve la transmisión de la bacteria.",
+      "enfermedades_relacionadas": "Fiebre tifoidea, diarrea, mialgias, gastroenteritis."
+    }
+  },
+  {
+    "nombre_comun": "Shigella",
+    "nombre_cientifico": "Shigella sonnei",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo. Fermentación ácido-mixta. Producen endotoxinas y tóxina Shiga.",
+    "id_referencia": "A24",
+    "codigo_patogeno": [
+      "Aquiles - aquiles"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Prueba dificil de asimilar. Trauma complejo sin solución mental. Revisión dolorosa de la vida. Asimilación de la experiencia para dejarla atras. Incertidumbre."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Gastroenteritis. Disentería. Diarrea con sangre y moco. Síndrome urémico hemolítico."
+    }
+  },
+  {
+    "nombre_comun": "Bacilo del Cólera",
+    "nombre_cientifico": "Vibrio Cholerae",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo curvo con un flagelo polar.",
+    "id_referencia": "A25",
+    "codigo_patogeno": [
+      "Colon transverso - hígado",
+      "Colon transverso - vejiga"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Depuración de una experiencia profunda. Recambio de creencias. Experiencias difíciles de asimilar. Eliminación de prejuicios que no hacen sufrir. Enojo indigesto."
+    },
+    "notas": {
+      "virulencia": "Produce toxina colérica.",
+      "enfermedades_relacionadas": "Diarrea líquida. Gastroenteritis."
+    }
+  },
+  {
+    "nombre_comun": "Yersinia",
+    "nombre_cientifico": "Yersinia pestis, sp.",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo. Nitrito reductasa positivo. Catalasa positivo y oxidasa negativo.",
+    "id_referencia": "A26",
+    "codigo_patogeno": [
+      "Bazo - bazo",
+      "Testículo - testículo",
+      "Vagina - vagina",
+      "Flanco - flanco"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Rigidez. Enclaustramiento. Opresión. Desero desesperado de cambio. Egoismo. Sentirse traicionado."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enterocolitis, lesiones ulcerosas del íleon. Diarrea. Fiebre. Dolor abdominal. Poliartritis reactiva. Eritema nudoso."
+    }
+  },
+  {
+    "nombre_comun": "Bacilo de la Tos ferina",
+    "nombre_cientifico": "Bordetella pertussis",
+    "tipo": "Bacteria",
+    "descripcion": "Cocobacilo gramnegativo. Produce tóxina pertussis.",
+    "id_referencia": "A27",
+    "codigo_patogeno": [
+      "Laringe - laringe"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Quedarse solo y excluido. Ya no soy el preferido. Conflicto de pertenencia. Tengo una razón, un ahnelo y no me hacen caso. Carencia afectiva. Rechazo, Traición."
+    },
+    "notas": {
+      "virulencia": "Las tóxinas inhiben la síntesis de las células ciliadas, además de parálisis de los cilios.",
+      "enfermedades_relacionadas": "Inflamación traqueobronquial. Tos violenta y espasmódica. Fiebre. Resfriado."
+    }
+  },
+  {
+    "nombre_comun": "Pseudomona",
+    "nombre_cientifico": "Pseudomona aeruginosa",
+    "tipo": "Bacteria",
+    "descripcion": "Bácilo gramnegativo. Posee flagelos polares. Encapsulado y aerobio obligado.",
+    "id_referencia": "A28",
+    "codigo_patogeno": [
+      "Pleura - pleura del mismo lado",
+      "Recto recto",
+      "Suprarrenal - pulmón"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Miedo extremo. Ver la vida a través del miedo. Amenaza a la integridad a un nivel mayor. Vulnerabilidad. Miedo a morir. Miedo profundo. Nivel de agresión mayor."
+    },
+    "notas": {
+      "caracteristicas": "Esta bacteria tiene la capacidad de producir varios pigmentos extracelulares, uno de ellos, la piocianina es una exotoxina perteneciente al grupo de las fenazinas que cuenta con la capacidad de inhibir el desarrollo de organismos competidores.",
+      "enfermedades_relacionadas": "Infecciones de las vías respiratorias, urinarias, heridas, sepsis."
+    }
+  },
+  {
+    "nombre_comun": "Bacilo de Pfeiffer, bacilo influenza",
+    "nombre_cientifico": "Haemophilus influenzae",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativo pleomorfico.",
+    "id_referencia": "A29",
+    "codigo_patogeno": [
+      "Lacrimal lacrimal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "No estar a gusto es su espacio. Ambiente tóxico. Amenaza territorial. Enojo territorial. Devaluación."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Sinusitis. Otitis media. Epiglotitis. Bronconeumonía. Meningitis. Artritis séptica."
+    }
+  },
+  {
+    "nombre_comun": "Pasteurella",
+    "nombre_cientifico": "Pasteurella multocida",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilos o cocobacilos gramnegativos.",
+    "id_referencia": "A30",
+    "codigo_patogeno": [
+      "Colon descendente - riñón izquierdo",
+      "Ligamento pancreático - colon descendente",
+      "Colon descendente - hígado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de enojo territorial. Agresión. Sicosis. Dificultad para establecer una relación."
+    },
+    "notas": {
+      "habitat_transmision": "Microbioma de la región nasofaríngea en distintas especies domesticas. Las mascotas son una fuente de infección.",
+      "enfermedades_relacionadas": "Broquiectasias, neumonía, bronquitis, sinusitis, otitis."
+    }
+  },
+  {
+    "nombre_comun": "Brucella",
+    "nombre_cientifico": "Brucella mellitensis",
+    "tipo": "Bacteria",
+    "descripcion": "Cocobacilos gramnegativos.",
+    "id_referencia": "A31",
+    "codigo_patogeno": [
+      "Bazo - hígado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Devaluación. Negación. Represión emocional. Deseo desesperado de cambio. Impotencia."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Fiebre, escalosfrios, diaforesis nocturna, anorexia, cefalea, artralgias, lumbalgia, dolor abdominal."
+    }
+  },
+  {
+    "nombre_comun": "Coxiella",
+    "nombre_cientifico": "Coxiella burnetti",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo. Intracelular. Morfologicamente similar a las Rickettsias.",
+    "id_referencia": "A32",
+    "codigo_patogeno": [
+      "Dorsal 10 dorsal 10"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Resistencia. Exceso de control. Devaluación. Holograma corporal de rigidez."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "La forma de presentación más clásica, corresponde a un síndrome gripal con fiebre alta (que dura entre una y dos semanas), cefalea intensa, mialgia, artralgia, confusión, náuseas, vómito y diarrea, además de síntomas respiratorios como dolor pleurítico y tos seca."
+    }
+  },
+  {
+    "nombre_comun": "Clamidia",
+    "nombre_cientifico": "Clamidia trachomatis",
+    "tipo": "Bacteria",
+    "descripcion": "Intracelular obligado. Tienen forma ovoide y redondeada.",
+    "id_referencia": "A33",
+    "codigo_patogeno": [
+      "Duodeno - hígado",
+      "Duodeno - riñón izquierdo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Negación. Esquema desadaptativo de sumisión. Resistencia a una situación. Conflicto de relaciones exasperantes. Exceso de control. Perfeccionismo."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Artritis reactiva. Uretritis. Conjuntivitis. Tracoma. Linfogranuloma venéreo. Enfermedad pelvica inflamatoria."
+    }
+  },
+  {
+    "nombre_comun": "Borrelia",
+    "nombre_cientifico": "Borrelia burgdorferi",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativa de forma helicoidal. Intracelular.",
+    "id_referencia": "A34",
+    "codigo_patogeno": [
+      "Costo hepático - hígado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflictos transgeneracionales. Sensaciones no dichas. Conflictos sistémicos. Duelo no resuelto. Devaluación profunda. Conflictos existenciales. Conflicto de la evolución del alma individual y familiar."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enfermedad de Lyme. Conflictos autoinmunes. Depresión. Artritis. Sudores nocturnos. Generadora de enfermedades crónicas. Infecciones frías. No hay infección visible, pero hay serología."
+    }
+  },
+  {
+    "nombre_comun": "Leptospira",
+    "nombre_cientifico": "Leptospira interrogans",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativa. Espiroqueta delgada y flexible en forma de espiral.",
+    "id_referencia": "A35",
+    "codigo_patogeno": [
+      "Suprarrenal - recto"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Me siento perdido en mi camino y en mi busqueda. Apego evitativo-ansioso. Sensaciones: Vacio, ignominia, humillación, infelicidad, rechazo. Conflictos sistémicos."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Boca seca, fiebre, cefalea, dolor muscular, nauseas, vómito, diarrea, escalofríos, dolor abdominal, dolor óseo, rigidez muscular, sensibilidad muscular, dolor de garganta, inflamación de ganglios, hepatomegalia, esplenomegalia, conjuntivitis."
+    }
+  },
+  {
+    "nombre_comun": "Sífilis",
+    "nombre_cientifico": "Treponema pallidum",
+    "tipo": "Bacteria",
+    "descripcion": "Espiroqueta.",
+    "id_referencia": "A36",
+    "codigo_patogeno": [
+      "Deltoides - deltoides",
+      "Cuadrado cuadrado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Esquema desadaptativo de alienación. Negación profunda. Conflictos de identidad y existencia. Bloqueo y supresión de reacción viscerales. Prohibiciones. Devaluación profunda. Los otros tienen la culpa de lo que me pasa."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Lumbalgia. Sifilis. Patologías psiquiatricas. Enfermedad crónica."
+    }
+  },
+  {
+    "nombre_comun": "Rickettsia",
+    "nombre_cientifico": "Rickettsia sp. (Prowazekki, typhi)",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativo. Intracelular obligado. Pleomórficos. Se pueden presentar como cocos (0,1 $µm$ de diámetro), bacilos (1-4 $µm$ de longitud) o hilos (10 $µm$ de largo).",
+    "id_referencia": "A37",
+    "codigo_patogeno": [
+      "Muñeca muñeca",
+      "Calcáneo - calcáneo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Separación brutal. Duelo no resuelto. Conflictos transgeneracionales. Conflictos latentes vividos en soledad. Secretos. Prohibido llegar a la emoción visceral. Incorporación emocional."
+    },
+    "notas": {
+      "clasificacion_historica": "En el pasado eran considerados microorganismos intermedios entre los virus y las bacterias verdaderas.",
+      "enfermedades_relacionadas": "Fiebre maculosa, demencia, Tifus endémico, infección fria, conflictos articulares inflamatorios."
+    }
+  },
+  {
+    "nombre_comun": "Legionella",
+    "nombre_cientifico": "Legionella pneumophila",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo.",
+    "id_referencia": "A38",
+    "codigo_patogeno": [
+      "Dorsal 2 - dorsal 2"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Amenaza territorial. Conflicto de ira territorial. Ambiente tóxico emocional. Agresion en el territorio. Miedo frontal. Relaciones tóxicas."
+    },
+    "notas": {
+      "habitat": "Relacionado a sistemas de refrigeración, aire acondicionado o sistemas de ventilación.",
+      "enfermedades_relacionadas": "Enfermedad de Pontiac. Fiebre de los Legionarios. Mialgias. Neumonía. Bronquitis. Tos. Cefalea."
+    }
+  },
+  {
+    "nombre_comun": "Micoplasma",
+    "nombre_cientifico": "Mycoplasma pneumoniae",
+    "tipo": "Bacteria",
+    "descripcion": "No tienen pared celular.",
+    "id_referencia": "A39",
+    "codigo_patogeno": [
+      "Soleo - soleo",
+      "Bazo - bazo",
+      "Riñón izquierdo - riñon izquierdo",
+      "Pleura izquierda - pleura izquierda"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de identidad fragil. Falla en la fusión primaria: Madre hijo. Verguenza. Lazos patológicos. Ignominia. Te amo pero no te acepto. Esquema de imperfección. Conflictos latentes y negados."
+    },
+    "notas": {
+      "caracteristicas": "Puede emperorar los sintomas de inmunodeficiencia. Tambien se denomina agente Eaton.",
+      "enfermedades_relacionadas": "Fatiga crónica. Artritis. Neumonia atípica."
+    }
+  },
+  {
+    "nombre_comun": "Bacilo de Koch, Tuberculosis",
+    "nombre_cientifico": "Mycobacterium tuberculosis",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo alcohol-ácido resistente. Aeróbica.",
+    "id_referencia": "A40",
+    "codigo_patogeno": [
+      "Supraespinoso - supraespinoso"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Miedo a la muerte. Sentirse miserable. La pobreza interior. Vulnerabilidad. La ausencia de recursos internos. Sentirse víctima del destino. Sentirse solo y abandonado. Incertumbre. Rechazado. Desorientado. Miedo profundo. Agotamiento de los recursos internos. Sentirse impotente, despreciable, solo, combativo."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Tos. Fatiga crónica. Fiebre. Escalosfrios. Perdida de peso. Afecciones pulmonares. Tuberculosis."
+    }
+  },
+  {
+    "nombre_comun": "Bacilo de Hansen, Lepra",
+    "nombre_cientifico": "Mycobacterium leprae",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo alcohol-ácido resistente. Aeróbica. Intracelular obligado.",
+    "id_referencia": "A41",
+    "codigo_patogeno": [
+      "Escápula - escápula"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Rechazado. Gran desprecio. Aislamiento. Desesperanza intensa. Sucio. Marcado. Abandonado. Recluido. Condenado."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Lesiones cutáneas con perdida de la sensibilidad. Afección de nervios perféricos, mucosas, huesos, tejidos reticuloendoteliales. Lepra tuberculoide y lepromatosa. Se asocia asociada a un terreno metabolico y redox deficiente."
+    }
+  },
+  {
+    "nombre_comun": "Gardenerella",
+    "nombre_cientifico": "Gardenerella vaginalis",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo inmovil, no encapsulado.",
+    "id_referencia": "A42",
+    "codigo_patogeno": [
+      "Tensor de la fascia lata - tensor de la fascia lata"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Enojo con respecto a un conficito sexual. Culpabilidad porque considera la sexualidad como algo sucio. Prohibición."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Vaginitis. Vaginosis."
+    }
+  },
+  {
+    "nombre_comun": "Bacteria del tétanos",
+    "nombre_cientifico": "Clostridium tetani",
+    "tipo": "Bacteria",
+    "descripcion": "Formador de esporas y anaerobia. Produce toxina tetánica (Tetanospasmina).",
+    "id_referencia": "A43",
+    "codigo_patogeno": [
+      "Riñon - riñon"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Sufrimiento negado. Sensaciones no dichas. Desilusión. Dolido. Heridas no resueltas. Resentido. Sentimientos encerrados. Graves carencias de afecto. Infelicidad."
+    },
+    "notas": {
+      "efectos_toxina": "La toxina genera trismus, risa sardonica, disfagia, irritabilidad y opistotonos."
+    }
+  },
+  {
+    "nombre_comun": "Clostridio malignun*",
+    "nombre_cientifico": "Clostridium difficile",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo grampositivo. Anaerobio estricto, formador de esporas.",
+    "id_referencia": "A44",
+    "codigo_patogeno": [
+      "Supra hepático - supra hepático"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Sufrimiento antiguo y latente. No poder digerir experiencias vitales. Bloque del amor materno. Personalidad superviviente ante el trauma simbiótico (madre-hijo)."
+    },
+    "notas": {
+      "factores_incidencia": "Se aumenta la incidencia con el uso de antibioticos de forma crónica.",
+      "virulencia": "Produce toxinas.",
+      "enfermedades_relacionadas": "Estreñimiento crónico. Diarrea. Colitis pseudomembranosa."
+    }
+  },
+  {
+    "nombre_comun": "Bacteria de la gangrena gaseosa",
+    "nombre_cientifico": "Clostridium perfringes",
+    "tipo": "Bacteria",
+    "descripcion": "Anaerobio. Grampositivo. Encapsulado. Produce toxinas.",
+    "id_referencia": "A45",
+    "codigo_patogeno": [
+      "Estomago - píloro"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Gran desilusión. Eventos dificiles de asimilar. Trauma complejo sin solución mental. Resistencia. Las ilusiones que me forme estan en decadencia. Bloqueo. Gran devaluación."
+    },
+    "notas": {
+      "virulencia": "Produce toxinas. Enterotoxinas.",
+      "enfermedades_relacionadas": "Gangrena gaseosa. Enterocolitis necrosante. Celulitis. Diarrea. Dolor abdominal."
+    }
+  },
+  {
+    "nombre_comun": "Clostridium leptum",
+    "nombre_cientifico": "Clostridium sp.",
+    "tipo": "Bacteria",
+    "descripcion": "Anaerobio.",
+    "id_referencia": "A46",
+    "codigo_patogeno": [
+      "Hígado - páncreas"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Sufrimiento infantil. Represión. Conflicto transgeneracional. Trauma simbiótico. Graves carencias de afecto y cuidados. Sentimientos encerrados."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Colitis crónica. Enfermedad inflamatoria intestinal. Colitis ulcerativa crónica inespecífica. Disbiosis intestinales. Trastornos neurológicos y conductuales infantiles."
+    }
+  },
+  {
+    "nombre_comun": "Clostridium histolyticum",
+    "nombre_cientifico": "Clostridium sp.",
+    "tipo": "Bacteria",
+    "descripcion": "Grampositivo. Anaerobio. Móvil. Produce cinco tóxinas.",
+    "id_referencia": "A47",
+    "codigo_patogeno": [
+      "Vesícula - vejiga"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Sufrimiento oculto que no se puede soportar. Sistema familiar rígido. Sistema de creencias exasperante. Gran devaluación."
+    },
+    "notas": {
+      "virulencia": "Produce proteinasas y colagenasas capaces de destruir el tejido conjuntivo.",
+      "enfermedades_relacionadas": "Necrosis. Autoamputación."
+    }
+  },
+  {
+    "nombre_comun": "Fusobacterium",
+    "nombre_cientifico": "Fusobacterium nucleatum",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativa. Anaerobia.",
+    "id_referencia": "A48",
+    "codigo_patogeno": [
+      "Vena yulugar interna - vena yugular interna"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Rabia contenida y reprimida. La rabia es una emoción que puedo ocultar y negar."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enfermedad periodontal. Síndrome de Lemierre. Enfermedad de Vincent. Orofaringitis. Ulceras de piel."
+    }
+  },
+  {
+    "nombre_comun": "Prevotella",
+    "nombre_cientifico": "Prevotella melaninogenica",
+    "tipo": "Bacteria",
+    "descripcion": "Anaerobio. Gramnegativo.",
+    "id_referencia": "A49",
+    "codigo_patogeno": [
+      "Dental dental"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Emociones y sensaciones no dichas que no se pueden digerir."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Gingivitis. Vaginosis. Enfermedad periodontal. Osteomielitis. Abscesos intraabdominales."
+    }
+  },
+  {
+    "nombre_comun": "Tifo exantematico",
+    "nombre_cientifico": "Ehrlichia",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativa. Intracelulares. Permanencen en las vacuolas de los leucocitos.",
+    "id_referencia": "A50",
+    "codigo_patogeno": [
+      "Temporal derecho - temporal izquierdo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Incorporación emocional. Alienación. Estar poseido por otros."
+    },
+    "notas": {
+      "caracteristicas": "Poseen una pared estructuralmente semejante a la de las bacterias gramnegativas, de ahí su clasificación, pero no presentan lipopolisacárido (LPS) ni capa de peptidoglicanos. Se transmite por garrapatas.",
+      "enfermedades_relacionadas": "Fiebre, cefalea, escalosfrios, dolores musculares."
+    }
+  },
+  {
+    "nombre_comun": "Morganella tifo*",
+    "nombre_cientifico": "Morganella morganni",
+    "tipo": "Bacteria",
+    "descripcion": "Bacilo gramnegativo.",
+    "id_referencia": "A51",
+    "codigo_patogeno": [
+      "Perihepático - perihepático"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Sentirse víctima. Impotencia. Angustia. Traición."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Diarrea. Infección del sistema urinario. Neumonía."
+    }
+  },
+  {
+    "nombre_comun": "Veillonella",
+    "nombre_cientifico": "Veillonella",
+    "tipo": "Bacteria",
+    "descripcion": "Gramnegativo. Coco anaerobico.",
+    "id_referencia": "A52",
+    "codigo_patogeno": [
+      "Píloro - glúteo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Enojo indigesto. Dificultad para digerir la devaluación."
+    },
+    "notas": {
+      "metabolismo": "Produce propionato y acetato. Mejora el rendimiento de los atletas.",
+      "efectos_disbiosis": "Cuando hay disbiosis intestinal, produce inflamación."
+    }
+  },
+   {
+    "nombre_comun": "Actinomyces*",
+    "nombre_cientifico": "Actinomyces",
+    "tipo": "Bacteria",
+    "descripcion": "Grampositiva. Forman estructuras semejantes a las hifas de los hongos.",
+    "id_referencia": "D8", // Note: ID here is D8, not A#
+    "codigo_patogeno": [
+      "Bursa - bursa"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Mantengo mi identidad cueste lo que cueste. Me cuesta tomar lo que necesito. Vivo de ilusiones para los demás. No puedo morder lo que necesito."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "La forma más común de actinomicosis es la oral-cervicofacial. Mandíbulas desiguales. Actinomicosis torácica: Se confunde con neoplásia. Dolor en el pecho, fiebre y pérdida de peso."
+    }
+  }
+]
