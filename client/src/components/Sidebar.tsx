@@ -1,0 +1,119 @@
+import { useState } from "react";
+import { BookOpen, LayoutDashboard, Star, Search } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
+import { useFlashcards } from "@/context/FlashcardContext";
+import CategoryFilter from "./CategoryFilter";
+import { cn } from "@/lib/utils";
+
+interface SidebarProps {
+  activeTab: "study" | "dashboard" | "favorites";
+  setActiveTab: (tab: "study" | "dashboard" | "favorites") => void;
+}
+
+const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
+  const { searchQuery, setSearchQuery, favoritesOnly, setFavoritesOnly } = useFlashcards();
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleFavoritesToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFavoritesOnly(e.target.checked);
+  };
+
+  return (
+    <aside className="w-full md:w-64 md:h-screen bg-white dark:bg-slate-800 shadow-lg md:fixed left-0 md:overflow-y-auto">
+      <div className="p-4 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl font-bold text-primary">BioFlashcards</h1>
+          <ThemeToggle />
+        </div>
+      </div>
+      
+      {/* Navigation */}
+      <nav className="p-4">
+        <ul className="space-y-2">
+          <li>
+            <button
+              onClick={() => setActiveTab("study")}
+              className={cn(
+                "flex items-center w-full p-2 rounded-lg",
+                activeTab === "study"
+                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
+                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+              )}
+            >
+              <BookOpen className="mr-2 h-5 w-5" />
+              <span>Study</span>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => setActiveTab("dashboard")}
+              className={cn(
+                "flex items-center w-full p-2 rounded-lg",
+                activeTab === "dashboard"
+                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
+                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+              )}
+            >
+              <LayoutDashboard className="mr-2 h-5 w-5" />
+              <span>Dashboard</span>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => setActiveTab("favorites")}
+              className={cn(
+                "flex items-center w-full p-2 rounded-lg",
+                activeTab === "favorites"
+                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
+                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+              )}
+            >
+              <Star className="mr-2 h-5 w-5 text-amber-500" />
+              <span>Favorites</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      
+      {/* Filter Section */}
+      <div className="p-4 border-t border-slate-200 dark:border-slate-700">
+        <h2 className="font-medium mb-3">Filters</h2>
+        
+        {/* Search */}
+        <div className="mb-4 relative">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <Search className="h-4 w-4 text-slate-400" />
+          </div>
+          <input 
+            type="text" 
+            placeholder="Search flashcards..." 
+            className="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </div>
+        
+        {/* Categories */}
+        <h3 className="text-sm font-medium mb-2">Categories</h3>
+        <CategoryFilter />
+        
+        {/* Favorites toggle */}
+        <div className="mt-4 flex items-center">
+          <input 
+            type="checkbox" 
+            id="favorites-only" 
+            className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+            checked={favoritesOnly}
+            onChange={handleFavoritesToggle}
+          />
+          <label htmlFor="favorites-only" className="ml-2 text-sm">Show favorites only</label>
+        </div>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;
