@@ -128,7 +128,41 @@ export const classificationCodes = {
     "Leishmania": "C18",
     "Giardia lamblia": "C19"
   },
+  parasitos: {
+    "Toxoplasma gondii": "C1",
+    "Plasmodium": "C2",
+    "Entamoeba histolytica": "C3",
+    "Sarcoptes scabiei": "C4",
+    "Filaria": "C5",
+    "Blastocystis hominis": "C6",
+    "Balantidium Coli": "C7",
+    "Trypanosoma Cruzi": "C8",
+    "Fasciolopsis Buski": "C9",
+    "Enterobius vermicularis": "C10",
+    "Trichinella spiralis": "C11",
+    "Trichomonas": "C12",
+    "Schistosoma": "C13",
+    "Parásitos intestinales": "C14",
+    "Babesia": "C15",
+    "Trypanosoma Gambiense": "C16",
+    "Onchocerca volvulus": "C17",
+    "Leishmania": "C18",
+    "Giardia lamblia": "C19"
+  },
   hongo: {
+    "Aspergillus": "D1",
+    "Cryptococcus neoformans": "D2",
+    "Coccidioides immitis": "D3",
+    "Histoplasma capsulatum": "D4",
+    "Candida albicans": "D5",
+    "Trichophyton": "D6",
+    "Pneumocystis carinii": "D7",
+    "Actinomyces": "D8",
+    "Micelio intestinal": "D9",
+    "Microsporum canis": "D10",
+    "Malassezia furfur": "D11"
+  },
+  hongos: {
     "Aspergillus": "D1",
     "Cryptococcus neoformans": "D2",
     "Coccidioides immitis": "D3",
@@ -148,17 +182,53 @@ export function findClassificationCode(name: string, category: string): string |
   // Normalizar el nombre para buscar coincidencias parciales
   const normalizedName = name.toLowerCase().trim();
   
-  // Obtener los códigos para la categoría específica
-  const categoryCodes = classificationCodes[category as keyof typeof classificationCodes];
+  // Categorías alternativas para buscar coincidencias
+  let categoriesToTry: string[] = [category];
   
-  if (!categoryCodes) return undefined;
+  // Mapa de categorías alternativas para buscar
+  const categoryAlternatives: Record<string, string[]> = {
+    'parasito': ['parasitos'],
+    'parasitos': ['parasito'],
+    'hongo': ['hongos'],
+    'hongos': ['hongo']
+  };
   
-  // Buscar coincidencias exactas o parciales
-  for (const [patogenName, code] of Object.entries(categoryCodes)) {
-    if (normalizedName === patogenName.toLowerCase() || 
-        normalizedName.includes(patogenName.toLowerCase()) || 
-        patogenName.toLowerCase().includes(normalizedName)) {
-      return code;
+  // Añadir categorías alternativas si existen
+  if (categoryAlternatives[category]) {
+    categoriesToTry = [...categoriesToTry, ...categoryAlternatives[category]];
+  }
+  
+  // Probar todas las categorías posibles
+  for (const cat of categoriesToTry) {
+    // Obtener los códigos para la categoría específica
+    const categoryCodes = classificationCodes[cat as keyof typeof classificationCodes];
+    
+    if (!categoryCodes) continue;
+    
+    // Buscar coincidencias exactas o parciales
+    for (const [patogenName, code] of Object.entries(categoryCodes)) {
+      if (normalizedName === patogenName.toLowerCase() || 
+          normalizedName.includes(patogenName.toLowerCase()) || 
+          patogenName.toLowerCase().includes(normalizedName)) {
+        return code;
+      }
+    }
+  }
+  
+  // Si no se encontró en ninguna categoría, buscar en todas
+  if (!categoriesToTry.includes('all')) {
+    for (const [cat, codes] of Object.entries(classificationCodes)) {
+      // Saltar categorías ya verificadas
+      if (categoriesToTry.includes(cat)) continue;
+      
+      for (const [patogenName, code] of Object.entries(codes)) {
+        // Buscar coincidencias muy específicas (para evitar falsos positivos)
+        if (normalizedName === patogenName.toLowerCase() || 
+            (normalizedName.length > 5 && patogenName.toLowerCase().includes(normalizedName))) {
+          console.log(`Encontrado código ${code} para ${name} en categoría alternativa ${cat}`);
+          return code;
+        }
+      }
     }
   }
   

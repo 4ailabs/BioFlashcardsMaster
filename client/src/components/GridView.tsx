@@ -13,6 +13,10 @@ const GridView = () => {
   useEffect(() => {
     // Esta función solo se ejecuta en el cliente, no en el servidor
     if (typeof window !== 'undefined') {
+      // Prevenir recargas infinitas usando una bandera en sessionStorage
+      const hasAssignedCodes = sessionStorage.getItem('hasAssignedClassificationCodes');
+      if (hasAssignedCodes) return;
+      
       // Verificar si hay flashcards sin código de clasificación
       const flashcardsWithoutCodes = flashcards.filter(card => !card.classificationCode);
       
@@ -23,6 +27,7 @@ const GridView = () => {
         const updatedFlashcards = [...flashcards];
         
         // Asignar códigos de clasificación
+        let codesAssigned = false;
         flashcardsWithoutCodes.forEach(card => {
           const index = updatedFlashcards.findIndex(c => c.id === card.id);
           if (index !== -1) {
@@ -34,17 +39,31 @@ const GridView = () => {
                 classificationCode: code
               };
               console.log(`Asignado código ${code} a ${card.name}`);
+              codesAssigned = true;
             }
           }
         });
         
-        // Guardar flashcards actualizadas en localStorage para persistencia
-        localStorage.setItem('flashcards', JSON.stringify(updatedFlashcards));
-        
-        // Forzar recarga para aplicar los cambios (solo en desarrollo)
-        if (process.env.NODE_ENV === 'development') {
-          window.location.reload();
+        if (codesAssigned) {
+          // Guardar flashcards actualizadas en localStorage para persistencia
+          localStorage.setItem('flashcards', JSON.stringify(updatedFlashcards));
+          
+          // Marcar que ya hemos asignado códigos para evitar recargas infinitas
+          sessionStorage.setItem('hasAssignedClassificationCodes', 'true');
+          
+          // Forzar recarga para aplicar los cambios (solo en desarrollo)
+          if (process.env.NODE_ENV === 'development') {
+            setTimeout(() => {
+              window.location.reload();
+            }, 500);
+          }
+        } else {
+          // Si no se asignaron códigos, marcar como completado para evitar recargas
+          sessionStorage.setItem('hasAssignedClassificationCodes', 'true');
         }
+      } else {
+        // No hay tarjetas que requieran códigos, marcar como completado
+        sessionStorage.setItem('hasAssignedClassificationCodes', 'true');
       }
     }
   }, []);
@@ -59,9 +78,25 @@ const GridView = () => {
   }, {} as Record<string, FlashcardType[]>);
 
   // Ordenar categorías
-  const categoryOrder = ['bacteria', 'virus_adn', 'virus_arn', 'parasito', 'hongo'];
+  const categoryOrder = ['bacteria', 'virus_adn', 'virus_arn', 'parasito', 'parasitos', 'hongo', 'hongos'];
   const sortedCategories = Object.keys(groupedFlashcards).sort(
-    (a, b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b)
+    (a, b) => {
+      const indexA = categoryOrder.indexOf(a);
+      const indexB = categoryOrder.indexOf(b);
+      // Si ambas categorías están en el orden predefinido, usamos ese orden
+      if (indexA !== -1 && indexB !== -1) {
+        return indexA - indexB;
+      } 
+      // Si solo una está en el orden, esa va primero
+      else if (indexA !== -1) {
+        return -1;
+      } 
+      else if (indexB !== -1) {
+        return 1;
+      }
+      // Si ninguna está en el orden, las ordenamos alfabéticamente
+      return a.localeCompare(b);
+    }
   );
 
   const handleCardClick = (card: FlashcardType, index: number) => {

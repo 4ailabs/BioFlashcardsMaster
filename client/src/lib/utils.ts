@@ -24,8 +24,10 @@ export function getCategoryColor(category: string): string {
     case 'virus_arn':
       return 'bg-virus-arn';
     case 'parasito':
+    case 'parasitos':
       return 'bg-parasito';
     case 'hongo':
+    case 'hongos':
       return 'bg-hongo';
     default:
       return 'bg-primary';
@@ -41,8 +43,10 @@ export function getCategoryTextColor(category: string): string {
     case 'virus_arn':
       return 'text-virus-arn';
     case 'parasito':
+    case 'parasitos':
       return 'text-parasito';
     case 'hongo':
+    case 'hongos':
       return 'text-hongo';
     default:
       return 'text-primary';
@@ -58,8 +62,10 @@ export function getCategoryHoverColor(category: string): string {
     case 'virus_arn':
       return 'hover:bg-virus-arn/10 dark:hover:bg-virus-arn/20';
     case 'parasito':
+    case 'parasitos':
       return 'hover:bg-parasito/10 dark:hover:bg-parasito/20';
     case 'hongo':
+    case 'hongos':
       return 'hover:bg-hongo/10 dark:hover:bg-hongo/20';
     default:
       return 'hover:bg-primary/10 dark:hover:bg-primary/20';
@@ -75,8 +81,10 @@ export function getCategoryLabel(category: string): string {
     case 'virus_arn':
       return 'Virus ARN';
     case 'parasito':
+    case 'parasitos':
       return 'Parásitos';
     case 'hongo':
+    case 'hongos':
       return 'Hongos';
     default:
       return 'Desconocido';
