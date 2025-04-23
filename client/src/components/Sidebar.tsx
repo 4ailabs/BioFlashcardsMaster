@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { BookOpen, LayoutDashboard, Star, Search } from "lucide-react";
+import { BookOpen, LayoutDashboard, Star, Search, Brain } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { useFlashcards } from "@/context/FlashcardContext";
 import CategoryFilter from "./CategoryFilter";
 import { cn } from "@/lib/utils";
 
 interface SidebarProps {
-  activeTab: "study" | "dashboard" | "favorites";
-  setActiveTab: (tab: "study" | "dashboard" | "favorites") => void;
+  activeTab: "study" | "dashboard" | "favorites" | "assistant";
+  setActiveTab: (tab: "study" | "dashboard" | "favorites" | "assistant") => void;
 }
 
 const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
@@ -73,6 +73,20 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
             >
               <Star className="mr-2 h-5 w-5 text-amber-500" />
               <span>Favoritos</span>
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => setActiveTab("assistant")}
+              className={cn(
+                "flex items-center w-full p-2 rounded-lg",
+                activeTab === "assistant"
+                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
+                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+              )}
+            >
+              <Brain className="mr-2 h-5 w-5 text-purple-500" />
+              <span>Asistente IA</span>
             </button>
           </li>
         </ul>

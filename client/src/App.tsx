@@ -9,11 +9,12 @@ import Sidebar from "@/components/Sidebar";
 import StudyView from "@/components/StudyView";
 import Dashboard from "@/components/Dashboard";
 import Favorites from "@/components/Favorites";
+import AIAssistant from "@/components/AIAssistant";
 import { ThemeProvider } from "./context/ThemeContext";
 import { FlashcardProvider } from "./context/FlashcardContext";
 
 function App() {
-  const [activeTab, setActiveTab] = useState<"study" | "dashboard" | "favorites">("study");
+  const [activeTab, setActiveTab] = useState<"study" | "dashboard" | "favorites" | "assistant">("study");
 
   return (
     <ThemeProvider>
@@ -27,6 +28,7 @@ function App() {
                 {activeTab === "study" && <StudyView />}
                 {activeTab === "dashboard" && <Dashboard />}
                 {activeTab === "favorites" && <Favorites />}
+                {activeTab === "assistant" && <AIAssistant />}
               </main>
             </div>
           </TooltipProvider>
