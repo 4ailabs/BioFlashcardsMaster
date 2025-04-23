@@ -5,6 +5,7 @@ import { useFlashcards } from "@/context/FlashcardContext";
 import { useTheme } from "@/context/ThemeContext";
 import { formatDate } from "@/lib/utils";
 import ChartComponent from "./ChartComponent";
+import FlashcardImporter from "./FlashcardImporter";
 
 const Dashboard = () => {
   const { flashcards, studyStats, recentActivity } = useFlashcards();
@@ -69,6 +70,11 @@ const Dashboard = () => {
             </div>
           </CardContent>
         </Card>
+      </div>
+      
+      {/* Flashcard Importer */}
+      <div className="mb-8">
+        <FlashcardImporter />
       </div>
       
       {/* Charts */}

@@ -1,5 +1,4 @@
-// Importamos la función para generar nuevas flashcards
-import { getUniqueNewFlashcards } from '@/lib/generateFlashcards';
+// Archivo de datos de flashcards
 
 export interface Flashcard {
   id: string;
