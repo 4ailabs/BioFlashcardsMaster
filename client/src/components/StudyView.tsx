@@ -88,7 +88,7 @@ const StudyView = () => {
       </div>
       
       {/* Flashcard */}
-      {totalFilteredCards > 0 ? (
+      {totalFilteredCards > 0 && filteredFlashcards[currentCardIndex] ? (
         <Flashcard card={filteredFlashcards[currentCardIndex]} />
       ) : (
         <div className="text-center py-12 bg-white dark:bg-slate-800 rounded-lg shadow-lg">

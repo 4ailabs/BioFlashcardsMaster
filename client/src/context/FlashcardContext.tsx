@@ -57,7 +57,12 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   // Load flashcards data and enhance with localStorage favorites
   const [flashcards, setFlashcards] = useLocalStorage<Flashcard[]>(
     'flashcards',
-    initializeFlashcards()
+    () => {
+      console.log("Inicializando flashcards...");
+      const cards = initializeFlashcards();
+      console.log(`Se inicializaron ${cards.length} flashcards`);
+      return cards;
+    }
   );
   
   const [currentCardIndex, setCurrentCardIndex] = useLocalStorage<number>(

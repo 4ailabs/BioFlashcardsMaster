@@ -12,6 +12,15 @@ const Flashcard = ({ card }: FlashcardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const { toggleFavorite } = useFlashcards();
 
+  // Verificar si la tarjeta existe
+  if (!card) {
+    return (
+      <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8 flex items-center justify-center">
+        <p className="text-slate-500 dark:text-slate-400">No hay tarjeta disponible</p>
+      </div>
+    );
+  }
+
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
   };
@@ -21,8 +30,10 @@ const Flashcard = ({ card }: FlashcardProps) => {
     toggleFavorite(card.id);
   };
 
-  const categoryColorClass = getCategoryColor(card.category);
-  const categoryName = getCategoryLabel(card.category);
+  // Valores de categoría seguros
+  const category = card.category || 'default';
+  const categoryColorClass = getCategoryColor(category);
+  const categoryName = getCategoryLabel(category);
 
   return (
     <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
