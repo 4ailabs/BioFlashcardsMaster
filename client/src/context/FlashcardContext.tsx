@@ -18,8 +18,6 @@ interface FlashcardContextType {
   shuffleCards: () => void;
   resetProgress: () => void;
   recentActivity: RecentActivity[];
-  activeTab: "study" | "dashboard" | "favorites" | "assistant" | "gallery";
-  setActiveTab: (tab: "study" | "dashboard" | "favorites" | "assistant" | "gallery") => void;
 }
 
 const initialStudyStats: StudyStats = {
@@ -84,7 +82,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     initialRecentActivity
   );
 
-  const [activeTab, setActiveTab] = useState<"study" | "dashboard" | "favorites" | "assistant" | "gallery">('study');
+  // Nota: activeTab y setActiveTab ahora se pasan desde App.tsx
   
   // Filter flashcards based on category, search query, and favorites
   const filteredFlashcards = useMemo(() => {
@@ -235,9 +233,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
         studyStats,
         shuffleCards,
         resetProgress,
-        recentActivity,
-        activeTab,
-        setActiveTab
+        recentActivity
       }}
     >
       {children}

@@ -6,15 +6,18 @@ import { Star, Layers, Tag } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { findClassificationCode } from '@/lib/classificationCodes';
 
-const GridView = () => {
+interface GridViewProps {
+  setActiveTab: (tab: "study" | "dashboard" | "favorites" | "assistant" | "gallery") => void;
+}
+
+const GridView = ({ setActiveTab }: GridViewProps) => {
   const { 
     flashcards, 
     toggleFavorite, 
     setCurrentCardIndex, 
     setSelectedCategory,
     setSearchQuery,
-    setFavoritesOnly,
-    setActiveTab 
+    setFavoritesOnly
   } = useFlashcards();
   
   // Efecto para asignar códigos de clasificación a las flashcards que no los tienen
