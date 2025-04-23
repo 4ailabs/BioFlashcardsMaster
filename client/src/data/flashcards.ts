@@ -1,3 +1,6 @@
+// Importamos la función para generar nuevas flashcards
+import { getUniqueNewFlashcards } from '@/lib/generateFlashcards';
+
 export interface Flashcard {
   id: string;
   category: string;
@@ -356,5 +359,8 @@ const flashcards: Flashcard[] = [
     isFavorite: false
   }
 ];
+
+// Agregar aquí las nuevas flashcards desde el archivo generateFlashcards.ts
+// Esto se hará cuando inicies la aplicación
 
 export default flashcards;
