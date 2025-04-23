@@ -3,6 +3,7 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 import { Flashcard, StudyStats, RecentActivity } from '@/data/flashcards';
 import { generateFlashcardsFromPatogenosData } from '@/lib/generateFlashcards';
 import { loadBacteriasFromJson } from '@/lib/loadBacterias';
+import { loadVirusFromJson } from '@/lib/loadVirus';
 
 interface FlashcardContextType {
   flashcards: Flashcard[];
@@ -99,11 +100,16 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       const bacteriasFlashcards = loadBacteriasFromJson();
       console.log(`Cargadas ${bacteriasFlashcards.length} bacterias desde JSON`);
       
+      // Cargar los virus desde el JSON
+      console.log("Cargando virus desde JSON...");
+      const { virusAdn, virusArn } = loadVirusFromJson();
+      console.log(`Cargados ${virusAdn.length} virus ADN y ${virusArn.length} virus ARN desde JSON`);
+      
       // En lugar de combinar directamente, vamos a eliminar duplicados por código de clasificación
       // Crear un mapa para realizar un seguimiento de las tarjetas por código de clasificación
       const cardsByClassCode = new Map<string, Flashcard>();
       
-      // Primero, agregar todas las bacterias del JSON (tienen prioridad)
+      // 1. Primero, agregar todas las bacterias del JSON (tienen prioridad)
       bacteriasFlashcards.forEach(card => {
         if (card.classificationCode) {
           cardsByClassCode.set(card.classificationCode, card);
@@ -113,11 +119,32 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
         }
       });
       
-      // Luego, agregar las flashcards base que no sean bacterias o que no tengan un código duplicado
+      // 2. Luego, agregar los virus ADN del JSON (tienen prioridad sobre los generados)
+      virusAdn.forEach(card => {
+        if (card.classificationCode) {
+          cardsByClassCode.set(card.classificationCode, card);
+        } else {
+          cardsByClassCode.set(card.id, card);
+        }
+      });
+      
+      // 3. Luego, agregar los virus ARN del JSON (tienen prioridad sobre los generados)
+      virusArn.forEach(card => {
+        if (card.classificationCode) {
+          cardsByClassCode.set(card.classificationCode, card);
+        } else {
+          cardsByClassCode.set(card.id, card);
+        }
+      });
+      
+      // 4. Finalmente, agregar las flashcards base que no tengan códigos duplicados
       baseFlashcards.forEach(card => {
         const key = card.classificationCode || card.id;
-        // Solo agregar si no existe o si no es una bacteria (las bacterias del JSON tienen prioridad)
-        if (!cardsByClassCode.has(key) || card.category !== 'bacteria') {
+        // Solo agregar si no existe o si no corresponde a una categoría que ya procesamos desde el JSON
+        if (!cardsByClassCode.has(key) || 
+            (card.category !== 'bacteria' && 
+             card.category !== 'virus_adn' && 
+             card.category !== 'virus_arn')) {
           cardsByClassCode.set(key, card);
         }
       });
@@ -127,10 +154,21 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       console.log(`Total de flashcards después de eliminar duplicados: ${uniqueFlashcards.length}`);
       
       // Calcular cuántas flashcards serían si hubiéramos concatenado directamente
-      const totalRawCount = baseFlashcards.length + bacteriasFlashcards.length;
-      if (uniqueFlashcards.length < totalRawCount) {
-        console.log(`Se eliminaron ${totalRawCount - uniqueFlashcards.length} flashcards duplicadas`);
+      const totalRawCount = baseFlashcards.length + bacteriasFlashcards.length + virusAdn.length + virusArn.length;
+      const eliminadas = totalRawCount - uniqueFlashcards.length;
+      if (eliminadas > 0) {
+        console.log(`Se eliminaron ${eliminadas} flashcards duplicadas`);
       }
+      
+      // Mostrar estadísticas de las categorías
+      const categoryCounts = {
+        bacteria: uniqueFlashcards.filter(card => card.category === 'bacteria').length,
+        virus_adn: uniqueFlashcards.filter(card => card.category === 'virus_adn').length,
+        virus_arn: uniqueFlashcards.filter(card => card.category === 'virus_arn').length,
+        parasito: uniqueFlashcards.filter(card => card.category === 'parasito').length,
+        hongo: uniqueFlashcards.filter(card => card.category === 'hongo').length
+      };
+      console.log("Distribución por categorías:", categoryCounts);
       
       // Actualizar el estado solo si hay cambios o si acabamos de inicializar
       if (uniqueFlashcards.length !== flashcards.length || flashcards.length === 0) {

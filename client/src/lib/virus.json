@@ -1,0 +1,295 @@
+[
+  {
+    "nombre_comun": "Virus de la viruela",
+    "nombre_cientifico": "Familia Poxviridae, poxvirus",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario.",
+    "id_referencia": "B1",
+    "codigo_patogeno": [
+      "Apéndice - lengua izquierda"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "2ª etapa del sistema ontogénico de los microbios: Protección, mecanismos de defensa.",
+      "otros_conflictos": "Conflicto de agresión. Conflictos territoriales. Relaciones tóxicas. Prejuicios. Esquema de imperfección.",
+      "notas_conflicto": "Se relaciona con conflictos oculares."
+    },
+    "notas": {}
+  },
+  {
+    "nombre_comun": "Virus Vaccinia",
+    "nombre_cientifico": "Familia Poxviridae, poxvirus",
+    "tipo": "Virus ADN",
+    "descripcion": "Virus con envoltura, con ADN bicatenario lineal. También se llama virus vacuna.",
+    "id_referencia": "B2",
+    "codigo_patogeno": [
+      "Apéndice - vena femoral"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión. Conflicto prolongado de rechazo. Dificultad de adaptación a una nueva situación. Intolerancia."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Conflictos cutáneos."
+    }
+  },
+  {
+    "nombre_comun": "Virus Orf",
+    "nombre_cientifico": "Familia Poxviridae, poxvirus",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN lineal bicatenario. Encapsulado.",
+    "id_referencia": "B3",
+    "codigo_patogeno": [
+      "Piso orbitario - piso orbitario"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Prejuicios. Dificultad para ver la realidad tal como es. Agresión teritorial."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Ectima contagioso. Afecciones oculares."
+    }
+  },
+  {
+    "nombre_comun": "Virus Herpes simple tipo 1",
+    "nombre_cientifico": "Familia Herpesviridae, alfa",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario. Rodeado por una cubierta de proteína de simetría ecosaédrica y tiene 126 capsómeros.",
+    "id_referencia": "B4",
+    "codigo_patogeno": [
+      "Angina - angina"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Dificultad de vivir la separación inherente de toda relación. Dolor negado ante la separación. Rabia, celos y rechazo a la separación. Sensaciones en el umbral de sufrimiento sin porder expresarlas. Enfado, disgusto y temor de expresarlo."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Infecciones primarias de la parte superior del cuerpo (gingivoestomatitis) caracterizado por vesículas, aftas, amigdalitis, úlceras planas. Fiebre, mialgias, malestar general. Queratoconjuntivitis. Encefalitis. Desordenes neurológicos. Parálisis facial. Neuralgia."
+    }
+  },
+  {
+    "nombre_comun": "Virus Herpes simple tipo 2",
+    "nombre_cientifico": "Familia Herpesviridae, alfa",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario. Rodeado por una cubierta de proteína de simetría ecosaédrica y tiene 126 capsómeros.",
+    "id_referencia": "B5",
+    "codigo_patogeno": [
+      "Colon ascendente - colon ascendente"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto separación. Sufrimiento ante la separacion sexual. Rabia, celos y rechazo a la separación. Culpa sexual. Remordimiento. Emoción secreta no resuelta."
+    },
+    "notas": {
+      "caracteristicas": "HSV-1 y HSV-2 infectan a las células epiteliales y establecen infecciones latentes en las neuronas. Debido a su capacidad de integración al tejido nervioso, modifican receptores neuronales.",
+      "enfermedades_relacionadas": "Infecciones primarias del tracto genital asintomáticas y sintomáticas. Fiebre, malestar general, mialgias. Herpes neonatal."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la varicela",
+    "nombre_cientifico": "Familia Herpesviridae, alfa",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN de molécula lineal de doble cadena.",
+    "id_referencia": "B6",
+    "codigo_patogeno": [
+      "Uretero - uretero"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de separación. Momentos de experiencias emocionales vividas en sufrimiento sin porder escapar y solo queda adaptarse. La varicela como la gran flexibilidad de adaptación. Emoción no digerida con bloqueo y enquistamiento. Vieja emoción no reparada. Tristeza secreta. El proceso de la individualización y separación de la madre. Quedarse atrapado en el lazo familiar. Construcción de la identidad."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Exantema vesicular y eritema, fiebre, malestar general. Neuralgia posherpética. Herpes Zoster."
+    }
+  },
+  {
+    "nombre_comun": "Citomegalovirus",
+    "nombre_cientifico": "Familia Herpesviridae, beta",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN de molécula lineal de doble cadena.",
+    "id_referencia": "B7",
+    "codigo_patogeno": [
+      "Ojo - ojo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de separación visual. Perder de vista a alguien. Lealtad familiar invisible. Sufrimiento transgeneracional. Enfadado. Golpeado. Tengo miedo de enfrentarme a una situación. Miedos frontales."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Esclerosis múltiple (asociación de virus herpes con HERVs), enfermedades neurológicas y mentales. Mononucleosis infeciosa. Tumor cerebral."
+    }
+  },
+  {
+    "nombre_comun": "Virus del Herpes tipo 6",
+    "nombre_cientifico": "Familia Herpesviridae, beta",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario.",
+    "id_referencia": "B8",
+    "codigo_patogeno": [
+      "Cubito - cubito"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de separación. Sensación de ser abandonado. Desvalorización. Es la enfermedad que ayuda a liberarse y a liberar su entorno de una gran dolorosa posesión (esto sucede cuando el niño es visto como un objeto o proyecto de los padres y el quiere separarse de ese esquema familiar, sin embargo separarse le trae sufrimiento)."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Exantema súbito (Roseola). Fiebre. Encefalitis. Convulsiones febriles."
+    }
+  },
+  {
+    "nombre_comun": "Virus del Herpes tipo 7",
+    "nombre_cientifico": "Familia Herpesviridae, beta",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario.",
+    "id_referencia": "B9",
+    "codigo_patogeno": [
+      "Cáliz renal - uretero"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de separación. Sensación de ser abandonado. Me siento solo y abandonado, extranjero, fuera de lugar. Puede activar un conflicto del tubulo colector del riñón. Desvalorización en el seno familiar, no se siente parte de, excluido."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Exantema súbito. Fiebre.. Encefalitis. Convulsiones febriles."
+    }
+  },
+  {
+    "nombre_comun": "Virus Epstein Barr",
+    "nombre_cientifico": "Familia Herpesviridae, gamma",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario.",
+    "id_referencia": "B10",
+    "codigo_patogeno": [
+      "Occipital - occipital"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto en la maduración de la identidad sexual. La aceptación de la sexualidad. Desvalorización al enfrentar la madurez sexual y la libertad de las elecciones propias. Conflictos no resueltos que nos hacen sufrir donde tenemos que decir otra cosa y no el problema."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Mononuclesis infecciosa. Faringitis. Fiebre. Linfadenopatía. Linfoma de Burkitt. Carcinoma nasofaringeo. Leucoplasia pilosa. Fatiga crónica. Migraña. Esclerosis múltiple."
+    }
+  },
+  {
+    "nombre_comun": "Virus del Herpes tipo 8",
+    "nombre_cientifico": "Familia Herpesviridae, gamma",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario.",
+    "id_referencia": "B11",
+    "codigo_patogeno": [
+      "Comisura - comisura"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de devaluación territorial sin poder expresar la ira o ciertas sencaciones y se quedan estancadas. Conflicto transgeneracional. Me siento sucio. Sufrimiento moral."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Sarcoma de Kaposi, patologías linfáticas. Lesiones cutáneas."
+    }
+  },
+  {
+    "nombre_comun": "Adenovirus",
+    "nombre_cientifico": "Familia Adenoviridae",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario lineal.",
+    "id_referencia": "B12",
+    "codigo_patogeno": [
+      "Ligamento hepático - riñón derecho"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Enojo territorial, Colera reprimida, Oposición o resistencia a una situación, persona o lugar. Asco o repulsión. Conflictos de resistencia. Conflictos de crisis financieras. Memorias transgeneracionales de hambruna o de pobreza.",
+      "sensaciones": "Agresión, vacio, frustración, Hambre, Desvalorización estética."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Los adenovirus estan involucrados con enfermedades respiratorias y conjuntivitis, gastroenteritis. Puede persistir en el tejido linfoide (amigdalas). Hay 5 subtipos de adenovirus (Ad5, Ad9, Ad31, Ad36, Ad37) estan asociadas con el incremento en la adiposidad in vitro e in vivo. La infección experimental produce exceso de adiposidad o ganancia de peso en animales."
+    }
+  },
+  {
+    "nombre_comun": "Virus del Papiloma",
+    "nombre_cientifico": "Familia Papovaviridae",
+    "tipo": "Virus ADN",
+    "descripcion": "Los viriones de VPH son partículas pequeñas, sin envoltura, con simetría icosaedrica.",
+    "id_referencia": "B13",
+    "codigo_patogeno": [
+      "Ano - ano",
+      "Próstata - recto",
+      "Sigmoides - recto"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión, desconfianza, celos. Experiencias vividas como sucias. Contacto sexual vivido como sucio. Conflicto territorial: El enemigo acecha. Sensación de ser continuamente atacado. Necesidad de protegerse de un contacto agresivo. Desvalorización estética. Conflicto de mancha. Sentirse manchado. Tendencia a pelear. Escudos o corazas frente a la agresión. No poder expresar la agresión."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Lesiones cutáneas, verrugas, condilomas, lesiones verruciformes. Ulceras cervicales. Enantema."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la Verruga común",
+    "nombre_cientifico": "Familia Papovaviridae",
+    "tipo": "Virus ADN",
+    "descripcion": "Partículas pequeñas, sin envoltura, con simetría icosaedrica.",
+    "id_referencia": "B14",
+    "codigo_patogeno": [
+      "Punta de páncreas - bazo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Irritado, enfadado, ofensivo, violento, rencoroso, malhumorado, provocador, celoso, gritón, vengativo, contrario, amenazado, territorial, vergüenza, inseguridad, impulsividad, ira, frustración sexual."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Verrugas, lesiones epiteliales."
+    }
+  },
+  {
+    "nombre_comun": "Virus JC (Virus del polioma)",
+    "nombre_cientifico": "Familia Poliomaviridae",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN de cadena doble.",
+    "id_referencia": "B15",
+    "codigo_patogeno": [
+      "Temporal izquierdo - temporal izquierdo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Negación. El equivalente al conflicto de los clostridios. Esconder el sufrimiento. Supresión emocional. No atender la verdadera causa. Justificacion: la enfermedad inicia en el momento en que justificamos el interior por el exterior. Perfección. Obsesión. Amargado, insatisfecho, deseos de poseer, dominar, ansiedad, negación."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Conflictos respiratorios, renales. Nefropatía. Cistitis hemorrágica. Virus muy frecuente en los transplantados renales. Fenomenos tumorales."
+    }
+  },
+  {
+    "nombre_comun": "Virus BK (Virus del polioma)",
+    "nombre_cientifico": "Familia Poliomaviridae",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN de cadena doble.",
+    "id_referencia": "B16",
+    "codigo_patogeno": [
+      "Apéndice - riñon izquierdo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Perfección. Obsesión. Amargado, insatisfecho, deseos de poseer, dominar, ansiedad, negación. Metas bloqueadas, frustración. No poder escapar. Prohibiciones."
+    },
+    "notas": {}
+  },
+  {
+    "nombre_comun": "Virus de la hepatitis B",
+    "nombre_cientifico": "Familia hepadnaviridae",
+    "tipo": "Virus ADN",
+    "descripcion": "ADN bicatenario circular (parcial). Capside icosaédrica.",
+    "id_referencia": "B17",
+    "codigo_patogeno": [
+      "Hígado - Bazo"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "Fase de conflicto activo hay escasa propagación viral, luego en la fase de resolución conflictual hay propagación del virus y puede ser confundido con hepatitis aguda.",
+      "otros_conflictos": "Familia, sustento y territorio. Conflicto de subsistencia. Peligro de muerte o para subsistir. Miedo a no tener lo suficiente. Agobio. El hígado como regulador. Cólera. El hígado para los proyectos de futuro. Miedo al futuro. Desaliento, desvalorización, desanimo. Situaciones que comprometen la identidad y la libertad. Indecisión. Conflicto de fuerza vital. Estrés. Sobrecarga. La distancia entre lo que somos y lo que deseamos. Frente a la adversidad no podemos subsistir. Miedo a morir de hambre. Enojos cronificados. Conflictos fuertes de subsistencia. Miedo a no encontrar alimento. Miedo a la escasez. Crisis. Pérdida de estabilidad."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Puede causar un espectro amplio, desde un estado de portador asintomático, hepatitis aguda o crónica hasta cirrosis y Carcinoma hepatocelular. Síndrome de Gianotti-Crosti (eritema con acrodermatitis papular, linfadenopatía y hepatitis anictérica), poliateritis nodosa, glomerulonefritis membranosa y crioglobulinemia. Hepatotoxicidad."
+    }
+  },
+  {
+    "nombre_comun": "Parvovirus B19",
+    "nombre_cientifico": "Familia Parvoviridae",
+    "tipo": "Virus ADN",
+    "descripcion": "Genoma de ADN de cadena sencilla lineal. ADN monocateriano.",
+    "id_referencia": "B18",
+    "codigo_patogeno": [
+      "Timo - timo"
+    ],
+    "conflicto_base": {
+      "etapa_ontogenica": "La primera fase del sistema ontogénico de los microbios es el crecimiento y la expansión.",
+      "otros_conflictos": "Conflicto de resistencia: defensa frente a agresiones. Exageración de la defensa. Drama sin solución. Resistencia al dolor. Vivir en el abandono, soledad o de un desprecio. Dificultad de integrar las situaciones. No hay protección paterna. Los padres no pueden o no pudieron proteger. Desvalorización. Protección: escudo y coraza con la piel. Piel = Yo frente a los otros. Relación estropeada con el padre y en general problema de autoridad. Conflicto de identidad. Conflicto de exclusión de la comunidad.",
+      "sensaciones": "Dolor de ser dejado solo para llegar a triunfar."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Eritema infecioso (megaloeritema, quinta enfermedad). Poliartritis. Crisis aplásicas transitorias. Anemia aplásica. Hidropesia fetal. Dermatitis."
+    }
+  }
+]
