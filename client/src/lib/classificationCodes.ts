@@ -41,6 +41,7 @@ export const classificationCodes = {
     "Legionella": "A38",
     "Micoplasma": "A39",
     "Bacilo de la Tuberculosis": "A40",
+    "Mycobacterium tuberculosis": "A40",
     "Bacilo de la Lepra": "A41",
     "Gardenerella": "A42",
     "Clostridium tetani": "A43",
