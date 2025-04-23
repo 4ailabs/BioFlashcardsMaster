@@ -37,7 +37,8 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${categoryColorClass} text-white`}>
                 {categoryName}
               </span>
-              <span className="ml-2 text-xs font-mono text-slate-500 dark:text-slate-400">{card.id}</span>
+              {/* ID oculto para evitar confusión con el código de clasificación */}
+              <span className="sr-only">ID: {card.id}</span>
             </div>
             <button 
               className={cn("text-amber-500", card.isFavorite && "fill-current")} 
@@ -73,7 +74,8 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${categoryColorClass} text-white`}>
                 {categoryName}
               </span>
-              <span className="ml-2 text-xs font-mono text-slate-500 dark:text-slate-400">{card.id}</span>
+              {/* ID oculto para evitar confusión con el código de clasificación */}
+              <span className="sr-only">ID: {card.id}</span>
             </div>
             <button 
               className={cn("text-amber-500", card.isFavorite && "fill-current")}

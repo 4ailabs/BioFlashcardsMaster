@@ -13,33 +13,49 @@ const GridView = () => {
   useEffect(() => {
     // Esta función solo se ejecuta en el cliente, no en el servidor
     if (typeof window !== 'undefined') {
+      // Resetear el estado para forzar una nueva asignación de códigos
+      sessionStorage.removeItem('hasAssignedClassificationCodes');
+      
       // Prevenir recargas infinitas usando una bandera en sessionStorage
       const hasAssignedCodes = sessionStorage.getItem('hasAssignedClassificationCodes');
       if (hasAssignedCodes) return;
       
-      // Verificar si hay flashcards sin código de clasificación
-      const flashcardsWithoutCodes = flashcards.filter(card => !card.classificationCode);
+      // Verificar si hay flashcards sin código de clasificación o con códigos que necesitan actualización
+      const flashcardsToUpdate = flashcards.filter(card => 
+        !card.classificationCode || 
+        (card.name === 'Mycobacterium tuberculosis' && card.classificationCode !== 'A40')
+      );
       
-      if (flashcardsWithoutCodes.length > 0) {
-        console.log(`Asignando códigos de clasificación a ${flashcardsWithoutCodes.length} flashcards...`);
+      if (flashcardsToUpdate.length > 0) {
+        console.log(`Asignando códigos de clasificación a ${flashcardsToUpdate.length} flashcards...`);
         
         // Crear una copia de las flashcards para no modificar el estado directamente
         const updatedFlashcards = [...flashcards];
         
         // Asignar códigos de clasificación
         let codesAssigned = false;
-        flashcardsWithoutCodes.forEach(card => {
+        flashcardsToUpdate.forEach(card => {
           const index = updatedFlashcards.findIndex(c => c.id === card.id);
           if (index !== -1) {
-            // Usar la función de búsqueda para encontrar el código correspondiente
-            const code = findClassificationCode(card.name, card.category);
-            if (code) {
+            // Si es Mycobacterium tuberculosis, asignar código fijo
+            if (card.name === 'Mycobacterium tuberculosis') {
               updatedFlashcards[index] = {
                 ...updatedFlashcards[index],
-                classificationCode: code
+                classificationCode: 'A40'
               };
-              console.log(`Asignado código ${code} a ${card.name}`);
+              console.log(`Asignado código A40 a Mycobacterium tuberculosis (corregido)`);
               codesAssigned = true;
+            } else {
+              // Para otras tarjetas, usar la función de búsqueda 
+              const code = findClassificationCode(card.name, card.category);
+              if (code) {
+                updatedFlashcards[index] = {
+                  ...updatedFlashcards[index],
+                  classificationCode: code
+                };
+                console.log(`Asignado código ${code} a ${card.name}`);
+                codesAssigned = true;
+              }
             }
           }
         });
@@ -51,12 +67,8 @@ const GridView = () => {
           // Marcar que ya hemos asignado códigos para evitar recargas infinitas
           sessionStorage.setItem('hasAssignedClassificationCodes', 'true');
           
-          // Forzar recarga para aplicar los cambios (solo en desarrollo)
-          if (process.env.NODE_ENV === 'development') {
-            setTimeout(() => {
-              window.location.reload();
-            }, 500);
-          }
+          // Forzar recarga para aplicar los cambios
+          window.location.reload();
         } else {
           // Si no se asignaron códigos, marcar como completado para evitar recargas
           sessionStorage.setItem('hasAssignedClassificationCodes', 'true');
@@ -130,7 +142,9 @@ const GridView = () => {
                 onClick={() => handleCardClick(card, index)}
               >
                 <div className="flex justify-between items-start mb-2">
-                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400">{card.id}</span>
+                  {/* Identificador interno (oculto visualmente pero accesible para screen readers) */}
+                  <span className="sr-only">ID: {card.id}</span>
+                  
                   <button 
                     className={cn("text-amber-500", card.isFavorite && "fill-current")} 
                     onClick={(e) => {
