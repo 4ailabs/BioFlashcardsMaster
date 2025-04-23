@@ -7,6 +7,7 @@ export interface Flashcard {
   conflictBasis: string;
   notes: string;
   codeMapping: Record<string, any>;
+  classificationCode?: string; // Código de clasificación de Centro Bioenergética (A1, B1, C1, D1, etc.)
   isFavorite: boolean;
   studied?: boolean;
 }
@@ -41,6 +42,7 @@ const flashcards: Flashcard[] = [
       metabolicType: "facultative_anaerobe",
       cellWall: "gram_negative"
     },
+    classificationCode: "A19", // Código según Centrobioenergetica
     isFavorite: true
   },
   {
@@ -55,6 +57,7 @@ const flashcards: Flashcard[] = [
       metabolicType: "facultative_anaerobe",
       cellWall: "gram_positive"
     },
+    classificationCode: "A1", // Código según Centrobioenergetica
     isFavorite: false
   },
   {
@@ -99,6 +102,7 @@ const flashcards: Flashcard[] = [
       cellWall: "gram_negative",
       enzymeProduction: "urease"
     },
+    classificationCode: "A20", // Código según Centrobioenergetica
     isFavorite: false
   },
   

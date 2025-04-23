@@ -101,6 +101,12 @@ const Flashcard = ({ card }: FlashcardProps) => {
             <div>
               <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Código Patógeno</h3>
               <div className="mt-1 font-mono text-sm p-2 bg-slate-100 dark:bg-slate-700 rounded">
+                {card.classificationCode && (
+                  <div className="mb-2 p-1 bg-slate-200 dark:bg-slate-600 rounded inline-block">
+                    <span className="font-bold">Código Centrobioenergetica: </span>
+                    <span className="text-purple-600 dark:text-purple-400">{card.classificationCode}</span>
+                  </div>
+                )}
                 <code>
                   {JSON.stringify(card.codeMapping, null, 2)}
                 </code>

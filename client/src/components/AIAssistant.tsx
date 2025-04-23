@@ -37,6 +37,8 @@ const AIAssistant: React.FC = () => {
     
     if (!pregunta.trim()) return;
     
+    const selectedCard = selectedCardId ? flashcards.find(c => c.id === selectedCardId) : null;
+    
     const mensajeUsuario: Mensaje = {
       tipo: 'usuario',
       contenido: pregunta,
@@ -55,7 +57,8 @@ const AIAssistant: React.FC = () => {
         },
         body: JSON.stringify({ 
           pregunta: pregunta,
-          idPatogeno: selectedCardId 
+          idPatogeno: selectedCardId,
+          classificationCode: selectedCard?.classificationCode || null
         }),
       });
       
