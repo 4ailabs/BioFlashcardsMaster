@@ -89,10 +89,24 @@
 .card-front, .card-back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
 }
 
 .card-back {
   transform: rotateY(180deg);
+}
+
+/* Estilo para las listas de códigos patógeno */
+.card-back ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mejorar estilos de títulos en las tarjetas */
+.card-back h3 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 .bg-bacteria {

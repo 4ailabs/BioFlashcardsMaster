@@ -43,14 +43,10 @@ const Flashcard = ({ card }: FlashcardProps) => {
       >
         {/* Front of card */}
         <div className="card-front absolute w-full h-full rounded-2xl shadow-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${categoryColorClass} text-white`}>
-                {categoryName}
-              </span>
-              {/* ID oculto para evitar confusión con el código de clasificación */}
-              <span className="sr-only">ID: {card.id}</span>
-            </div>
+          <div className="flex justify-between items-start mb-2">
+            <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${categoryColorClass} text-white`}>
+              {categoryName}
+            </span>
             <button 
               className={cn("text-amber-500", card.isFavorite && "fill-current")} 
               onClick={handleFavoriteClick} 
@@ -61,14 +57,17 @@ const Flashcard = ({ card }: FlashcardProps) => {
           </div>
           
           <div className="flex-1 flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold mb-2">{card.name}</h2>
-              <p className="text-lg font-mono text-slate-600 dark:text-slate-400 mb-2">{card.scientificName}</p>
-              {card.classificationCode && (
-                <div className="inline-flex items-center justify-center bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm font-bold">
-                  Código: {card.classificationCode}
-                </div>
-              )}
+            <div className="text-center relative w-full">
+              <div className="flex justify-between items-start absolute w-full">
+                <div></div> {/* Espaciador */}
+                {card.classificationCode && (
+                  <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 absolute right-0 top-0">
+                    {card.classificationCode}
+                  </div>
+                )}
+              </div>
+              <h2 className="text-3xl font-bold mt-10 mb-3">{card.name}</h2>
+              <p className="text-xl italic text-slate-600 dark:text-slate-400">{card.scientificName}</p>
             </div>
           </div>
           
@@ -80,29 +79,21 @@ const Flashcard = ({ card }: FlashcardProps) => {
         
         {/* Back of card */}
         <div className="card-back absolute w-full h-full rounded-2xl shadow-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${categoryColorClass} text-white`}>
-                {categoryName}
-              </span>
-              {/* ID oculto para evitar confusión con el código de clasificación */}
-              <span className="sr-only">ID: {card.id}</span>
-            </div>
-            <button 
-              className={cn("text-amber-500", card.isFavorite && "fill-current")}
-              onClick={handleFavoriteClick}
-              aria-label={card.isFavorite ? "Quitar de favoritos" : "Añadir a favoritos"}
-            >
-              <Star className="h-5 w-5" />
-            </button>
+          <div className="flex justify-between items-start mb-2">
+            <h2 className="text-2xl font-bold">{card.name}</h2>
+            
+            {card.classificationCode && (
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+                {card.classificationCode}
+              </div>
+            )}
           </div>
           
-          <h2 className="text-xl font-bold mb-1">{card.name}</h2>
-          <p className="text-sm font-mono text-slate-600 dark:text-slate-400 mb-4">{card.scientificName}</p>
+          <p className="text-lg italic text-slate-600 dark:text-slate-400 mb-4">{card.scientificName}</p>
           
-          <div className="space-y-4 flex-1 overflow-auto pr-2">
+          <div className="space-y-5 flex-1 overflow-auto pr-2">
             <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Características</h3>
+              <h3 className="text-xl font-bold mb-2">{categoryName}</h3>
               <div className="mt-1">
                 {card.characteristics ? 
                   card.characteristics.split('\n\n').map((paragraph, index) => (
@@ -115,8 +106,23 @@ const Flashcard = ({ card }: FlashcardProps) => {
               </div>
             </div>
             
+            {/* Código Patógeno */}
             <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Base Conflictual</h3>
+              <h3 className="text-xl font-bold mb-2">Código patógeno</h3>
+              {card.codeMapping && card.codeMapping.codigoPatogeno && card.codeMapping.codigoPatogeno.length > 0 ? (
+                <ul className="list-disc pl-8 space-y-2">
+                  {card.codeMapping.codigoPatogeno.map((codigo: string, index: number) => (
+                    <li key={index}>{codigo}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No hay información disponible</p>
+              )}
+            </div>
+            
+            {/* Conflicto base */}
+            <div>
+              <h3 className="text-xl font-bold mb-2">Conflicto base</h3>
               <div className="mt-1">
                 {card.conflictBasis ? 
                   card.conflictBasis.split('\n\n').map((paragraph, index) => (
@@ -129,8 +135,9 @@ const Flashcard = ({ card }: FlashcardProps) => {
               </div>
             </div>
             
+            {/* Notas */}
             <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Notas</h3>
+              <h3 className="text-xl font-bold mb-2">Notas</h3>
               <div className="mt-1">
                 {card.notes ? 
                   card.notes.split('\n\n').map((paragraph, index) => (
@@ -142,51 +149,25 @@ const Flashcard = ({ card }: FlashcardProps) => {
                 }
               </div>
             </div>
-            
-            <div>
-              <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Código Patógeno</h3>
-              <div className="mt-1 font-mono text-sm p-2 bg-slate-100 dark:bg-slate-700 rounded">
-                {card.classificationCode && (
-                  <div className="mb-2 p-1 bg-slate-200 dark:bg-slate-600 rounded inline-block">
-                    <span className="font-bold">Código Centrobioenergetica: </span>
-                    <span className="text-purple-600 dark:text-purple-400">{card.classificationCode}</span>
-                  </div>
-                )}
-                
-                {/* Mostrar el código patógeno de manera más legible */}
-                {card.codeMapping && card.codeMapping.codigoPatogeno && card.codeMapping.codigoPatogeno.length > 0 && (
-                  <div className="mt-2">
-                    <div className="font-bold mb-1">Código Patógeno:</div>
-                    <ul className="list-disc pl-5 space-y-1">
-                      {card.codeMapping.codigoPatogeno.map((codigo: string, index: number) => (
-                        <li key={index} className="text-sm">{codigo}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                {/* Mostrar otros datos del codeMapping si existen */}
-                {card.codeMapping && Object.keys(card.codeMapping).filter(key => key !== 'codigoPatogeno').length > 0 && (
-                  <div className="mt-2">
-                    <div className="font-bold mb-1">Información Adicional:</div>
-                    {Object.entries(card.codeMapping)
-                      .filter(([key]) => key !== 'codigoPatogeno')
-                      .map(([key, value]) => (
-                        <div key={key} className="mb-1">
-                          <span className="font-semibold">{key.charAt(0).toUpperCase() + key.slice(1)}: </span>
-                          <span>{typeof value === 'string' ? value : JSON.stringify(value)}</span>
-                        </div>
-                      ))
-                    }
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
           
-          <div className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-            <p>Clic para volver</p>
-            <ArrowUp className="h-4 w-4 mx-auto mt-1" />
+          <div className="mt-4 flex justify-between items-center text-sm text-slate-500 dark:text-slate-400">
+            <button 
+              className={cn("text-amber-500", card.isFavorite && "fill-current")}
+              onClick={handleFavoriteClick}
+              aria-label={card.isFavorite ? "Quitar de favoritos" : "Añadir a favoritos"}
+            >
+              <Star className="h-6 w-6" />
+            </button>
+            
+            <div className="text-center">
+              <p>Clic para volver</p>
+              <ArrowUp className="h-4 w-4 mx-auto mt-1" />
+            </div>
+            
+            <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${categoryColorClass} text-white`}>
+              {categoryName}
+            </span>
           </div>
         </div>
       </div>
