@@ -74,11 +74,35 @@ export function convertirBacteriasAFlashcards(bacteriasJson: BacteriaJSONData[])
       conflictBasis += `Otros conflictos: ${bacteria.conflicto_base.otros_conflictos}`;
     }
     
+    // Si conflictBasis está vacío pero hay un objeto conflicto_base, usar todo el contenido como texto
+    if (conflictBasis === '' && Object.keys(bacteria.conflicto_base).length > 0) {
+      // Tomar el primer valor disponible en el objeto
+      const primerConflicto = Object.values(bacteria.conflicto_base)[0];
+      if (primerConflicto) {
+        conflictBasis = primerConflicto;
+      }
+    }
+    
     // Construir la cadena de notas
     let notes = '';
     if (bacteria.notas.enfermedades_relacionadas) {
       notes += `Enfermedades relacionadas: ${bacteria.notas.enfermedades_relacionadas}\n\n`;
     }
+    
+    // Incluir otras notas que no se hayan incluido en las características
+    Object.entries(bacteria.notas).forEach(([clave, valor]) => {
+      if (
+        valor && 
+        clave !== 'caracteristicas' && 
+        clave !== 'habitat' && 
+        clave !== 'toxinas' && 
+        clave !== 'virulencia' && 
+        clave !== 'afectaciones' && 
+        clave !== 'enfermedades_relacionadas'
+      ) {
+        notes += `${clave.charAt(0).toUpperCase() + clave.slice(1)}: ${valor}\n\n`;
+      }
+    });
     
     // Construir el mapeo de códigos
     const codeMapping: Record<string, any> = {

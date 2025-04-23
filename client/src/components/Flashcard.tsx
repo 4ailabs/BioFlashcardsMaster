@@ -103,17 +103,38 @@ const Flashcard = ({ card }: FlashcardProps) => {
           <div className="space-y-4 flex-1 overflow-auto pr-2">
             <div>
               <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Características</h3>
-              <p className="mt-1">{card.characteristics}</p>
+              <div className="mt-1">
+                {card.characteristics ? 
+                  card.characteristics.split('\n\n').map((paragraph, index) => (
+                    <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                      {paragraph}
+                    </p>
+                  )) : 
+                  <p>No hay información disponible</p>
+                }
+              </div>
             </div>
             
             <div>
               <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Base Conflictual</h3>
-              <p className="mt-1">{card.conflictBasis}</p>
+              <div className="mt-1">
+                {card.conflictBasis.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
             
             <div>
               <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Notas</h3>
-              <p className="mt-1">{card.notes}</p>
+              <div className="mt-1">
+                {card.notes.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
             
             <div>
@@ -125,9 +146,34 @@ const Flashcard = ({ card }: FlashcardProps) => {
                     <span className="text-purple-600 dark:text-purple-400">{card.classificationCode}</span>
                   </div>
                 )}
-                <code>
-                  {JSON.stringify(card.codeMapping, null, 2)}
-                </code>
+                
+                {/* Mostrar el código patógeno de manera más legible */}
+                {card.codeMapping && card.codeMapping.codigoPatogeno && card.codeMapping.codigoPatogeno.length > 0 && (
+                  <div className="mt-2">
+                    <div className="font-bold mb-1">Código Patógeno:</div>
+                    <ul className="list-disc pl-5 space-y-1">
+                      {card.codeMapping.codigoPatogeno.map((codigo: string, index: number) => (
+                        <li key={index} className="text-sm">{codigo}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                {/* Mostrar otros datos del codeMapping si existen */}
+                {card.codeMapping && Object.keys(card.codeMapping).filter(key => key !== 'codigoPatogeno').length > 0 && (
+                  <div className="mt-2">
+                    <div className="font-bold mb-1">Información Adicional:</div>
+                    {Object.entries(card.codeMapping)
+                      .filter(([key]) => key !== 'codigoPatogeno')
+                      .map(([key, value]) => (
+                        <div key={key} className="mb-1">
+                          <span className="font-semibold">{key.charAt(0).toUpperCase() + key.slice(1)}: </span>
+                          <span>{typeof value === 'string' ? value : JSON.stringify(value)}</span>
+                        </div>
+                      ))
+                    }
+                  </div>
+                )}
               </div>
             </div>
           </div>
