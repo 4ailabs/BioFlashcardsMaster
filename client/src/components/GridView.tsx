@@ -7,7 +7,15 @@ import { cn } from '@/lib/utils';
 import { findClassificationCode } from '@/lib/classificationCodes';
 
 const GridView = () => {
-  const { flashcards, toggleFavorite, setCurrentCardIndex, setActiveTab } = useFlashcards();
+  const { 
+    flashcards, 
+    toggleFavorite, 
+    setCurrentCardIndex, 
+    setSelectedCategory,
+    setSearchQuery,
+    setFavoritesOnly,
+    setActiveTab 
+  } = useFlashcards();
   
   // Efecto para asignar códigos de clasificación a las flashcards que no los tienen
   useEffect(() => {
@@ -115,7 +123,16 @@ const GridView = () => {
     // Encontrar el índice global de esta tarjeta en el array completo de flashcards
     const globalIndex = flashcards.findIndex(c => c.id === card.id);
     if (globalIndex !== -1) {
+      // Reset de los filtros para asegurar que la tarjeta sea visible en la vista de estudio
+      setSelectedCategory('all'); // Mostrar todas las categorías
+      setSearchQuery(''); // Limpiar la búsqueda
+      setFavoritesOnly(false); // Desactivar filtro de favoritos
+      
+      // Establecer el índice de la tarjeta actual
       setCurrentCardIndex(globalIndex);
+      
+      // Cambiar de pestaña (esto debe hacerse último para asegurar que los efectos 
+      // en los componentes que dependen de activeTab se ejecuten después de los cambios de estado)
       setActiveTab('study');
     }
   };
