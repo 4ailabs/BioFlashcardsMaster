@@ -112,8 +112,10 @@ const AIAssistant: React.FC = () => {
       case 'virus_arn':
         return 'bg-yellow-100 text-yellow-800 border-yellow-300';
       case 'parasito':
+      case 'parasitos':
         return 'bg-purple-100 text-purple-800 border-purple-300';
       case 'hongo':
+      case 'hongos':
         return 'bg-pink-100 text-pink-800 border-pink-300';
       default:
         return 'bg-gray-100 text-gray-800 border-gray-300';
@@ -130,8 +132,10 @@ const AIAssistant: React.FC = () => {
       case 'virus_arn':
         return 'Virus ARN';
       case 'parasito':
+      case 'parasitos':
         return 'Parásito';
       case 'hongo':
+      case 'hongos':
         return 'Hongo';
       default:
         return categoria;
