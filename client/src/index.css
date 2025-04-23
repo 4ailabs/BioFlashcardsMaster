@@ -78,8 +78,9 @@
 }
 
 .card-inner {
-  transition: transform 0.8s;
+  transition: transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
+  transform-origin: center center;
 }
 
 .card-inner.flipped {
@@ -91,6 +92,9 @@
   -webkit-backface-visibility: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
 }
 
 .card-back {
