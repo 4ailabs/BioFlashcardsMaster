@@ -10,6 +10,7 @@ import StudyView from "@/components/StudyView";
 import Dashboard from "@/components/Dashboard";
 import Favorites from "@/components/Favorites";
 import AIAssistant from "@/components/AIAssistant";
+import GridView from "@/components/GridView";
 import { ThemeProvider } from "./context/ThemeContext";
 import { FlashcardProvider } from "./context/FlashcardContext";
 
