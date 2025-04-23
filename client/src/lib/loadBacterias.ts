@@ -10,9 +10,21 @@ export function loadBacteriasFromJson(): Flashcard[] {
     console.log(`Cargando ${bacteriasJson.length} bacterias desde JSON`);
     const flashcards: Flashcard[] = [];
     
+    // Creamos un Set para llevar control de los códigos de clasificación ya procesados
+    const processedCodes = new Set<string>();
+    
     bacteriasJson.forEach((bacteria: any) => {
       // Extraer datos del JSON
       const classificationCode = bacteria.id_referencia;
+      
+      // Verificamos si ya procesamos esta bacteria para evitar duplicados
+      if (processedCodes.has(classificationCode)) {
+        return; // Skip this iteration
+      }
+      
+      // Marcamos el código como procesado
+      processedCodes.add(classificationCode);
+      
       const name = bacteria.nombre_comun;
       const scientificName = bacteria.nombre_cientifico;
       

@@ -100,10 +100,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             )}
           </div>
           
-          {/* Bacteria nombre como decoración invertida */}
-          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl font-black text-slate-100 dark:text-slate-700 select-none rotate-180 opacity-15 whitespace-nowrap z-0 pointer-events-none">
-            {card.name}
-          </div>
+          {/* No usamos el nombre invertido en la parte posterior */}
           
           <div className="mt-4 relative z-10">
             <div className="flex items-center mb-4">

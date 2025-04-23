@@ -197,7 +197,8 @@ const generateBasicInfo = (name: string, category: string): {
       codeMapping = {
         type: 'bacteria',
         gramStain: 'variable',
-        habitat: 'human_host'
+        habitat: 'human_host',
+        codigoPatogeno: ['Bacteria', 'Procariota', 'Posible resistencia antibiótica']
       };
       break;
     case 'virus_adn':
@@ -207,7 +208,8 @@ const generateBasicInfo = (name: string, category: string): {
       codeMapping = {
         type: 'virus',
         genomeType: 'dna',
-        structure: 'variable'
+        structure: 'variable',
+        codigoPatogeno: ['DNA virus', 'Familia Herpesviridae']
       };
       break;
     case 'virus_arn':
@@ -217,7 +219,8 @@ const generateBasicInfo = (name: string, category: string): {
       codeMapping = {
         type: 'virus',
         genomeType: 'rna',
-        structure: 'variable'
+        structure: 'variable',
+        codigoPatogeno: ['RNA virus', 'Alta tasa de mutación']
       };
       break;
     case 'parasito':
@@ -228,7 +231,8 @@ const generateBasicInfo = (name: string, category: string): {
       codeMapping = {
         type: 'parasite',
         lifecycle: 'complex',
-        habitat: 'human_tissues'
+        habitat: 'human_tissues',
+        codigoPatogeno: ['Parásito eucariota', 'Ciclo de vida complejo']
       };
       break;
     case 'hongo':
@@ -239,7 +243,8 @@ const generateBasicInfo = (name: string, category: string): {
       codeMapping = {
         type: 'fungus',
         morphology: 'variable',
-        habitat: 'environmental'
+        habitat: 'environmental',
+        codigoPatogeno: ['Hongo eucariota', 'Morfología variable', 'Saprofito o parásito']
       };
       break;
     default:
