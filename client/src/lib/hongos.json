@@ -1,0 +1,168 @@
+[
+  {
+    "nombre_comun": "Aspergillus sp.",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Aunque el más frecuente es Aspergillus fumigatus, existen otros potenciales patógenos, como Aspergillus flavus, Aspergillus niger, Aspergillus nidulans o Aspergillus terreus.",
+    "id_referencia": "D1",
+    "codigo_patogeno": [
+      "Canto - canto"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Desilusión. Devaluación. Miedo profundo. Conflicto de identidad. Gran vulnerabilidad. Lo que veo, no es lo que esperaba. No acepto como me veo. La ilusión que me forme se desvanece frente a mis ojos."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Aspergilosis pulmonar. Tos. Sibilancias. Granulomas pulmonares. Neumonía. Conflictos visuales."
+    }
+  },
+  {
+    "nombre_comun": "Cryptococcus neoformans",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Encapsulado. Se encuentra en el excremento de las palomas. Monomórfico. Se transmite por inhalación a partir de excrementos.",
+    "id_referencia": "D2",
+    "codigo_patogeno": [
+      "Preauricular - vejiga"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "No puedo soportar que mi ilusión se pierda. Se fue la ilusión de ser lo que soñe. Sufro con la expectativa no alcanzada. Resistencia a una situación, persona o lugar. Decepción. Sufrimiento vivido en secreto."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Micosis sistémica. Más común en inmunodeprimidos. Manifestaciones pulmonares (infiltrado intersticial). Tos, disnea, fiebre, perdida de peso. Meningitis."
+    }
+  },
+  {
+    "nombre_comun": "Coccidiodes inmitis",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Se conoce también como la 'fiebre del valle'. La infección es causada por la inhalación de esporas.",
+    "id_referencia": "D3",
+    "codigo_patogeno": [
+      "Dorsal 6 - dorsal 6"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "La ilusión y la expectativa me traen sufrimiento y me autodestruye. Conflicto de identidad frágil. Aferramiento al pasado."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Fiebre. Diaforesis. Anorexia. Artralgias. Síntomas respiratorios. Meningitis. Se presenta más grave en inmunodeprimidos."
+    }
+  },
+  {
+    "nombre_comun": "Histoplasma capsulatum",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Se encuentra en heces de ave o murciélago. La forma infectante es una microconidio oval. Hongo dimórfico. También conocido como la enfermedad de Darling.",
+    "id_referencia": "D4",
+    "codigo_patogeno": [
+      "Esófago - vejiga izquierda"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "La expectativa al final no es nada, solo conseguí un ciclo de repeticiones, sigo teniendo la misma necesidad. Necesito lo esencial. Conflicto de identidad frágil y vulberable."
+    },
+    "notas": {
+      "transmision": "El hongo ingresa por inhalación de heces contaminadas en cuevas.",
+      "presentacion_clinica": "La primoinfección es asitomática generalmente, después puede seguir dos formas clínicas: Pulmonar (aguda o crónica) y diseminada progresiva.",
+      "enfermedades_relacionadas": "Fiebre. Tos. Diaforesis. Lesiones cutáneas. Úlceras orales. Dolor articular. Nódulos cutáneos."
+    }
+  },
+  {
+    "nombre_comun": "Candida albicans",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Dimórfico. Que presenta pseudohifas, hifas y blastoconidios.",
+    "id_referencia": "D5",
+    "codigo_patogeno": [
+      "Diafragma - diafragma"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Resistencia. Lloro mis ilusiones. Conflicto de identidad. La ilusión de ser barbie eternamente. Estoy estancado. Esta ilusión me autodestruye."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Candidiasis oral (algodoncillo). Vaginitis. Síndrome Yeast. Fermentación intestinal. Candidiasis cutánea: prurito, eritema, lesiones satelites. Alergias."
+    }
+  },
+  {
+    "nombre_comun": "Tricophyton",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Dermatofito.",
+    "id_referencia": "D6",
+    "codigo_patogeno": [
+      "Primera costilla - primera costilla",
+      "Séptima costilla - séptima costilla",
+      "Cava - cava",
+      "Primer dedo del pie - primer dedo del pie"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Estoy en un territorio amenazante. Deseo un territorio mejor. Este terreno que piso confronta lo que soy. Soy menos comparado con los démas. No puedo encontrar mi identidad. Mi identidad es fragil e incierta. Tengo la ilusión y la expectativa se ser fuerte como un pilar. Si me derrumbo, se derrumba toda la familia. Mi territorio es agresivo, es conflictivo. Me he perdido a mi mismo."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Tinea de la cabeza (capitis), del cuerpo (corporis), de la ingle (cruris), del pie (pedis), de las uñas (unguium)."
+    }
+  },
+  {
+    "nombre_comun": "Pneumocystis carinii",
+    "nombre_cientifico": "Pneumocystis jirovecii",
+    "tipo": "Hongo",
+    "descripcion": "Ascomicete.",
+    "id_referencia": "D7",
+    "codigo_patogeno": [
+      "Condral - condral"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Mi ilusión se ha perdido. Me siento agredido por lo que soy. Los demás esperan algo diferente en mi. Conflicto de identidad. Indentidad fragil y vunerable. No merezco existir. Profunda inexistencia."
+    },
+    "notas": {
+      "mecanismo": "Se adhiere a las membranas celulares alveolares para luego formar agrupaciones que progresan a desarrollar quistes.",
+      "enfermedades_relacionadas": "Sintómas: Neumonía, expectoración, disnea, fiebre, perdida de peso, temblores."
+    }
+  },
+  {
+    "nombre_comun": "Micelio intestinal*",
+    "nombre_cientifico": "Pseudohifa candida albicans",
+    "tipo": "Hongo",
+    "descripcion": "Dimórfico.",
+    "id_referencia": "D9",
+    "codigo_patogeno": [
+      "Píloro - uretero"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Estoy estancado. Me he desilusionado. Mi interior tiene ausencia de luz. El alma se ha desplazado."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Conflictos abdominales. Meteorismo. Inflamación intestinal. Distensión abdominal. Alergias."
+    }
+  },
+  {
+    "nombre_comun": "Microsporum canis",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Hongos filamentosos queratinofílicos.",
+    "id_referencia": "D10",
+    "codigo_patogeno": [
+      "Radio - radio"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Lo que hago no me sirve para mis necesidades. Estoy en el territorio equivocado. Me he desilusionado. Conflicto territorial."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Provoca tinea de la cabeza y corporal."
+    }
+  },
+  {
+    "nombre_comun": "Malassezia furfur",
+    "nombre_cientifico": null,
+    "tipo": "Hongo",
+    "descripcion": "Presenta un estado levadura llamado Pityrosporum ovale y una fase micelial que es la forma patógena.",
+    "id_referencia": "D11",
+    "codigo_patogeno": [
+      "Tibia - tibia"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Me siento separado. Mi territorio es conflictivo. Solo soy apariencia. Conflicto de identidad. Identidad doble."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Foliculitis. Blefaritis. Dermatitis seborreica."
+    }
+  }
+]

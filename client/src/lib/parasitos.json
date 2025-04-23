@@ -1,0 +1,313 @@
+[
+  {
+    "nombre_comun": "Toxoplasma gondii",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "Intracelular obligado.",
+    "id_referencia": "C1",
+    "codigo_patogeno": [
+      "Oido - oido"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflictos del grupo no resueltos y que se mantienen en secreto. Negación."
+    },
+    "notas": {
+      "comportamiento": "Las infecciones por T. gondii tienen la facultad de cambiar el comportamiento de ratas y ratones, haciendo que se acerquen, en vez de huir del olor de los gatos."
+    }
+  },
+  {
+    "nombre_comun": "Plasmodium sp.",
+    "nombre_cientifico": "P. ovale, P. Vivax, P. falciparum",
+    "tipo": "Protozoo",
+    "descripcion": "Tiene dos huespedes: Un mosquito y un huesped vertebrado.",
+    "id_referencia": "C2",
+    "codigo_patogeno": [
+      "Pomulo izquierdo - riñón derecho"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de sangre (familia). El sentido del grupo. Lazo patológico. Triangulo dramático de Karpman."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Fibromialgia. Artritis. Fiebre. Anemia."
+    }
+  },
+  {
+    "nombre_comun": "Entamoeba histolytica",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "Anaerobio de forma ameboide.",
+    "id_referencia": "C3",
+    "codigo_patogeno": [
+      "Parietal izquierdo - riñón izquierdo",
+      "Píloro - riñón izquierdo",
+      "Hígado - riñón izquierdo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Invasión del grupo. Mis parientes me invaden. Me siento invadido y no puedo recharzarle. Se aprovechan de mi. Lazo patológico. Me siento agotado."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Diarrea aguda. Dolor abdominal. Colitis. Lesiones ulcerosas del epitelio colonico. Disentería."
+    }
+  },
+  {
+    "nombre_comun": "Sarcoptes scabiei",
+    "nombre_cientifico": null,
+    "tipo": "Ácaro",
+    "descripcion": "Arador de la sarna. Cuerpo no segmentado, ovoide, con cuatro pares de patas.",
+    "id_referencia": "C4",
+    "codigo_patogeno": [
+      "Lengua - lengua"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Doble conflicto. La solución de uno complica a el otro. Separación dolorosa."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Dermatitis. Prurito. Psoriasis."
+    }
+  },
+  {
+    "nombre_comun": "Filaria sp.",
+    "nombre_cientifico": null,
+    "tipo": "Nematodo",
+    "descripcion": "Son transmitidos en forma de larva o microfilaria a los vertebrados por un artrópodo.",
+    "id_referencia": "C5",
+    "codigo_patogeno": [
+      "Mastoides - mastoides"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de lazo patológico. Parásitos familiares."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Elefantiasis. Dermatitis. Edema."
+    }
+  },
+  {
+    "nombre_comun": "Blastocystis hominis",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "Se distinguen las formas esquizonte y trofozoíto.",
+    "id_referencia": "C6",
+    "codigo_patogeno": [
+      "Cuello - cuello"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Reconfiguración de quien soy en el grupo. Plaza y reconocimiento."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Diarrea, inflamación intestinal."
+    }
+  },
+  {
+    "nombre_comun": "Balantidium Coli",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "Ciliado. La transmisión es fecal-oral. Es el protozoario de mayor tamaño entre los que parasitan al hombre; el trofozoíto puede llegar a medir hasta 870μm.",
+    "id_referencia": "C7",
+    "codigo_patogeno": [
+      "Cervical 3ª o 4ª - suprarrenal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Reconfiguración de quien soy en el grupo. Enojo indigesto con el grupo o la sociedad."
+    },
+    "notas": {
+      "reservorio": "Los cerdos son los reservorios más comunes, aunque muy pocos presentan síntomas.",
+      "enfermedades_relacionadas": "Diarrea. Inflamación intestinal."
+    }
+  },
+  {
+    "nombre_comun": "Trypanosoma cruzi",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "Caracterizado por un solo flagelo y una sola mitocondria. Intracelular.",
+    "id_referencia": "C8",
+    "codigo_patogeno": [
+      "Costodiafragmático - costadiafragmático"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Confundido,Fuera de centro, Lastimado, el corazón roto, sufriente. Memorias transgeneracionales que afectaron el corazón, de invasión, de abuso."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Genera megacolon, megaesofago, cardiomegalia. Enfermedad de Chagas. Afecciones cardiacas: Cardiomiopatía."
+    }
+  },
+  {
+    "nombre_comun": "Fasciolopsis buski",
+    "nombre_cientifico": null,
+    "tipo": "Platelminto",
+    "descripcion": "Trematodo (duela) de forma lanceolada, con dos ventosas, una bucal y otra ventral.",
+    "id_referencia": "C9",
+    "codigo_patogeno": [
+      "Esófago - esófago"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Violación de la ley interior. Enojo con el grupo. Conflicto de cólera territorial."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Dolor vesicular. Inflamación de vías biliares. Afecciones gastrointestinales."
+    }
+  },
+  {
+    "nombre_comun": "Enterobius vermicularis",
+    "nombre_cientifico": null,
+    "tipo": "Nematodo",
+    "descripcion": "Fusiforme de coloración blanco nacarado. También denominado oxiuro.",
+    "id_referencia": "C10",
+    "codigo_patogeno": [
+      "Píloro - hígado"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto con el grupo. Ira acumulada. Enojo con un miembro del grupo. Tolerancia llevada al máximo."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Inflamación gastrointestinal. Hepatitis. Bruxismo. Nausea."
+    }
+  },
+  {
+    "nombre_comun": "Trichinella spiralis",
+    "nombre_cientifico": null,
+    "tipo": "Nematodo",
+    "descripcion": "Se trasmite por carne cruda.",
+    "id_referencia": "C11",
+    "codigo_patogeno": [
+      "Píloro - lengua"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de lazo patológico. No poder soportar una situación en el grupo. Invasión insoportable en negación."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Mialgias. Dolor general."
+    }
+  },
+  {
+    "nombre_comun": "Trichomona sp.",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "Presenta un tamaño 10-20 μm de longitud y una morfología piriforme. Carece de mitocondrias y posee en su lugar hidrogenosomas.",
+    "id_referencia": "C12",
+    "codigo_patogeno": [
+      "Ciego - riñón derecho",
+      "Valvúla ileocecal - riñón derecho"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Memorias conflictivas de experiencias sexuales con enojo, desconfianza, rechazo. Sentirse usado. Experiencias sexuales que no se han asimilado, no dichas."
+    },
+    "notas": {
+      "metabolismo": "Los hidrogenosomas catalizan la formación de ATP en condiciones anaerobicas.",
+      "enfermedades_relacionadas": "Procesos inflamatorios de mucosas genitales. Vulvovaginitis. Prurito vulvar. Uretritis. Prostatitis. Epididimitis."
+    }
+  },
+  {
+    "nombre_comun": "Schistosoma",
+    "nombre_cientifico": null,
+    "tipo": "Platelminto",
+    "descripcion": "De la clase trematodos, comunmente llamados bilharzia.",
+    "id_referencia": "C13",
+    "codigo_patogeno": [
+      "Colon descendente - cuadriceps"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Tolerancia llevada al extremo. Experiencias en el grupo difícil de asimilar. Exclusión."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Dermatitis. Granulomas. Fiebre de Katayama. Hipertensión portal. Hematuria. Afección vesical. Neumonitis. Sindrome de Loeffler. Disentería. Polipos colonicos. Glomerulonefritis."
+    }
+  },
+  {
+    "nombre_comun": "Parasitos intestinales",
+    "nombre_cientifico": null,
+    "tipo": "Helmintos",
+    "descripcion": "El término helminto (del griegoέλμινθος hélminthos, \"gusano\") es en principio un sinónimo de verme o gusano.",
+    "id_referencia": "C14",
+    "codigo_patogeno": [
+      "Gluteo - gluteo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto con el grupo o el otro. Tengo que tolerar a mi familia. Enojo indigesto. Experiencias no asimiladas."
+    },
+    "notas": {
+      "interaccion_inmune": "Los parásitos helmintos, poseen la capacidad de regular (modular) la respuesta inmune del huésped para su beneficio. En este fenómeno por demás interesante, los helmintos inducen un proceso anti-inflamatorio, mediante lo cual pueden suprimir, desviar y/o convertir la respuesta inmune del huésped, favoreciendo su permanencia."
+    }
+  },
+  {
+    "nombre_comun": "Babesia (Nuttallia)",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "El parásito es transmitido por garrapatas y ataca a los glóbulos rojos de la sangre.",
+    "id_referencia": "C15",
+    "codigo_patogeno": [
+      "Gluteo - vena femoral"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de sufrimiento oculto en el grupo. Vivencias no asimiladas. Exclusión."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Lesiones en corazón, bazo, pulmón, hígado. Glomerulonefritis. Gastritis ulcerativa. Hemorragias."
+    }
+  },
+  {
+    "nombre_comun": "Trypanosoma gambiensi",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "Transmitidos a los humanos por picaduras de la mosca tse-tse (género Glossina).",
+    "id_referencia": "C16",
+    "codigo_patogeno": [
+      "Cresta iliaca - cresta iliaca"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Tolerancia llevada al extremo. Conflictos no asimilados en el grupo."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Fiebre. Linfadenitis. Perdida de peso. Afecciones neurologicas. Insmonio. Coma."
+    }
+  },
+  {
+    "nombre_comun": "Onchocerca volvulus",
+    "nombre_cientifico": null,
+    "tipo": "Nematodo",
+    "descripcion": "Las hembras miden de 33 a 50 cm de largo y de 270 a 400 μm de diámetro, mientras que los machos miden de 19 a 42 mm por 130 a 210 μm.",
+    "id_referencia": "C17",
+    "codigo_patogeno": [
+      "Isquión - isquión"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Lazos patólogicos. Conflictos antiguos y transgeneracionales no resueltos. Abuso. Ira contenida. Conflicto territorial."
+    },
+    "notas": {
+      "patologia": "La patología producida por los parásitos adultos consiste en nódulos subcutáneos llamados oncocercomas, que están formados por tres partes, una cápsula fibrosa periférica, otra intermedia fibrosa y celular vascularizada y en el centro los parásitos enrollados que pueden vivir 10 años o más.",
+      "enfermedades_relacionadas": "Fiebre. Eosinofilia. Urticaria. Conjuntivitis. Queratitis. Coriorretinitis."
+    }
+  },
+  {
+    "nombre_comun": "Leishmania sp.",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "El principal vector de infección son los mosquitos de los géneros Phlebotomus (en Eurasia y África) y Lutzomyia (en América).",
+    "id_referencia": "C18",
+    "codigo_patogeno": [
+      "Deltoides derecho - riñón derecho"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Sensación de vacio. Angustia. Indefenso, inservible, vacío, destinado al fracaso. Exclusión. Sentirse atrapado en un lazo familiar."
+    },
+    "notas": {
+      "presentacion_cutanea": "En la leishmaniosis cutánea el parásito se localiza en la piel. Después de la picadura del mosquito, transcurren entre una y doce semanas para que se desarrolle una pápula eritematosa, que crece y se ulcera, generando una costra de exudado seco.",
+      "presentacion_visceral": "La leishmaniosis visceral se caracteriza por la inflamación del hígado y del bazo, acompañada por distensión abdominal severa, pérdida de condición corporal, desnutrición y anemia."
+    }
+  },
+  {
+    "nombre_comun": "Giardia lamblia",
+    "nombre_cientifico": null,
+    "tipo": "Protozoo",
+    "descripcion": "El análisis del RNA de la unidad ribosomal 16S de Giardia, indica que este protozoo se encuentra ubicado entre los eucariontes más primitivos.",
+    "id_referencia": "C19",
+    "codigo_patogeno": [
+      "Agujero (hiato esofágico) - agujero"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto territorial. Sentirse invadido. Conflicto difícil de asimilar. No poder digerir una situación."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Diarrea. Malabsorción intestinal."
+    }
+  }
+]

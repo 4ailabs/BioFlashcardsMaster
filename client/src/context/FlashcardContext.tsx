@@ -4,6 +4,7 @@ import { Flashcard, StudyStats, RecentActivity } from '@/data/flashcards';
 import { generateFlashcardsFromPatogenosData } from '@/lib/generateFlashcards';
 import { loadBacteriasFromJson } from '@/lib/loadBacterias';
 import { loadVirusFromJson } from '@/lib/loadVirus';
+import { loadPatogenosFromJson } from '@/lib/loadPatogenos';
 
 interface FlashcardContextType {
   flashcards: Flashcard[];
@@ -105,6 +106,11 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       const { virusAdn, virusArn } = loadVirusFromJson();
       console.log(`Cargados ${virusAdn.length} virus ADN y ${virusArn.length} virus ARN desde JSON`);
       
+      // Cargar los parásitos y hongos desde JSON
+      console.log("Cargando parásitos y hongos desde JSON...");
+      const { parasitos, hongos } = loadPatogenosFromJson();
+      console.log(`Cargados ${parasitos.length} parásitos y ${hongos.length} hongos desde JSON`);
+      
       // En lugar de combinar directamente, vamos a eliminar duplicados por código de clasificación
       // Crear un mapa para realizar un seguimiento de las tarjetas por código de clasificación
       const cardsByClassCode = new Map<string, Flashcard>();
@@ -137,14 +143,34 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
         }
       });
       
-      // 4. Finalmente, agregar las flashcards base que no tengan códigos duplicados
+      // 4. Agregar los parásitos del JSON
+      parasitos.forEach(card => {
+        if (card.classificationCode) {
+          cardsByClassCode.set(card.classificationCode, card);
+        } else {
+          cardsByClassCode.set(card.id, card);
+        }
+      });
+      
+      // 5. Agregar los hongos del JSON
+      hongos.forEach(card => {
+        if (card.classificationCode) {
+          cardsByClassCode.set(card.classificationCode, card);
+        } else {
+          cardsByClassCode.set(card.id, card);
+        }
+      });
+      
+      // 6. Finalmente, agregar las flashcards base que no tengan códigos duplicados
       baseFlashcards.forEach(card => {
         const key = card.classificationCode || card.id;
         // Solo agregar si no existe o si no corresponde a una categoría que ya procesamos desde el JSON
         if (!cardsByClassCode.has(key) || 
             (card.category !== 'bacteria' && 
              card.category !== 'virus_adn' && 
-             card.category !== 'virus_arn')) {
+             card.category !== 'virus_arn' &&
+             card.category !== 'parasito' &&
+             card.category !== 'hongo')) {
           cardsByClassCode.set(key, card);
         }
       });
@@ -154,7 +180,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       console.log(`Total de flashcards después de eliminar duplicados: ${uniqueFlashcards.length}`);
       
       // Calcular cuántas flashcards serían si hubiéramos concatenado directamente
-      const totalRawCount = baseFlashcards.length + bacteriasFlashcards.length + virusAdn.length + virusArn.length;
+      const totalRawCount = baseFlashcards.length + bacteriasFlashcards.length + virusAdn.length + virusArn.length + parasitos.length + hongos.length;
       const eliminadas = totalRawCount - uniqueFlashcards.length;
       if (eliminadas > 0) {
         console.log(`Se eliminaron ${eliminadas} flashcards duplicadas`);
