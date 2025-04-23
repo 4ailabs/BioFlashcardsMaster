@@ -60,13 +60,19 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
     []
   );
   
-  // Inicializar flashcards si no existen
+  // Inicializar o actualizar flashcards
   useEffect(() => {
-    if (flashcards.length === 0) {
-      console.log("Inicializando flashcards...");
-      const cards = initializeFlashcards();
-      console.log(`Se inicializaron ${cards.length} flashcards`);
+    // Siempre llamamos a initializeFlashcards, que se encargará de verificar
+    // si necesitamos actualizar con las nuevas bacterias
+    console.log("Verificando si hay actualizaciones en las flashcards...");
+    const cards = initializeFlashcards();
+    
+    // Si hay diferencia en la cantidad, actualizamos
+    if (cards.length !== flashcards.length) {
+      console.log(`Actualizando flashcards: ${flashcards.length} → ${cards.length}`);
       setFlashcards(cards);
+    } else {
+      console.log("No se necesita actualización de flashcards");
     }
   }, []);
   
