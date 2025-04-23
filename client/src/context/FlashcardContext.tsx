@@ -1,6 +1,7 @@
 import { createContext, useContext, ReactNode, useState, useEffect, useMemo } from 'react';
 import useLocalStorage from '@/hooks/useLocalStorage';
-import flashcardData, { Flashcard, StudyStats, RecentActivity } from '@/data/flashcards';
+import { Flashcard, StudyStats, RecentActivity } from '@/data/flashcards';
+import initializeFlashcards from '@/lib/generateFlashcards';
 
 interface FlashcardContextType {
   flashcards: Flashcard[];
@@ -56,7 +57,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   // Load flashcards data and enhance with localStorage favorites
   const [flashcards, setFlashcards] = useLocalStorage<Flashcard[]>(
     'flashcards',
-    flashcardData
+    initializeFlashcards()
   );
   
   const [currentCardIndex, setCurrentCardIndex] = useLocalStorage<number>(
