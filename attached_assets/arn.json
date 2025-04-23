@@ -1,0 +1,500 @@
+[
+  {
+    "nombre_comun": "Virus de la rabia",
+    "nombre_cientifico": "Familia Rhabdoviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "Cadena simple de ARN. Tiene forma de bala. Envoltura de lípidos.",
+    "id_referencia": "B19",
+    "codigo_patogeno": [
+      "Axila - axila",
+      "Mentón - mentón"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto territorial. Ira. Enojo territorial no expresada. Bronquiolitis, asma, Amenaza en el territorio. Conflicto por traición. Incomodo. Miedo a la separación."
+    },
+    "notas": {
+      "interacciones": "Puede asociarse a otro virus. ARN - ARN o ARN - ADN y manifestarse como exudados. Buscar también la bacteria que le hace resonancia.",
+      "enfermedades_relacionadas": "Asma, bronquitis, bronquiolitis, afecciones nerviosas."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la influenza",
+    "nombre_cientifico": "Familia Orthomyxoviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "Se caracteriza por presentar envoltura y ser isométrico.",
+    "id_referencia": "B20",
+    "codigo_patogeno": [
+      "Tráquea - tráquea"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión territorial. Conflictos de amenaza y miedo territorial. Invasión de territorio."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Laringitis, traqueobronquitis, síndrome gripal."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la aftosa",
+    "nombre_cientifico": "Familia Picornaviridae, Aphthovirus",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena positiva, envuelto por una cápside.",
+    "id_referencia": "B21",
+    "codigo_patogeno": [
+      "Carina - carina"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión. Querer expresarse y no se puede. Traición."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Exantema vírico de manos, pies y boca. es una leve dolencia viral, cuyos síntomas principales son dolor en la boca y presencia de pequeñas ampollas, úlceras o aftas."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la Rubeola",
+    "nombre_cientifico": "Familia Togaviridae, Rubivirus",
+    "tipo": "Virus ARN",
+    "descripcion": "El virus está encapsulado y forma partículas esféricas de 65 a 70 nm de diámetro.",
+    "id_referencia": "B22",
+    "codigo_patogeno": [
+      "Timo - parietal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Enfermedad de autonomización. Conflicto de movimiento bloqueado. Esquema de dependencia. Inicio mi vida hacia la libertad y a la autonomía. Devaluación."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enfermedad exantemática. Mialgias. Artralgias.",
+      "familia_viral": "Rubeola, virus de la encefalitis, Chikunguña pertenecen a la misma familia."
+    }
+  },
+  {
+    "nombre_comun": "VIH",
+    "nombre_cientifico": "Familia Retroviridae, Lentivirus (Retrovirus exógeno)",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN monocatenario de polaridad positiva y se replican de manera inusual a través de una forma intermedia de ADN bicatenario. Utilizan Transcriptasa reversa.",
+    "id_referencia": "B23",
+    "codigo_patogeno": [
+      "Timo - recto"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Identidad frágil e incierta. Te amo pero no te acepto. Confrontan la identidad frágil e incierta. No merezco existir. Conflicto de exclusión y pertenencia. Quedarse solo y abandonado."
+    },
+    "notas": {
+      "interacciones": "Hay activaciones fisiológicas del VIH con las infecciones herpéticas (conflictos desencadenantes);",
+      "mecanismo": "Retrovirus. Transcriptasa reversa: Retrovirus. Vuelve a copiar segmentos hacia atrás. Encontrar su identidad. Volver hacia atrás."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la pleuritis (Pleuritis viral)*",
+    "nombre_cientifico": "Familia Picornaviridae, Enterovirus, Coxsackie",
+    "tipo": "Virus ARN",
+    "descripcion": "Virus desnudo, RNA lineal.",
+    "id_referencia": "B24",
+    "codigo_patogeno": [
+      "Pleura - pleura"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de agresión a las corazas. Agresión. Miedo por mi/su corazon, ojos, pulmones: Tengo algo malo en el pecho."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Pleuritis. Afecciones respiratorias."
+    }
+  },
+  {
+    "nombre_comun": "Virus del Sarampión",
+    "nombre_cientifico": "Familia Paramyxoviridae, Morbilivirus",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena sencilla de polaridad negativa como ácido nucleico.",
+    "id_referencia": "B25",
+    "codigo_patogeno": [
+      "Estomago - suprarrenal."
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Con el sarampión cambiamos el formato de nuestros receptores sensoriales, que nos permite percibir el mundo a través de nuestros propios sentimientos, en lugar de a través de los sentimientos de nuestros padres. Conflicto territorial. Evolución del individuo en el grupo. El rol de los microbios es esencial porque confrontan al individuo a una prueba inmunológica, el la cual va a aprender nuevas competencias y formar su identidad."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enfermedad exantemática."
+    }
+  },
+  {
+    "nombre_comun": "Virus del Catarro común",
+    "nombre_cientifico": "Familia Coronaviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena sencilla con polaridad positiva y simetría helicoidal.",
+    "id_referencia": "B26",
+    "codigo_patogeno": [
+      "Vesícula - riñón izquierdo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Adaptación a un territorio. Conflicto de miedo, amenaza en el territorio. Desconfianza. Ofendido. Conflicto grupal."
+    },
+    "notas": {
+      "otros": "Una nueva cepa del coronavirus se asocio a una infección aguda conocida como Sindrome Agudo Respiratorio Grave (en ingles S.A.R.S)"
+    }
+  },
+  {
+    "nombre_comun": "Virus del Nilo",
+    "nombre_cientifico": "Familia Flaviviridae, flavivirus",
+    "tipo": "Virus ARN",
+    "descripcion": "Única cadena de ARN de polaridad positiva.",
+    "id_referencia": "B27",
+    "codigo_patogeno": [
+      "Ligamento pancreático - bazo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "El virus se presentan como un confrontador ante la negación, la justificación o la certidumbre que llevará a la autodestrucción."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Las infecciones leves pueden causar fiebre, dolor de cabeza y del cuerpo, frecuentemente con sarpullido e inflamación de los ganglios linfáticos. Las infecciones más graves pueden causar dolor de cabeza, fiebre alta, rigidez en el cuello, estupor, desorientación, coma, temblores, convulsiones, parálisis."
+    }
+  },
+  {
+    "nombre_comun": "Virus del dengue",
+    "nombre_cientifico": "Familia Flaviviridae, flavivirus",
+    "tipo": "Virus ARN",
+    "descripcion": "Cadena de ARN de polaridad positiva.",
+    "id_referencia": "B28",
+    "codigo_patogeno": [
+      "Hipófisis - vejiga"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Desorientado. He fallado. Destinado al fracaso. Resentir transgeneracional (Desvalorización transgeneracional. Devaluación."
+    },
+    "notas": {
+      "presentacion": "80% son asintomáticos. La respuesta sintomática se debe a la producción de proteínas de señalización y citoquinas por los macrófagos.",
+      "enfermedades_relacionadas": "Fiebre, cefalea, síndrome gripal, artralgias, mialgias (fiebre rompehuesos), ganglios linfáticos y erupciones puntiformes (petequias)."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la encefalitis*",
+    "nombre_cientifico": "Familia Togaviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "La cápside vírica es icosaedrica.",
+    "id_referencia": "B29",
+    "codigo_patogeno": [
+      "Parietal - parietal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Metas bloqueadas. No poder escapar de una situación. Cefalea. Migraña. Convulsiones. Conflictos motores. ¿Cual es la tensión que me ha dominado en los últimos momentos? ¿Cual es la emoción que no supe vivir? ¿Cual es la palabra que no pude o no supe decir?"
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Inflamación cerebral."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la sinusitis",
+    "nombre_cientifico": "Familia Picornaviridae, Rhinorivus",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena simple.",
+    "id_referencia": "B30",
+    "codigo_patogeno": [
+      "Seno frontal - seno frontal",
+      "Seno nasal - seno nasal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión, amenaza territorial. Miedo territorial. Cuando existen dos conflictos en ambos hemisferios, se establece una constelación cerebral. Si se agrega una fuerza mesodermica antigua, se genera una reacción inflamatoria severa. Separación con peligro. Conflicto territoral. Anticipación negativa a los problemas."
+    },
+    "notas": {}
+  },
+  {
+    "nombre_comun": "Rotavirus",
+    "nombre_cientifico": "Familia Reoviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena doble y por lo tanto se incluyen en el Grupo III de la Clasificación de Baltimore.",
+    "id_referencia": "B31",
+    "codigo_patogeno": [
+      "Coxis - coxis"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Adaptación a un territorio. Vivencias difíciles de asimilar. Reconfiguracion de las creencias. Tolerancia. Adaptación a una madre estricta. El intestino cuenta con un sistema nervioso muy complejo, es denominado cerebro entérico (enteric brain). El cerebro entérico se especializa en sentir, es en el intestino donde se lleva a cabo la asimilación; la asimilación de los alimentos y también la asimilación de las experiencias."
+    },
+    "notas": {}
+  },
+  {
+    "nombre_comun": "Virus Newcastle",
+    "nombre_cientifico": "Familia Paramyxoviridae, Avulavirus",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena sencilla de polaridad negativa como ácido nucleico.",
+    "id_referencia": "B32",
+    "codigo_patogeno": [
+      "Bulbo - cerebelo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Temor de no estar al mando. Desorientado. No poder encontrar la salida. Quedarse atrapado en una situación."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Conjuntivitis. Ataxia."
+    }
+  },
+  {
+    "nombre_comun": "Virus Guillaim-Barré*",
+    "nombre_cientifico": null,
+    "tipo": "Virus ARN",
+    "descripcion": null,
+    "id_referencia": "B33",
+    "codigo_patogeno": [
+      "Pineal - bulbo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto motor. Impotencia. Meta bloqueado. Movimiento impedido."
+    },
+    "notas": {
+      "observacion": "No existe en la literatura microbiológica un virus relacionado directamente con el síndrome de Guillaim-Barre. Hay multiples factores.",
+      "enfermedades_relacionadas": "Sintomas relacionados: Parálisis ascendente. Parálisis facial. Inflamación de raices nerviosas motoras de la medula espinal."
+    }
+  },
+  {
+    "nombre_comun": "Virus del dengue hemorrágico",
+    "nombre_cientifico": "Familia Flaviviridae, flavivirus",
+    "tipo": "Virus ARN",
+    "descripcion": "Cadena de ARN de polaridad positiva.",
+    "id_referencia": "B34",
+    "codigo_patogeno": [
+      "Bulbo - vejiga"
+    ],
+    "conflicto_base": null,
+    "notas": {
+      "enfermedades_relacionadas": "Fiebre, cefalea, sindrome gripal, artralgias, mialgias (fiebre rompehuesos), ganglios linfáticos y erupciones puntiformes (petequias).",
+      "presentacion": "Las formas graves aparecen cuando existe una segunda exposición a un serotipo diferente del dengue del de la primera exposición. De esta manera, el sistema inmune está sensibilizado y responde de una forma más agresiva. En la mayoría de los flavivirus la aparición de los síntomas esta definida por la inmunidad del huesped. Las reacciones están mediadas por las memorias inmunológicas del individuo."
+    }
+  },
+  {
+    "nombre_comun": "Enterovirus",
+    "nombre_cientifico": "Familia Picornaviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena positiva.",
+    "id_referencia": "B35",
+    "codigo_patogeno": [
+      "Malar - malar"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Vivencia no digerida."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Diarrea. Gastroenteritis."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la Meningitis",
+    "nombre_cientifico": "Familia Arenaviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena simple.",
+    "id_referencia": "B36",
+    "codigo_patogeno": [
+      "Tiroides - bulbo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión territorial y sensación de estar solo. Lleno de miedo. Agresor oculto. Conflicto de devaluación. He fallado."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Cansancio, fiebre, perdida del apetito, dolor muscular, cefalea, nausea, vómito."
+    }
+  },
+  {
+    "nombre_comun": "Coronavirus",
+    "nombre_cientifico": "Familia Coronaviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena sencilla con polaridad positiva y simetría helicoidal.",
+    "id_referencia": "B37",
+    "codigo_patogeno": [
+      "Uretra - uretra"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Adaptación a un territorio. Conflicto de miedo, amenaza en el territorio. Desconfianza. Ofendido. Conflicto grupal."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Uretritis. Conflictos respiratorios.",
+      "otros": "Una nueva cepa del coronavirus se asocio a una infección aguda conocida como Sindrome Agudo Respiratorio Grave (en ingles S.A.R.S)."
+    }
+  },
+  {
+    "nombre_comun": "Virus HTLV 1(Virus Linfotropico de cél. T humanas)",
+    "nombre_cientifico": "Familia Retroviridae, Deltaretrovirus",
+    "tipo": "Virus ARN",
+    "descripcion": "2 moléculas de ARN de cadena simple y polaridad positiva.",
+    "id_referencia": "B38",
+    "codigo_patogeno": [
+      "Suprapubico - suprapubico"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Reconfiguración leucocitaria. Sufrimiento infantil. Gran devaluación. Portador de memorias transgeneracionales. Principal en síndrome del yaciente."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enfermedad desmielinizante. Leucemia. Hepatoesplenomegalia. Linfadenopatías."
+    }
+  },
+  {
+    "nombre_comun": "Virus Norwalk",
+    "nombre_cientifico": "Familia Caliciviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "Virus ARN monocatenario positivo.",
+    "id_referencia": "B39",
+    "codigo_patogeno": [
+      "Saco de Douglas - femoral"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Dificultad para asimilar una situación, con la sensación de sentirse agredido. En este conflicto se aplica la regla de el patrón de sensibilidad, externa."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Inflamación de tejidos epitelialis pelvicos. Náuseas, vómitos, diarrea líquido y dolor abdominal."
+    }
+  },
+  {
+    "nombre_comun": "Virus HTLV 2 (Virus Linfotropico de cél. T humanas)",
+    "nombre_cientifico": "Familia Retroviridae, Deltaretrovirus",
+    "tipo": "Virus ARN",
+    "descripcion": "2 moléculas de ARN de cadena simple y polaridad positiva.",
+    "id_referencia": "B40",
+    "codigo_patogeno": [
+      "Nervio inguinal - nervio inguinal"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Reconfiguración leucocitaria. Sufrimiento infantil. Gran devaluación. Portador de memorias transgeneracionales. Principal en síndrome del yaciente."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enfermedad desmielinizante. Leucemia. Hepatoesplenomegalia. Linfadenopatías."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la Parotiditis",
+    "nombre_cientifico": "Familia Paramyxoviridae, Rubulavirus",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN de cadena sencilla de polaridad negativa como ácido nucleico.",
+    "id_referencia": "B41",
+    "codigo_patogeno": [
+      "Pudendo - pudendo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Miedo a no poder alimentarse, Miedo a la inanición, a no ser capaz de encontrar alimento."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Inflamación de las glándulas parótidas."
+    }
+  },
+  {
+    "nombre_comun": "Virus de la Polio",
+    "nombre_cientifico": "Familia Picornaviridae, Enterovirus",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN monocatenario positivo.",
+    "id_referencia": "B42",
+    "codigo_patogeno": [
+      "Ciático - ciático"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "No puedo escapar de una situación. Devaluación. Camino iniciático obstruido. Conflictos transgeneracionales. Metas truncadas."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Parálisis. Debilidad."
+    }
+  },
+  {
+    "nombre_comun": "Virus HTLV 4 (Virus Linfotropico de cél. T humanas)",
+    "nombre_cientifico": "Familia Retroviridae, Deltaretrovirus",
+    "tipo": "Virus ARN",
+    "descripcion": "2 moléculas de ARN de cadena simple y polaridad positiva.",
+    "id_referencia": "B43",
+    "codigo_patogeno": [
+      "Trocanter menor - trocanter menor"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Reconfiguración leucocitaria. Sufrimiento infantil. Gran devaluación. Portador de memorias transgeneracionales. Principal en síndrome del yaciente"
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Enfermedad desmielinizante. Leucemia. Hepatoesplenomegalia. Linfadenopatías."
+    }
+  },
+  {
+    "nombre_comun": "VIH 2",
+    "nombre_cientifico": "Familia Retroviridae, Lentivirus (Retrovirus exógeno)",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN monocatenario de polaridad positiva y se replican de manera inusual a través de una forma intermedia de ADN bicatenario. Utilizan Transcriptasa reversa.",
+    "id_referencia": "B44",
+    "codigo_patogeno": [
+      "Aductor - aductor"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Identidad frágil e incierta. Te amo pero no te acepto. Confrontan la identidad frágil e incierta. No merezco existir. Conflicto de exclusión y pertenencia. Quedarse solo y abandonado."
+    },
+    "notas": {
+      "interacciones": "Hay activaciones fisiológicas del VIH con las infecciones herpéticas (conflictos desencadenantes);",
+      "mecanismo": "Retrovirus. Transcriptasa reversa: Retrovirus. Vuelve a copiar segmentos hacia atrás. Encontrar su identidad. Volver hacia atrás."
+    }
+  },
+  {
+    "nombre_comun": "Virus del Ebola",
+    "nombre_cientifico": "Familia Filoviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN monocatenario negativo.",
+    "id_referencia": "B45",
+    "codigo_patogeno": [
+      "Costal anterior - costal anterior"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de lazos patológicos. Certidumbres transgeneracionales."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Fiebre. Dolor de garganta. Mialgias. Cefalea. Vómito. Diarrea. Fallo hepático. Hemorragia."
+    }
+  },
+  {
+    "nombre_comun": "Virus Zika",
+    "nombre_cientifico": "Familia Flaviviridae, Flavivirus",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN monocatenario positivo.",
+    "id_referencia": "B46",
+    "codigo_patogeno": [
+      "Costal anterior - colon descendente"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Devaluación. Movimiento bloqueado. Conflicto motor. Conflicto de desvalorización grupal. Conflictos grupales negados."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Los síntomas más comunes de la infección con el virus incluyen dolores de cabeza leves, eflorescencia o erupciones maculopapulares, fiebre, malestar general, conjuntivitis y dolores articulares."
+    }
+  },
+  {
+    "nombre_comun": "Hantavirus",
+    "nombre_cientifico": "Familia Bunyaviridae",
+    "tipo": "Virus ARN",
+    "descripcion": "ARN monocatenario, circular y de polaridad negativa.",
+    "id_referencia": "B47",
+    "codigo_patogeno": [
+      "Lunar - riñón"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Conflicto de agresión territorial."
+    },
+    "notas": {
+      "enfermedades_relacionadas": "Fiebre hemorrágica. Síndrome renal. Síndrome pulmonar."
+    }
+  },
+  {
+    "nombre_comun": "Virus H1N7",
+    "nombre_cientifico": "Familia Orthomyxoviridae, Virus de la Influenza",
+    "tipo": "Virus ARN",
+    "descripcion": "Contiene dos proteinas: Hemaglutinina y Neuraminidasa.",
+    "id_referencia": "B48",
+    "codigo_patogeno": [
+      "Vesícula - bazo"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Agresión territorial. Enojo. Rabia. Colera reprimida."
+    },
+    "notas": {
+      "interacciones": "Puede asociarse a otro virus. ARN - ARN o ARN - ADN y manifestarse como exudados. Buscar también la bacteria que le hace resonancia."
+    }
+  },
+  {
+    "nombre_comun": "Virus Chikunguña",
+    "nombre_cientifico": "Familia Togaviridae, Alphavirus",
+    "tipo": "Virus ARN",
+    "descripcion": "El virus está encapsulado y forma partículas esféricas de 65 a 70 nm de diámetro.",
+    "id_referencia": "B49",
+    "codigo_patogeno": [
+      "Colon descendente - ano"
+    ],
+    "conflicto_base": {
+      "otros_conflictos": "Dificultad y devaluación al hacer el movimiento que se quiere, que se anhela. También cuando ese movimiento que se quiere no se esta logrando. En el caso de la chikunguña se añade el factor territorial (factores que bloquean o limitan el movimiento: un jefe de trabajo, el gobierno, el sistema, un puesto, una condición económica, tener pareja, etc.) Si los movimientos son vitales para el individuo y se queda bloqueado, esto genera insatisfacción, enojo y sensaciones enquistadas."
+    },
+    "notas": {}
+  }
+]
