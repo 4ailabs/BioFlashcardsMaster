@@ -56,15 +56,16 @@ const Flashcard = ({ card }: FlashcardProps) => {
             </button>
           </div>
           
-          <div className="flex-1 flex items-center justify-center">
+          {/* Watermark background */}
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none">
+            <div className="text-9xl font-black text-gray-50 dark:text-gray-800/30 opacity-30 transform -rotate-12 select-none">
+              {card.name}
+            </div>
+          </div>
+          
+          <div className="flex-1 flex items-center justify-center relative z-10">
             <div className="text-center relative w-full">
-              {card.classificationCode && (
-                <div className="absolute right-0 top-0 z-0 text-8xl font-black text-purple-100 dark:text-purple-900 opacity-20 select-none">
-                  {card.classificationCode}
-                </div>
-              )}
-              
-              <div className="relative z-10">
+              <div className="relative">
                 {card.classificationCode && (
                   <div className="absolute -right-2 -top-20 text-4xl font-bold text-purple-600 dark:text-purple-400 drop-shadow-sm">
                     {card.classificationCode}
@@ -86,63 +87,69 @@ const Flashcard = ({ card }: FlashcardProps) => {
         </div>
         
         {/* Back of card */}
-        <div className="card-back absolute w-full h-full rounded-2xl shadow-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
-          <div className="flex justify-between items-start mb-3 relative">
-            <div className="z-10">
+        <div className="card-back absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
+          {/* Watermark background for the back */}
+          <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
+            <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
+              {card.classificationCode || card.category.substring(0, 4).toUpperCase()}
+            </div>
+          </div>
+          
+          <div className="flex justify-between items-start mb-3 relative z-10">
+            <div>
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{card.name}</h2>
               <p className="text-lg italic text-slate-600 dark:text-slate-300">{card.scientificName}</p>
             </div>
             
             {card.classificationCode && (
-              <div className="z-10 text-4xl font-bold text-purple-600 dark:text-purple-400">
+              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 drop-shadow-sm">
                 {card.classificationCode}
               </div>
             )}
           </div>
           
-          {/* No usamos el nombre invertido en la parte posterior */}
-          
-          <div className="mt-4 relative z-10">
-            <div className="flex items-center mb-4">
+          <div className="mt-2 relative z-10">
+            <div className="flex items-center mb-3">
               <div className={`h-3 w-3 rounded-full ${categoryColorClass} mr-2`}></div>
-              <span className="text-xl font-bold text-purple-600 dark:text-purple-400">{categoryName}</span>
+              <span className="text-lg font-bold text-purple-600 dark:text-purple-400">{categoryName}</span>
             </div>
             
-            <div className="mb-8 relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm">
+            <div className="mb-6 p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+              <h3 className="text-lg font-semibold mb-2 text-slate-900 dark:text-white">Características</h3>
               {card.characteristics ? 
                 card.characteristics.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                  <p key={index} className={`${index > 0 ? 'mt-2' : ''} text-slate-700 dark:text-slate-300`}>
                     {paragraph}
                   </p>
                 )) : 
-                <p>No hay información disponible</p>
+                <p className="text-slate-500">No hay información disponible</p>
               }
             </div>
           </div>
           
-          <div className="space-y-8 flex-1 overflow-auto pr-2 relative z-10">
+          <div className="space-y-4 flex-1 overflow-auto pr-2 relative z-10">
             {/* Código Patógeno */}
-            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-2 rounded-lg">
-              <h3 className="text-xl font-bold mb-3 flex items-center">
+            <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+              <h3 className="text-lg font-semibold mb-2 flex items-center text-slate-900 dark:text-white">
                 <svg className="h-5 w-5 mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
                 </svg>
                 Código patógeno
               </h3>
               {card.codeMapping && card.codeMapping.codigoPatogeno && card.codeMapping.codigoPatogeno.length > 0 ? (
-                <ul className="list-disc pl-8 space-y-2">
+                <ul className="list-disc pl-5 space-y-1">
                   {card.codeMapping.codigoPatogeno.map((codigo: string, index: number) => (
                     <li key={index} className="text-slate-700 dark:text-slate-300">{codigo}</li>
                   ))}
                 </ul>
               ) : (
-                <p>No hay información disponible</p>
+                <p className="text-slate-500">No hay información disponible</p>
               )}
             </div>
             
             {/* Conflicto base */}
-            <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-2 rounded-lg">
-              <h3 className="text-xl font-bold mb-3 flex items-center">
+            <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+              <h3 className="text-lg font-semibold mb-2 flex items-center text-slate-900 dark:text-white">
                 <svg className="h-5 w-5 mr-2 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <polyline points="15 3 21 3 21 9" />
@@ -153,17 +160,40 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <div>
                 {card.conflictBasis ? 
                   card.conflictBasis.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                    <p key={index} className={`${index > 0 ? 'mt-2' : ''} text-slate-700 dark:text-slate-300`}>
                       {paragraph}
                     </p>
                   )) : 
-                  <p>No hay información disponible</p>
+                  <p className="text-slate-500">No hay información disponible</p>
                 }
               </div>
             </div>
+
+            {/* Notas adicionales - sólo si hay contenido */}
+            {card.notes && (
+              <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+                <h3 className="text-lg font-semibold mb-2 flex items-center text-slate-900 dark:text-white">
+                  <svg className="h-5 w-5 mr-2 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                    <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
+                    <line x1="9" y1="9" x2="10" y2="9" />
+                    <line x1="9" y1="13" x2="15" y2="13" />
+                    <line x1="9" y1="17" x2="15" y2="17" />
+                  </svg>
+                  Notas adicionales
+                </h3>
+                <div>
+                  {card.notes.split('\n\n').map((paragraph, index) => (
+                    <p key={index} className={`${index > 0 ? 'mt-2' : ''} text-slate-700 dark:text-slate-300`}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
           
-          <div className="mt-6 flex justify-between items-center pb-2 relative z-10">
+          <div className="mt-4 flex justify-between items-center pb-1 relative z-10">
             <button 
               className={cn("text-amber-500 hover:text-amber-600 transition-colors", card.isFavorite && "fill-current")}
               onClick={handleFavoriteClick}
@@ -172,14 +202,14 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <Star className="h-6 w-6" />
             </button>
             
-            <div className="text-center bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-2 shadow-sm">
+            <div className="text-center bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-1.5 shadow-sm">
               <div className="flex items-center gap-2">
-                <p>Clic para volver</p>
-                <ArrowUp className="h-4 w-4" />
+                <p className="text-sm text-slate-600 dark:text-slate-300">Clic para volver</p>
+                <ArrowUp className="h-4 w-4 text-slate-400" />
               </div>
             </div>
             
-            <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white`}>
+            <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white shadow-sm`}>
               {categoryName}
             </span>
           </div>

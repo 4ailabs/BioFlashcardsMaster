@@ -73,14 +73,18 @@
 }
 
 .flashcard {
-  perspective: 1000px;
+  perspective: 1500px;
   transform-style: preserve-3d;
+  position: relative;
 }
 
 .card-inner {
-  transition: transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1);
   transform-style: preserve-3d;
   transform-origin: center center;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .card-inner.flipped {
@@ -90,15 +94,48 @@
 .card-front, .card-back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   position: absolute;
   inset: 0;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
 }
 
+/* Safari fix for backface visibility */
+@supports (-webkit-backdrop-filter: none) {
+  .card-front {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  .card-back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+/* Firefox fix for backface visibility */
+@-moz-document url-prefix() {
+  .card-front, .card-back {
+    backface-visibility: hidden;
+  }
+}
+
+/* Se asegura de que la parte trasera siempre está girada en 180 grados */
 .card-back {
   transform: rotateY(180deg);
+}
+
+/* Mejoras para las tarjetas */
+.card-front, .card-back {
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.card-front:hover, .card-back:hover {
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07);
 }
 
 /* Estilo para las listas de códigos patógeno */
@@ -107,7 +144,7 @@
   line-height: 1.4;
 }
 
-/* Mejorar estilos de títulos en las tarjetas */
+/* Mejora estilos de títulos en las tarjetas */
 .card-back h3 {
   font-weight: 700;
   letter-spacing: -0.03em;
