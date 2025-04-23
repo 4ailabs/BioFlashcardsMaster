@@ -118,22 +118,28 @@ const Flashcard = ({ card }: FlashcardProps) => {
             <div>
               <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Base Conflictual</h3>
               <div className="mt-1">
-                {card.conflictBasis.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className={index > 0 ? 'mt-2' : ''}>
-                    {paragraph}
-                  </p>
-                ))}
+                {card.conflictBasis ? 
+                  card.conflictBasis.split('\n\n').map((paragraph, index) => (
+                    <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                      {paragraph}
+                    </p>
+                  )) : 
+                  <p>No hay información disponible</p>
+                }
               </div>
             </div>
             
             <div>
               <h3 className="text-sm font-bold uppercase text-slate-500 dark:text-slate-400">Notas</h3>
               <div className="mt-1">
-                {card.notes.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className={index > 0 ? 'mt-2' : ''}>
-                    {paragraph}
-                  </p>
-                ))}
+                {card.notes ? 
+                  card.notes.split('\n\n').map((paragraph, index) => (
+                    <p key={index} className={index > 0 ? 'mt-2' : ''}>
+                      {paragraph}
+                    </p>
+                  )) : 
+                  <p>No hay información disponible</p>
+                }
               </div>
             </div>
             
