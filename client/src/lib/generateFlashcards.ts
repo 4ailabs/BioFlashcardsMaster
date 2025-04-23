@@ -389,24 +389,9 @@ export function generateFlashcardsFromPatogenosData(): Flashcard[] {
 
 // Función para inicializar las flashcards (primera vez o cuando no hay datos en localStorage)
 export function initializeFlashcards(): Flashcard[] {
-  const storedFlashcards = localStorage.getItem('flashcards');
-  
-  // Si ya hay flashcards almacenadas, devolverlas
-  if (storedFlashcards) {
-    try {
-      const parsedFlashcards = JSON.parse(storedFlashcards);
-      return parsedFlashcards;
-    } catch (error) {
-      console.error("Error parsing stored flashcards:", error);
-      // Si hay error al parsear, generar nuevas
-      return generateFlashcardsFromPatogenosData();
-    }
-  }
-  
-  // Si no hay flashcards almacenadas, generar nuevas
-  const newFlashcards = generateFlashcardsFromPatogenosData();
-  localStorage.setItem('flashcards', JSON.stringify(newFlashcards));
-  return newFlashcards;
+  // Siempre generamos nuevas flashcards en lugar de usar localStorage
+  // Esto evita el problema de duplicación
+  return generateFlashcardsFromPatogenosData();
 }
 
 // Exportar la función principal

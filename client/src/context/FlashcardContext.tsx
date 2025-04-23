@@ -64,28 +64,36 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   // Inicializar o actualizar flashcards
   useEffect(() => {
     try {
-      // Cargar las flashcards base
-      let cards: Flashcard[] = [];
-      if (flashcards.length === 0) {
-        // Si no hay flashcards, generamos las nuevas
-        console.log("Inicializando flashcards desde cero...");
-        cards = initializeFlashcards();
-      } else {
-        // Si ya hay flashcards, las usamos como base
-        cards = [...flashcards];
+      // Limpiar localStorage para evitar duplicados (solo una vez)
+      if (localStorage.getItem('flashcards_reset_needed') === null) {
+        localStorage.removeItem('flashcards');
+        localStorage.setItem('flashcards_reset_needed', 'false');
+        console.log("Reinicio de localStorage realizado para evitar duplicados");
       }
       
-      // Cargar las bacterias desde el JSON
+      // Generar flashcards base (categorías, virus, parasitos, hongos)
+      let baseFlashcards: Flashcard[] = [];
+      if (flashcards.length === 0) {
+        // Solo generamos las flashcards base si no hay datos
+        console.log("Inicializando flashcards base...");
+        baseFlashcards = generateFlashcardsFromPatogenosData();
+      } else {
+        // Filtrar las flashcards existentes para mantener solo las que NO son bacterias
+        baseFlashcards = flashcards.filter(card => card.category !== 'bacteria');
+        console.log(`Usando ${baseFlashcards.length} flashcards base existentes (no-bacterias)`);
+      }
+      
+      // Cargar las bacterias desde el JSON (estas tienen prioridad y reemplazarán cualquier bacteria existente)
       console.log("Cargando bacterias desde JSON...");
       const bacteriasFlashcards = loadBacteriasFromJson();
       console.log(`Cargadas ${bacteriasFlashcards.length} bacterias desde JSON`);
       
-      // Combinar las flashcards existentes con las nuevas sin duplicados
-      const updatedFlashcards = mergeFlashcards(cards, bacteriasFlashcards);
-      console.log(`Total de flashcards después de la combinación: ${updatedFlashcards.length}`);
+      // Combinar las flashcards - primero las base, luego las bacterias del JSON
+      const updatedFlashcards = [...baseFlashcards, ...bacteriasFlashcards];
+      console.log(`Total de flashcards: ${updatedFlashcards.length}`);
       
-      // Actualizar el estado solo si hay cambios
-      if (updatedFlashcards.length !== flashcards.length) {
+      // Actualizar el estado solo si hay cambios o si acabamos de inicializar
+      if (updatedFlashcards.length !== flashcards.length || flashcards.length === 0) {
         console.log(`Actualizando flashcards: ${flashcards.length} → ${updatedFlashcards.length}`);
         setFlashcards(updatedFlashcards);
         
@@ -93,7 +101,7 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
         const newActivity: RecentActivity = {
           type: 'completed',
           title: 'Actualización de flashcards',
-          description: `Se agregaron ${updatedFlashcards.length - flashcards.length} nuevas bacterias`,
+          description: `Flashcards actualizadas: total ${updatedFlashcards.length}`,
           timestamp: new Date().toISOString()
         };
         
