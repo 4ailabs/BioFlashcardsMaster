@@ -15,7 +15,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { FlashcardProvider } from "./context/FlashcardContext";
 
 function App() {
-  const [activeTab, setActiveTab] = useState<"study" | "dashboard" | "favorites" | "assistant">("study");
+  const [activeTab, setActiveTab] = useState<"study" | "dashboard" | "favorites" | "assistant" | "gallery">("study");
 
   return (
     <ThemeProvider>
@@ -30,6 +30,7 @@ function App() {
                 {activeTab === "dashboard" && <Dashboard />}
                 {activeTab === "favorites" && <Favorites />}
                 {activeTab === "assistant" && <AIAssistant />}
+                {activeTab === "gallery" && <GridView />}
               </main>
             </div>
           </TooltipProvider>
