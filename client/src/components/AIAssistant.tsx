@@ -95,7 +95,7 @@ const AIAssistant: React.FC = () => {
   };
 
   // Función para ejecutar acción rápida desde los botones
-  const ejecutarAccionRapida = (accion: 'explicar' | 'resumir' | 'reescribir') => {
+  const ejecutarAccionRapida = (accion: 'explicar' | 'resumir' | 'reescribir' | 'conflicto' | 'casos' | 'metafora' | 'sanacion') => {
     const selectedCard = selectedCardId ? flashcards.find(c => c.id === selectedCardId) : null;
     if (!selectedCard) return;
     
@@ -109,6 +109,18 @@ const AIAssistant: React.FC = () => {
         break;
       case 'reescribir':
         texto = `Reescribir la información de ${selectedCard.name} en lenguaje simple`;
+        break;
+      case 'conflicto':
+        texto = `Explica en detalle el conflicto emocional asociado a ${selectedCard.name} y cómo se manifiesta en el cuerpo`;
+        break;
+      case 'casos':
+        texto = `Proporciona ejemplos de casos donde la presencia de ${selectedCard.name} podría indicar conflictos emocionales específicos`;
+        break;
+      case 'metafora':
+        texto = `Crea una metáfora o analogía que explique la relación simbólica entre ${selectedCard.name} y el conflicto emocional que representa`;
+        break;
+      case 'sanacion':
+        texto = `Sugiere posibles enfoques de sanación emocional para resolver el conflicto asociado con ${selectedCard.name}`;
         break;
     }
     
@@ -210,15 +222,15 @@ const AIAssistant: React.FC = () => {
                 )}
               </span>
               
-              {/* Botones de acciones rápidas */}
-              <div className="flex space-x-1 mt-1">
+              {/* Botones de acciones rápidas - Fila 1: Básicos */}
+              <div className="flex flex-wrap gap-1 mt-1">
                 <button 
                   type="button"
                   onClick={(e) => {
                     e.preventDefault();
                     ejecutarAccionRapida('explicar');
                   }}
-                  className="bg-slate-700 text-white text-xs py-1 px-3 rounded hover:bg-slate-600"
+                  className="bg-slate-700 text-white text-xs py-1 px-2 rounded hover:bg-slate-600"
                   disabled={cargando}
                 >
                   Explicar
@@ -229,7 +241,7 @@ const AIAssistant: React.FC = () => {
                     e.preventDefault();
                     ejecutarAccionRapida('resumir');
                   }}
-                  className="bg-slate-700 text-white text-xs py-1 px-3 rounded hover:bg-slate-600"
+                  className="bg-slate-700 text-white text-xs py-1 px-2 rounded hover:bg-slate-600"
                   disabled={cargando}
                 >
                   Resumir
@@ -240,10 +252,56 @@ const AIAssistant: React.FC = () => {
                     e.preventDefault();
                     ejecutarAccionRapida('reescribir');
                   }}
-                  className="bg-slate-700 text-white text-xs py-1 px-3 rounded hover:bg-slate-600"
+                  className="bg-slate-700 text-white text-xs py-1 px-2 rounded hover:bg-slate-600"
                   disabled={cargando}
                 >
-                  Reescribir
+                  Simplificar
+                </button>
+                
+                {/* Botones relacionados con Microbioenergética */}
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    ejecutarAccionRapida('conflicto');
+                  }}
+                  className="bg-purple-700 text-white text-xs py-1 px-2 rounded hover:bg-purple-600"
+                  disabled={cargando}
+                >
+                  Conflicto emocional
+                </button>
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    ejecutarAccionRapida('casos');
+                  }}
+                  className="bg-blue-700 text-white text-xs py-1 px-2 rounded hover:bg-blue-600"
+                  disabled={cargando}
+                >
+                  Ejemplos clínicos
+                </button>
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    ejecutarAccionRapida('metafora');
+                  }}
+                  className="bg-green-700 text-white text-xs py-1 px-2 rounded hover:bg-green-600"
+                  disabled={cargando}
+                >
+                  Metáfora simbólica
+                </button>
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    ejecutarAccionRapida('sanacion');
+                  }}
+                  className="bg-amber-700 text-white text-xs py-1 px-2 rounded hover:bg-amber-600"
+                  disabled={cargando}
+                >
+                  Enfoques de sanación
                 </button>
               </div>
             </div>
