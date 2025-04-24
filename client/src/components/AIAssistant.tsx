@@ -73,7 +73,7 @@ const AIAssistant: React.FC = () => {
           ...prev, 
           {
             tipo: 'asistente',
-            contenido: data.texto,
+            contenido: data.texto || "No se pudo obtener una respuesta del asistente.", // Garantiza un string válido
             timestamp: new Date()
           }
         ]);

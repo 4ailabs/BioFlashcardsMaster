@@ -3,7 +3,7 @@ export async function consultarAsistenteIA(
   pregunta: string,
   idPatogeno?: string,
   classificationCode?: string
-): Promise<{ texto: string | null; error: string | null }> {
+): Promise<{ texto: string; error: string | null }> {
   try {
     // Usamos un endpoint relativo que funciona tanto en desarrollo como en producción (Vercel)
     const respuesta = await fetch("/api/asistente-ia", {
@@ -20,7 +20,7 @@ export async function consultarAsistenteIA(
 
     if (!respuesta.ok) {
       return {
-        texto: null,
+        texto: "", // Cambiado para evitar null
         error: `Error en la solicitud: ${respuesta.status}`,
       };
     }
@@ -28,13 +28,13 @@ export async function consultarAsistenteIA(
     const data = await respuesta.json();
     
     return {
-      texto: data.texto || null,
+      texto: data.texto || "", // Garantizar que siempre sea string, nunca null
       error: data.error || null,
     };
   } catch (error: any) {
     console.error("Error consultando asistente IA:", error);
     return {
-      texto: null,
+      texto: "", // Cambiado para evitar null
       error: error?.message || "Error de conexión con el servidor",
     };
   }
