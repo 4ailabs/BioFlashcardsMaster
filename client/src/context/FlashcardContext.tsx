@@ -245,23 +245,48 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
   
   // Filter flashcards based on category, search query, and favorites
   const filteredFlashcards = useMemo(() => {
-    return flashcards.filter(card => {
+    console.log(`Filtrando flashcards - query: "${searchQuery}" - categoría: ${selectedCategory} - favoritos: ${favoritesOnly}`);
+    console.log(`Total de flashcards disponibles: ${flashcards.length}`);
+    
+    if (searchQuery.trim() === '' && selectedCategory === 'all' && !favoritesOnly) {
+      console.log("Sin filtros activos, mostrando todas las tarjetas");
+      return flashcards;
+    }
+    
+    const filtered = flashcards.filter(card => {
       // Filter by category
       const categoryMatch = selectedCategory === 'all' || card.category === selectedCategory;
       
-      // Filter by search query
-      const searchLower = searchQuery.toLowerCase().trim();
-      const searchMatch = searchLower === '' || 
-        (card.name && card.name.toLowerCase().includes(searchLower)) ||
-        (card.scientificName && card.scientificName.toLowerCase().includes(searchLower)) ||
-        (card.characteristics && card.characteristics.toLowerCase().includes(searchLower)) ||
-        (card.notes && card.notes.toLowerCase().includes(searchLower));
-      
-      // Filter by favorites
+      // Filter by favorites (prioritize this filter)
       const favoriteMatch = !favoritesOnly || card.isFavorite;
       
-      return categoryMatch && searchMatch && favoriteMatch;
+      // If category or favorite filter doesn't match, skip text search
+      if (!categoryMatch || !favoriteMatch) {
+        return false;
+      }
+      
+      // Filter by search query
+      if (searchQuery.trim() === '') {
+        return true; // No search query, match all cards that pass category and favorite filters
+      }
+      
+      const searchLower = searchQuery.toLowerCase().trim();
+      
+      // Check various fields for matches
+      const nameMatch = card.name && card.name.toLowerCase().includes(searchLower);
+      const scientificNameMatch = card.scientificName && card.scientificName.toLowerCase().includes(searchLower);
+      const characteristicsMatch = card.characteristics && card.characteristics.toLowerCase().includes(searchLower);
+      const notesMatch = card.notes && card.notes.toLowerCase().includes(searchLower);
+      const conflictBasisMatch = card.conflictBasis && card.conflictBasis.toLowerCase().includes(searchLower);
+      
+      // Check if any field matches
+      const textMatch = nameMatch || scientificNameMatch || characteristicsMatch || notesMatch || conflictBasisMatch;
+      
+      return textMatch;
     });
+    
+    console.log(`Tarjetas filtradas: ${filtered.length}`);
+    return filtered;
   }, [flashcards, selectedCategory, searchQuery, favoritesOnly]);
   
   // Make sure currentCardIndex is valid

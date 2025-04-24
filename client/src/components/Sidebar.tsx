@@ -17,7 +17,11 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     console.log(`Búsqueda: "${value}"`);
-    setSearchQuery(value);
+    // Establecer el valor y forzar un refresco con un valor diferente primero
+    setSearchQuery("");
+    setTimeout(() => {
+      setSearchQuery(value);
+    }, 10);
   };
 
   const handleFavoritesToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
