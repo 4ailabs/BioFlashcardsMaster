@@ -144,7 +144,7 @@ const GridView = ({ setActiveTab }: GridViewProps) => {
     <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow space-y-8">
       <h2 className="text-2xl font-bold mb-4 flex items-center">
         <Layers className="mr-2 h-6 w-6 text-purple-500" />
-        Galería de Patógenos
+        Galería de Microbios
       </h2>
 
       {sortedCategories.map(category => (
