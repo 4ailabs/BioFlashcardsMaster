@@ -112,6 +112,15 @@
   transform: rotateY(180deg);
 }
 
+/* Corrige el problema de texto espejo */
+.card.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+.card.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
 /* Mejoras para las tarjetas */
 .card-front, .card-back {
   transition: box-shadow 0.3s ease, transform 0.2s ease;
