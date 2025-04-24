@@ -46,19 +46,18 @@ const AIAssistant: React.FC = () => {
     setCargando(true);
     
     try {
-      const respuesta = await fetch("/api/asistente-ia", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          pregunta: textoConsulta,
-          idPatogeno: patogenoSeleccionado?.name || null,
-          classificationCode: patogenoSeleccionado?.classificationCode || null
-        }),
-      });
+      // Usar la función consultarAsistenteIA para gestionar la comunicación con el servidor
+      const { texto: respuestaTexto, error } = await consultarAsistenteIA(
+        textoConsulta,
+        patogenoSeleccionado?.name || undefined,
+        patogenoSeleccionado?.classificationCode || undefined
+      );
       
-      const data = await respuesta.json();
+      // Crear un objeto similar a la respuesta anterior para mantener compatibilidad
+      const data = {
+        texto: respuestaTexto,
+        error: error
+      };
       
       if (data.error) {
         setMensajes(prev => [
