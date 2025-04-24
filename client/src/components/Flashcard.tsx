@@ -15,7 +15,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
   // Verificar si la tarjeta existe
   if (!card) {
     return (
-      <div className="flashcard w-full max-w-2xl mx-auto h-[60vh] sm:h-[500px] mb-4 sm:mb-8 flex items-center justify-center">
+      <div className="flashcard w-full max-w-2xl mx-auto h-[70vh] sm:h-[550px] mb-4 sm:mb-8 flex items-center justify-center">
         <p className="text-slate-500 dark:text-slate-400">No hay tarjeta disponible</p>
       </div>
     );
@@ -36,7 +36,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
   const categoryName = getCategoryLabel(category);
 
   return (
-    <div className="flashcard w-full max-w-2xl mx-auto h-[60vh] sm:h-[500px] mb-4 sm:mb-8">
+    <div className="flashcard w-full max-w-2xl mx-auto h-[70vh] sm:h-[550px] mb-4 sm:mb-8">
       <div
         className={cn("card-inner w-full h-full relative", isFlipped && "flipped")}
         onClick={handleCardClick}
