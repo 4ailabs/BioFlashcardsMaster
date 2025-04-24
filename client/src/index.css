@@ -138,6 +138,26 @@
   box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07);
 }
 
+/* Mejoras para dispositivos móviles */
+@media (max-width: 640px) {
+  .card-back {
+    font-size: 0.95rem;
+  }
+  
+  .card-back h2 {
+    font-size: 1.5rem;
+  }
+  
+  .card-back h3 {
+    font-size: 1.1rem;
+  }
+  
+  .flashcard {
+    height: 105vh !important;  /* Aumentado un 15% más que el valor anterior */
+    margin-bottom: 1rem !important;
+  }
+}
+
 /* Estilo para las listas de códigos patógeno */
 .card-back ul li {
   margin-bottom: 0.5rem;
@@ -148,41 +168,6 @@
 .card-back h3 {
   font-weight: 700;
   letter-spacing: -0.03em;
-}
-
-/* Mejoras para scroll en dispositivos móviles */
-.card-back .overflow-y-auto {
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(100, 116, 139, 0.5) transparent;
-}
-
-.card-back .overflow-y-auto::-webkit-scrollbar {
-  width: 4px;
-}
-
-.card-back .overflow-y-auto::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.card-back .overflow-y-auto::-webkit-scrollbar-thumb {
-  background-color: rgba(100, 116, 139, 0.5);
-  border-radius: 20px;
-}
-
-/* Ajuste específico para mejorar scroll en iOS */
-@supports (-webkit-touch-callout: none) {
-  .card-back .overflow-y-auto {
-    padding-bottom: 20px;
-    margin-bottom: -20px;
-  }
-}
-
-/* Prevenir problemas con dispositivos táctiles */
-@media (pointer: coarse) {
-  .card-back .overflow-y-auto {
-    padding-right: 8px; /* Proporciona más espacio para el desplazamiento táctil */
-  }
 }
 
 .bg-bacteria {
