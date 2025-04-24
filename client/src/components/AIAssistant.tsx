@@ -32,21 +32,17 @@ const AIAssistant: React.FC = () => {
     }
   }, [mensajes]);
 
-  const manejarEnvio = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!pregunta.trim()) return;
-    
-    const selectedCard = selectedCardId ? flashcards.find(c => c.id === selectedCardId) : null;
+  // Función para enviar consulta al asistente
+  const enviarConsulta = async (textoConsulta: string, patogenoSeleccionado: Flashcard | null = null) => {
+    if (!textoConsulta.trim()) return;
     
     const mensajeUsuario: Mensaje = {
       tipo: 'usuario',
-      contenido: pregunta,
+      contenido: textoConsulta,
       timestamp: new Date()
     };
     
     setMensajes(prev => [...prev, mensajeUsuario]);
-    setPregunta('');
     setCargando(true);
     
     try {
@@ -56,9 +52,9 @@ const AIAssistant: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
-          pregunta: pregunta,
-          idPatogeno: selectedCard?.name || null, // Enviamos el nombre en lugar del ID
-          classificationCode: selectedCard?.classificationCode || null
+          pregunta: textoConsulta,
+          idPatogeno: patogenoSeleccionado?.name || null,
+          classificationCode: patogenoSeleccionado?.classificationCode || null
         }),
       });
       
@@ -93,8 +89,40 @@ const AIAssistant: React.FC = () => {
         }
       ]);
     } finally {
+      setPregunta('');
       setCargando(false);
     }
+  };
+
+  // Función para ejecutar acción rápida desde los botones
+  const ejecutarAccionRapida = (accion: 'explicar' | 'resumir' | 'reescribir') => {
+    const selectedCard = selectedCardId ? flashcards.find(c => c.id === selectedCardId) : null;
+    if (!selectedCard) return;
+    
+    let texto = '';
+    switch (accion) {
+      case 'explicar':
+        texto = `Explicar en detalle el patógeno ${selectedCard.name}`;
+        break;
+      case 'resumir':
+        texto = `Resumir brevemente la información sobre ${selectedCard.name}`;
+        break;
+      case 'reescribir':
+        texto = `Reescribir la información de ${selectedCard.name} en lenguaje simple`;
+        break;
+    }
+    
+    setPregunta(texto);
+    setTimeout(() => enviarConsulta(texto, selectedCard), 10);
+  };
+  
+  // Manejador del formulario de envío
+  const manejarEnvio = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!pregunta.trim()) return;
+    
+    const selectedCard = selectedCardId ? flashcards.find(c => c.id === selectedCardId) : null;
+    await enviarConsulta(pregunta, selectedCard);
   };
 
   // Formatear la hora para los mensajes
@@ -171,15 +199,54 @@ const AIAssistant: React.FC = () => {
         </div>
         {selectedCardId && (
           <div className="mt-2">
-            <span className="text-xs">
-              Consultando específicamente sobre:{' '}
-              {flashcards.find(c => c.id === selectedCardId)?.name}
-              {(flashcards.find(c => c.id === selectedCardId)?.classificationCode) && (
-                <span className="ml-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-1.5 py-0.5 rounded text-xs">
-                  Código: {flashcards.find(c => c.id === selectedCardId)?.classificationCode}
-                </span>
-              )}
-            </span>
+            <div className="flex flex-col space-y-2">
+              <span className="text-xs">
+                Consultando específicamente sobre:{' '}
+                {flashcards.find(c => c.id === selectedCardId)?.name}
+                {(flashcards.find(c => c.id === selectedCardId)?.classificationCode) && (
+                  <span className="ml-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-1.5 py-0.5 rounded text-xs">
+                    Código: {flashcards.find(c => c.id === selectedCardId)?.classificationCode}
+                  </span>
+                )}
+              </span>
+              
+              {/* Botones de acciones rápidas */}
+              <div className="flex space-x-1 mt-1">
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    ejecutarAccionRapida('explicar');
+                  }}
+                  className="bg-slate-700 text-white text-xs py-1 px-3 rounded hover:bg-slate-600"
+                  disabled={cargando}
+                >
+                  Explicar
+                </button>
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    ejecutarAccionRapida('resumir');
+                  }}
+                  className="bg-slate-700 text-white text-xs py-1 px-3 rounded hover:bg-slate-600"
+                  disabled={cargando}
+                >
+                  Resumir
+                </button>
+                <button 
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    ejecutarAccionRapida('reescribir');
+                  }}
+                  className="bg-slate-700 text-white text-xs py-1 px-3 rounded hover:bg-slate-600"
+                  disabled={cargando}
+                >
+                  Reescribir
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
