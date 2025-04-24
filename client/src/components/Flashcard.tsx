@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Star } from "lucide-react";
 import { cn, getCategoryColor, getCategoryLabel } from "@/lib/utils";
 import { useFlashcards } from "@/context/FlashcardContext";
@@ -12,6 +12,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const { toggleFavorite } = useFlashcards();
 
+  // Verificar si la tarjeta existe
   if (!card) {
     return (
       <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8 flex items-center justify-center">
@@ -20,14 +21,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
     );
   }
 
-  const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    // No voltear si el clic fue en el botón de favorito
-    if ((event.target as HTMLElement).closest('button')) {
-      return;
-    }
-    
-    // Depurar el estado de volteo
-    console.log('Volteando tarjeta:', !isFlipped);
+  const handleCardClick = () => {
     setIsFlipped(!isFlipped);
   };
 
@@ -36,29 +30,19 @@ const Flashcard = ({ card }: FlashcardProps) => {
     toggleFavorite(card.id);
   };
 
+  // Valores de categoría seguros
   const category = card.category || 'default';
   const categoryColorClass = getCategoryColor(category);
   const categoryName = getCategoryLabel(category);
 
-  const getCategoryRgbColor = (category: string): string => {
-    switch (category) {
-      case 'bacteria': return 'rgba(0, 118, 230, 0.5)'; // #0076E6
-      case 'virus_adn': return 'rgba(230, 140, 0, 0.5)'; // #E68C00
-      case 'virus_arn': return 'rgba(255, 92, 34, 0.5)'; // #FF5C22
-      case 'parasito': return 'rgba(0, 149, 115, 0.5)'; // #009573
-      case 'hongo': return 'rgba(0, 116, 149, 0.5)'; // #007495
-      default: return 'rgba(100, 116, 139, 0.5)'; // Slate
-    }
-  };
-
-  const categoryRgbColor = getCategoryRgbColor(category);
-
-  // Implementación con volteo simple
   return (
-    <div className="card-container w-full max-w-2xl mx-auto mb-20">
-      <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
-        {/* Cara Frontal */}
-        <div className="card-front bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
+    <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
+      <div
+        className={cn("card-inner w-full h-full relative", isFlipped && "flipped")}
+        onClick={handleCardClick}
+      >
+        {/* Front of card */}
+        <div className="card-front absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
           <div className="flex justify-between items-start mb-2">
             <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white shadow-sm`}>
               {categoryName}
@@ -97,31 +81,17 @@ const Flashcard = ({ card }: FlashcardProps) => {
           <div className="mt-4 text-center">
             <div className="bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-1.5 shadow-inner inline-block">
               <p className="text-sm text-slate-600 dark:text-slate-300">Clic para ver detalles</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4 mx-auto mt-1 text-slate-400"
-              >
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
+              <ArrowDown className="h-4 w-4 mx-auto mt-1 text-slate-400" />
             </div>
           </div>
         </div>
         
-        {/* Cara Trasera */}
-        <div className="card-back bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col" style={{overflowY: 'auto', paddingBottom: '100px'}}>
-          {/* Indicador de scroll */}
-          <div className="scroll-indicator"></div>
+        {/* Back of card */}
+        <div className="card-back absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
-              {card.classificationCode}
+              {card.classificationCode || card.category.substring(0, 4).toUpperCase()}
             </div>
           </div>
           
@@ -157,7 +127,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             </div>
           </div>
           
-          <div className="space-y-4 flex-1 relative z-10 pb-8" style={{minHeight: "400px"}}>
+          <div className="space-y-4 flex-1 overflow-auto pr-2 relative z-10">
             {/* Código Patógeno */}
             <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
               <h3 className="text-lg font-semibold mb-2 flex items-center text-slate-900 dark:text-white">
@@ -223,7 +193,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             )}
           </div>
           
-          <div className="mt-8 mb-2 flex justify-between items-center pb-1 relative z-10 sticky bottom-0 bg-gradient-to-t from-white to-transparent dark:from-slate-800 dark:to-transparent pt-4">
+          <div className="mt-4 flex justify-between items-center pb-1 relative z-10">
             <button 
               className={cn("text-amber-500 hover:text-amber-600 transition-colors", card.isFavorite && "fill-current")}
               onClick={handleFavoriteClick}
@@ -232,22 +202,10 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <Star className="h-6 w-6" />
             </button>
             
-            <div className="text-center bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-2.5 shadow-sm border-2 border-slate-200 dark:border-slate-600">
+            <div className="text-center bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-1.5 shadow-sm">
               <div className="flex items-center gap-2">
-                <p className="text-sm text-slate-600 dark:text-slate-300 font-medium">Clic para volver</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4 text-slate-400"
-                >
-                  <line x1="12" y1="19" x2="12" y2="5"></line>
-                  <polyline points="5 12 12 5 19 12"></polyline>
-                </svg>
+                <p className="text-sm text-slate-600 dark:text-slate-300">Clic para volver</p>
+                <ArrowUp className="h-4 w-4 text-slate-400" />
               </div>
             </div>
             
@@ -260,5 +218,38 @@ const Flashcard = ({ card }: FlashcardProps) => {
     </div>
   );
 };
+
+// Custom arrow components for simplicity
+const ArrowDown = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <line x1="12" y1="5" x2="12" y2="19"></line>
+    <polyline points="19 12 12 19 5 12"></polyline>
+  </svg>
+);
+
+const ArrowUp = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
+);
 
 export default Flashcard;

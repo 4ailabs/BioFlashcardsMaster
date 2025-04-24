@@ -78,13 +78,6 @@
   position: relative;
 }
 
-/* Estilos para las flashcards con animación simple */
-.flashcard {
-  perspective: 1500px;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
 .card-inner {
   transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1);
   transform-style: preserve-3d;
@@ -134,33 +127,6 @@
 /* Se asegura de que la parte trasera siempre está girada en 180 grados */
 .card-back {
   transform: rotateY(180deg);
-  overflow-y: auto; /* Permite desplazamiento vertical */
-  max-height: 100%; /* Contiene contenido desbordado */
-}
-
-/* Indicador de desplazamiento */
-.scroll-indicator {
-  position: absolute;
-  right: 3px;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background-color: rgba(203, 213, 225, 0.5);
-  border-radius: 4px;
-  opacity: 0.5;
-  z-index: 50;
-  pointer-events: none;
-}
-
-.scroll-indicator::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20%;
-  background-color: rgba(148, 163, 184, 0.8);
-  border-radius: 4px;
 }
 
 /* Mejoras para las tarjetas */
@@ -171,10 +137,6 @@
 .card-front:hover, .card-back:hover {
   box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07);
 }
-
-/* Eliminamos estas transiciones que pueden estar interfiriendo con la animación principal */
-
-/* Eliminados efectos de hover */
 
 /* Estilo para las listas de códigos patógeno */
 .card-back ul li {
