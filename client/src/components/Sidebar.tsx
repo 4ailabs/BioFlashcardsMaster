@@ -36,7 +36,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
             <h1 className="text-xl font-bold text-primary">MicroBioCards</h1>
             <ThemeToggle />
           </div>
-          <span className="text-xs text-slate-500 dark:text-slate-400">Dr. Miguel Ojeda Ríos</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">Dr. Miguel Ojeda Rios</span>
         </div>
       </div>
       
