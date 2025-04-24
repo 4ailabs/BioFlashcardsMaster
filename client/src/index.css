@@ -79,52 +79,55 @@
 }
 
 /* Estilos para las flashcards con animación simple */
-/* Utiliza el enfoque de 2 tarjetas independientes que se muestran/ocultan */
+/* Vamos a usar un enfoque de animación simple sin 3D */
 .card-container {
-  perspective: 1000px;
   width: 100%;
   position: relative;
-  min-height: 750px;
-  margin-bottom: 2rem;
+  height: 750px;
+  margin-bottom: 4rem;
 }
 
 .card {
   position: relative;
   width: 100%;
-  min-height: 750px;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.card.flipped {
-  transform: rotateY(180deg);
+  height: 100%;
 }
 
 .card-front, .card-back {
   position: absolute;
   width: 100%;
-  min-height: 750px;
   height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
   border-radius: 16px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
 }
 
 /* Cara frontal, inicialmente visible */
 .card-front {
-  z-index: 2;
+  opacity: 1;
+  visibility: visible;
   display: flex;
   flex-direction: column;
 }
 
-/* Cara trasera, inicialmente volteada */
+/* Cara trasera, inicialmente oculta */
 .card-back {
-  transform: rotateY(180deg);
-  overflow-y: auto; /* Mantiene el scroll vertical */
+  opacity: 0;
+  visibility: hidden;
   display: flex;
   flex-direction: column;
-  max-height: 750px; /* Mismo valor que min-height para mantener consistencia */
+  overflow-y: auto;
+}
+
+/* Estados cuando la tarjeta está volteada */
+.card.flipped .card-front {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card.flipped .card-back {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Eliminamos estas transiciones que pueden estar interfiriendo con la animación principal */
