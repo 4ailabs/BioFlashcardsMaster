@@ -247,7 +247,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             )}
           </div>
           
-          <div className="mt-4 flex justify-between items-center pb-1 relative z-10">
+          <div className="mt-8 mb-2 flex justify-between items-center pb-1 relative z-10 sticky bottom-0 bg-gradient-to-t from-white to-transparent dark:from-slate-800 dark:to-transparent pt-4">
             <button 
               className={cn("text-amber-500 hover:text-amber-600 transition-colors", card.isFavorite && "fill-current")}
               onClick={handleFavoriteClick}
@@ -256,9 +256,9 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <Star className="h-6 w-6" />
             </button>
             
-            <div className="text-center bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-1.5 shadow-sm">
+            <div className="text-center bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-2.5 shadow-sm border-2 border-slate-200 dark:border-slate-600">
               <div className="flex items-center gap-2">
-                <p className="text-sm text-slate-600 dark:text-slate-300">Clic para volver</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 font-medium">Clic para volver</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
