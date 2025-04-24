@@ -36,17 +36,13 @@ const Flashcard = ({ card }: FlashcardProps) => {
   const categoryName = getCategoryLabel(category);
 
   return (
-    <div className="flashcard w-full max-w-2xl mx-auto mb-8">
+    <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
       <div
-        className={cn("card-inner w-full relative transition-all duration-500", 
-          isFlipped ? "card-flipped min-h-[auto]" : "min-h-[400px] md:min-h-[500px]")}
+        className={cn("card-inner w-full h-full relative", isFlipped && "flipped")}
         onClick={handleCardClick}
       >
         {/* Front of card */}
-        <div className={cn(
-          "card-front w-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-4 sm:p-6 flex flex-col",
-          isFlipped ? "hidden" : "block min-h-[400px] md:min-h-[500px]"
-        )}>
+        <div className="card-front absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
           <div className="flex justify-between items-start mb-2">
             <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white shadow-sm`}>
               {categoryName}
@@ -90,11 +86,8 @@ const Flashcard = ({ card }: FlashcardProps) => {
           </div>
         </div>
         
-        {/* Back of card - without scroll, just expand to fit content */}
-        <div className={cn(
-          "card-back w-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-4 sm:p-6",
-          isFlipped ? "block" : "hidden"
-        )}>
+        {/* Back of card */}
+        <div className="card-back absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
@@ -104,7 +97,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           
           <div className="flex justify-between items-start mb-3 relative z-10">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">{card.name}</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{card.name}</h2>
               <p className="text-lg italic text-slate-600 dark:text-slate-300">{card.scientificName}</p>
             </div>
             
@@ -118,45 +111,46 @@ const Flashcard = ({ card }: FlashcardProps) => {
           <div className="mt-2 relative z-10">
             <div className="flex items-center mb-3">
               <div className={`h-3 w-3 rounded-full ${categoryColorClass} mr-2`}></div>
-              <span className={`text-sm sm:text-lg font-bold ${categoryColorClass} text-white px-2 py-0.5 rounded`}>{categoryName}</span>
+              <span className={`text-lg font-bold ${categoryColorClass} text-white px-2 py-0.5 rounded`}>{categoryName}</span>
             </div>
             
-            {/* Características - optimizado para mostrar todo sin scroll */}
-            <div className="mb-4 p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-              <h3 className="text-base sm:text-lg font-semibold mb-1 text-slate-900 dark:text-white">Características</h3>
+            <div className="mb-6 p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+              <h3 className="text-lg font-semibold mb-2 text-slate-900 dark:text-white">Características</h3>
               {card.characteristics ? 
                 card.characteristics.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className={`${index > 0 ? 'mt-1' : ''} text-sm leading-tight sm:text-base text-slate-700 dark:text-slate-300`}>
+                  <p key={index} className={`${index > 0 ? 'mt-2' : ''} text-slate-700 dark:text-slate-300`}>
                     {paragraph}
                   </p>
                 )) : 
-                <p className="text-sm text-slate-500">No hay información disponible</p>
+                <p className="text-slate-500">No hay información disponible</p>
               }
             </div>
-            
+          </div>
+          
+          <div className="space-y-4 flex-1 overflow-y-auto pr-2 relative z-10 max-h-[calc(100%-190px)] md:max-h-[calc(100%-160px)]">
             {/* Código Patógeno */}
-            <div className="mb-4 p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-              <h3 className="text-base sm:text-lg font-semibold mb-1 flex items-center text-slate-900 dark:text-white">
-                <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+              <h3 className="text-lg font-semibold mb-2 flex items-center text-slate-900 dark:text-white">
+                <svg className="h-5 w-5 mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
                 </svg>
                 Código patógeno
               </h3>
               {card.codeMapping && card.codeMapping.codigoPatogeno && card.codeMapping.codigoPatogeno.length > 0 ? (
-                <ul className="list-disc pl-5 space-y-0.5">
+                <ul className="list-disc pl-5 space-y-1">
                   {card.codeMapping.codigoPatogeno.map((codigo: string, index: number) => (
-                    <li key={index} className="text-sm leading-tight sm:text-base text-slate-700 dark:text-slate-300">{codigo}</li>
+                    <li key={index} className="text-slate-700 dark:text-slate-300">{codigo}</li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm text-slate-500">No hay información disponible</p>
+                <p className="text-slate-500">No hay información disponible</p>
               )}
             </div>
             
             {/* Conflicto base */}
-            <div className="mb-4 p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-              <h3 className="text-base sm:text-lg font-semibold mb-1 flex items-center text-slate-900 dark:text-white">
-                <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+              <h3 className="text-lg font-semibold mb-2 flex items-center text-slate-900 dark:text-white">
+                <svg className="h-5 w-5 mr-2 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <polyline points="15 3 21 3 21 9" />
                   <line x1="10" y1="14" x2="21" y2="3" />
@@ -166,20 +160,20 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <div>
                 {card.conflictBasis ? 
                   card.conflictBasis.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className={`${index > 0 ? 'mt-1' : ''} text-sm leading-tight sm:text-base text-slate-700 dark:text-slate-300`}>
+                    <p key={index} className={`${index > 0 ? 'mt-2' : ''} text-slate-700 dark:text-slate-300`}>
                       {paragraph}
                     </p>
                   )) : 
-                  <p className="text-sm text-slate-500">No hay información disponible</p>
+                  <p className="text-slate-500">No hay información disponible</p>
                 }
               </div>
             </div>
 
             {/* Notas adicionales - sólo si hay contenido */}
             {card.notes && (
-              <div className="mb-4 p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-                <h3 className="text-base sm:text-lg font-semibold mb-1 flex items-center text-slate-900 dark:text-white">
-                  <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+                <h3 className="text-lg font-semibold mb-2 flex items-center text-slate-900 dark:text-white">
+                  <svg className="h-5 w-5 mr-2 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
                     <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
                     <line x1="9" y1="9" x2="10" y2="9" />
@@ -190,7 +184,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
                 </h3>
                 <div>
                   {card.notes.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className={`${index > 0 ? 'mt-1' : ''} text-sm leading-tight sm:text-base text-slate-700 dark:text-slate-300`}>
+                    <p key={index} className={`${index > 0 ? 'mt-2' : ''} text-slate-700 dark:text-slate-300`}>
                       {paragraph}
                     </p>
                   ))}
@@ -199,7 +193,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             )}
           </div>
           
-          <div className="flex justify-between items-center py-1 relative z-10">
+          <div className="mt-4 flex justify-between items-center pb-1 relative z-10">
             <button 
               className={cn("text-amber-500 hover:text-amber-600 transition-colors", card.isFavorite && "fill-current")}
               onClick={handleFavoriteClick}
