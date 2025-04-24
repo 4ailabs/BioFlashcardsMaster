@@ -44,6 +44,12 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        // Colores específicos para las categorías de patógenos
+        bacteria: "#0076E6",        // Azul
+        "virus-adn": "#E68C00",     // Naranja/ocre
+        "virus-arn": "#FF5C22",     // Naranja intenso
+        parasito: "#009573",        // Verde-turquesa
+        hongo: "#007495",           // Azul-verdoso
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
