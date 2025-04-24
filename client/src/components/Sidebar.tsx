@@ -1,173 +1,252 @@
-import { useState } from "react";
-import { BookOpen, LayoutDashboard, Star, Search, Brain, Grid, RotateCcw } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
-import { useFlashcards } from "@/context/FlashcardContext";
-import CategoryFilter from "./CategoryFilter";
-import { cn } from "@/lib/utils";
-import { forceResetStorage } from "@/lib/resetLocalStorage";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-interface SidebarProps {
-  activeTab: "study" | "dashboard" | "favorites" | "assistant" | "gallery";
-  setActiveTab: (tab: "study" | "dashboard" | "favorites" | "assistant" | "gallery") => void;
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 246 86% 67%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Category colors */
+  --bacteria: #0076E6;
+  --virus-adn: #E68C00;
+  --virus-arn: #FF5C22;
+  --parasito: #009573;
+  --hongo: #007495;
+  
+  /* Chart colors */
+  --chart-1: 217 91% 60%;
+  --chart-2: 158 64% 40%;
+  --chart-3: 0 84% 60%;
+  --chart-4: 38 92% 50%;
+  --chart-5: 265 83% 64%;
 }
 
-const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
-  const { searchQuery, setSearchQuery, favoritesOnly, setFavoritesOnly } = useFlashcards();
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 246 86% 67%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    console.log(`Búsqueda: "${value}"`);
-    // Establecer el valor y forzar un refresco con un valor diferente primero
-    setSearchQuery("");
-    setTimeout(() => {
-      setSearchQuery(value);
-    }, 10);
-  };
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-  const handleFavoritesToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFavoritesOnly(e.target.checked);
-  };
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
 
-  return (
-    <aside className="w-full md:w-64 md:h-screen bg-white dark:bg-slate-800 shadow-lg md:fixed left-0 md:overflow-y-auto">
-      <div className="p-4 border-b border-slate-200 dark:border-slate-700">
-        <div className="flex flex-col">
-          <div className="flex items-center justify-between">
-            <h1 className="text-xl text-primary"><span className="font-bold">Microbio</span>Cards</h1>
-            <ThemeToggle />
-          </div>
-          <span className="text-xs text-slate-500 dark:text-slate-400">Dr. Miguel Ojeda Rios</span>
-          <span className="text-xs italic text-slate-400 dark:text-slate-500 mt-0.5 opacity-70">El código emocional, energético y simbólico de los microbios</span>
-        </div>
-      </div>
-      
-      {/* Navigation */}
-      <nav className="p-4">
-        <ul className="space-y-2">
-          <li>
-            <button
-              onClick={() => setActiveTab("study")}
-              className={cn(
-                "flex items-center w-full p-2 rounded-lg",
-                activeTab === "study"
-                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
-                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
-              )}
-            >
-              <BookOpen className="mr-2 h-5 w-5" />
-              <span>Estudiar</span>
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => setActiveTab("dashboard")}
-              className={cn(
-                "flex items-center w-full p-2 rounded-lg",
-                activeTab === "dashboard"
-                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
-                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
-              )}
-            >
-              <LayoutDashboard className="mr-2 h-5 w-5" />
-              <span>Estadísticas</span>
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => setActiveTab("favorites")}
-              className={cn(
-                "flex items-center w-full p-2 rounded-lg",
-                activeTab === "favorites"
-                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
-                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
-              )}
-            >
-              <Star className="mr-2 h-5 w-5 text-amber-500" />
-              <span>Favoritos</span>
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => setActiveTab("assistant")}
-              className={cn(
-                "flex items-center w-full p-2 rounded-lg",
-                activeTab === "assistant"
-                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
-                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
-              )}
-            >
-              <Brain className="mr-2 h-5 w-5 text-purple-500" />
-              <span>Asistente IA</span>
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => setActiveTab("gallery")}
-              className={cn(
-                "flex items-center w-full p-2 rounded-lg",
-                activeTab === "gallery"
-                  ? "bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white"
-                  : "hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
-              )}
-            >
-              <Grid className="mr-2 h-5 w-5 text-green-500" />
-              <span>Galería</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
-      
-      {/* Filter Section */}
-      <div className="p-4 border-t border-slate-200 dark:border-slate-700">
-        <h2 className="font-medium mb-3">Filtros</h2>
-        
-        {/* Search */}
-        <div className="mb-4 relative">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <Search className="h-4 w-4 text-slate-400" />
-          </div>
-          <input 
-            type="text" 
-            placeholder="Buscar tarjetas..." 
-            className="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary"
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
-        </div>
-        
-        {/* Categories */}
-        <h3 className="text-sm font-medium mb-2">Categorías</h3>
-        <CategoryFilter />
-        
-        {/* Favorites toggle */}
-        <div className="mt-4 flex items-center">
-          <input 
-            type="checkbox" 
-            id="favorites-only" 
-            className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
-            checked={favoritesOnly}
-            onChange={handleFavoritesToggle}
-          />
-          <label htmlFor="favorites-only" className="ml-2 text-sm">Mostrar solo favoritos</label>
-        </div>
-      </div>
-      
-      {/* Reset Button */}
-      <div className="p-4 border-t border-slate-200 dark:border-slate-700">
-        <button
-          onClick={() => {
-            if (window.confirm('¿Estás seguro de que deseas reiniciar la aplicación? Esta acción eliminará tus datos guardados y es útil para resolver problemas.')) {
-              forceResetStorage();
-            }
-          }}
-          className="flex items-center w-full p-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg"
-        >
-          <RotateCcw className="mr-2 h-4 w-4" />
-          <span>Reiniciar aplicación</span>
-        </button>
-      </div>
-    </aside>
-  );
-};
+.flashcard {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  position: relative;
+}
 
-export default Sidebar;
+.card-inner {
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1);
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+/* Safari fix for backface visibility */
+@supports (-webkit-backdrop-filter: none) {
+  .card-front {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  .card-back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+/* Firefox fix for backface visibility */
+@-moz-document url-prefix() {
+  .card-front, .card-back {
+    backface-visibility: hidden;
+  }
+}
+
+/* Se asegura de que la parte trasera siempre está girada en 180 grados */
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Mejoras para las tarjetas */
+.card-front, .card-back {
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.card-front:hover, .card-back:hover {
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07);
+}
+
+/* Mejoras para dispositivos móviles */
+@media (max-width: 640px) {
+  .card-back {
+    font-size: 0.95rem;
+  }
+  
+  .card-back h2 {
+    font-size: 1.5rem;
+  }
+  
+  .card-back h3 {
+    font-size: 1.1rem;
+  }
+  
+  .flashcard {
+    height: 105vh !important;  /* Aumentado un 15% más que el valor anterior */
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Estilo para las listas de códigos patógeno */
+.card-back ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mejora estilos de títulos en las tarjetas */
+.card-back h3 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.bg-bacteria {
+  background-color: var(--bacteria);
+}
+
+.bg-virus-adn {
+  background-color: var(--virus-adn);
+}
+
+.bg-virus-arn {
+  background-color: var(--virus-arn);
+}
+
+.bg-parasito {
+  background-color: var(--parasito);
+}
+
+.bg-hongo {
+  background-color: var(--hongo);
+}
+
+.text-bacteria {
+  color: var(--bacteria);
+}
+
+.text-virus-adn {
+  color: var(--virus-adn);
+}
+
+.text-virus-arn {
+  color: var(--virus-arn);
+}
+
+.text-parasito {
+  color: var(--parasito);
+}
+
+.text-hongo {
+  color: var(--hongo);
+}
+
+.hover\:bg-bacteria\/10:hover {
+  background-color: rgba(0, 118, 230, 0.1); /* #0076E6 with 0.1 opacity */
+}
+
+.hover\:bg-virus-adn\/10:hover {
+  background-color: rgba(230, 140, 0, 0.1); /* #E68C00 with 0.1 opacity */
+}
+
+.hover\:bg-virus-arn\/10:hover {
+  background-color: rgba(255, 92, 34, 0.1); /* #FF5C22 with 0.1 opacity */
+}
+
+.hover\:bg-parasito\/10:hover {
+  background-color: rgba(0, 149, 115, 0.1); /* #009573 with 0.1 opacity */
+}
+
+.hover\:bg-hongo\/10:hover {
+  background-color: rgba(0, 116, 149, 0.1); /* #007495 with 0.1 opacity */
+}
+
+.dark .hover\:bg-bacteria\/20:hover {
+  background-color: rgba(0, 118, 230, 0.2); /* #0076E6 with 0.2 opacity */
+}
+
+.dark .hover\:bg-virus-adn\/20:hover {
+  background-color: rgba(230, 140, 0, 0.2); /* #E68C00 with 0.2 opacity */
+}
+
+.dark .hover\:bg-virus-arn\/20:hover {
+  background-color: rgba(255, 92, 34, 0.2); /* #FF5C22 with 0.2 opacity */
+}
+
+.dark .hover\:bg-parasito\/20:hover {
+  background-color: rgba(0, 149, 115, 0.2); /* #009573 with 0.2 opacity */
+}
+
+.dark .hover\:bg-hongo\/20:hover {
+  background-color: rgba(0, 116, 149, 0.2); /* #007495 with 0.2 opacity */
+}
+
