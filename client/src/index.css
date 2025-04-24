@@ -82,7 +82,7 @@
 .card-container {
   perspective: 1000px;
   width: 100%;
-  height: 600px; /* Aumentamos la altura de la tarjeta */
+  height: 750px; /* Aumentamos aún más la altura de la tarjeta */
   position: relative;
 }
 
