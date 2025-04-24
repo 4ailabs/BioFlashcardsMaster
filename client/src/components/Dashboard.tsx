@@ -5,6 +5,8 @@ import { formatDate } from '@/lib/utils';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import FlashcardImporter from './FlashcardImporter';
+import { resetRecentActivity } from '@/lib/resetLocalStorage';
+import { RotateCcw } from 'lucide-react';
 
 interface DashboardProps {
   setActiveTab: (tab: "study" | "dashboard" | "favorites" | "assistant" | "gallery") => void;
@@ -215,8 +217,20 @@ const Dashboard = ({ setActiveTab }: DashboardProps) => {
 
       {/* Actividad Reciente */}
       <Card>
-        <CardHeader>
+        <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>Actividad Reciente</CardTitle>
+          <button
+            onClick={() => {
+              if (window.confirm('¿Deseas reiniciar solo el historial de actividad reciente? Esto no afectará tus favoritos ni otras configuraciones.')) {
+                resetRecentActivity();
+              }
+            }}
+            className="flex items-center text-xs text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 transition-colors"
+            title="Reiniciar solo el historial de actividad"
+          >
+            <RotateCcw className="mr-1 h-3 w-3" />
+            <span>Reiniciar historial</span>
+          </button>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
