@@ -49,10 +49,9 @@ const Flashcard = ({ card }: FlashcardProps) => {
   return (
     <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
       <div
-        className={`card-inner w-full h-full relative transition-all duration-500 ease-out hover:scale-[1.02] rounded-2xl overflow-hidden ${isFlipped ? 'flipped' : ''}`}
+        className={`card-inner w-full h-full relative rounded-2xl overflow-hidden ${isFlipped ? 'flipped' : ''}`}
         style={{
           transformStyle: "preserve-3d",
-          transition: "transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1), box-shadow 0.3s ease",
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
           borderRadius: "1rem",
         }}
