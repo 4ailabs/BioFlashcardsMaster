@@ -37,6 +37,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
             <ThemeToggle />
           </div>
           <span className="text-xs text-slate-500 dark:text-slate-400">Dr. Miguel Ojeda Rios</span>
+          <span className="text-xs italic text-slate-400 dark:text-slate-500 mt-0.5 opacity-70">El código emocional, energético y simbólico de los microbios</span>
         </div>
       </div>
       
