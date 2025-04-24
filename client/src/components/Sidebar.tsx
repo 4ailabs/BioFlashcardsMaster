@@ -33,7 +33,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
       <div className="p-4 border-b border-slate-200 dark:border-slate-700">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold text-primary">MicroBioCards</h1>
+            <h1 className="text-xl text-primary"><span className="font-bold">Microbio</span>Cards</h1>
             <ThemeToggle />
           </div>
           <span className="text-xs text-slate-500 dark:text-slate-400">Dr. Miguel Ojeda Rios</span>
