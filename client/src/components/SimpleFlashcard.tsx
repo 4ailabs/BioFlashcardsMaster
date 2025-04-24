@@ -68,8 +68,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
         }}
       >
-        <div className="w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col"
-        >
+        <div className="w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
           <div className="flex justify-between items-start mb-2">
             <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white shadow-sm`}>
               {categoryName}
@@ -124,17 +123,13 @@ const Flashcard = ({ card }: FlashcardProps) => {
             </div>
           </div>
         </div>
-        
       </div>
-      
-      {/* Cara trasera - visible cuando está volteada */}
+        
+      {/* Cara Trasera */}
       <div 
-        className={`w-full h-full rounded-2xl transition-all duration-700 ease-in-out absolute ${
-          isFlipped ? 'opacity-100 visible z-10' : 'opacity-0 invisible z-0'
-        }`}
+        className={`absolute w-full h-full rounded-2xl transition-all duration-500 ${isFlipped ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         style={{
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-          borderRadius: "1rem",
           cursor: "pointer"
         }}
         onClick={handleCardClick}
@@ -145,10 +140,8 @@ const Flashcard = ({ card }: FlashcardProps) => {
           e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
         }}
       >
-        <div 
-          className="w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto"
-        >
-          {/* Watermark background for the back */}
+        <div className="w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
+          {/* Watermark background */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
               {card.classificationCode || card.category.substring(0, 4).toUpperCase()}

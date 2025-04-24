@@ -78,22 +78,7 @@
   position: relative;
 }
 
-/* Estilos para las flashcards con animación de volteo */
-.flashcard-container {
-  perspective: 1000px;
-  position: relative;
-}
-
-.flashcard {
-  position: relative;
-  transition: transform 0.8s ease-in-out;
-  transform-style: preserve-3d;
-}
-
-.flashcard.is-flipped {
-  transform: rotateY(180deg);
-}
-
+/* Estilos para las flashcards con animación simple */
 .card-front, .card-back {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
@@ -102,13 +87,9 @@
   overflow: hidden;
 }
 
-/* Animaciones de transición */
-.visible {
-  transition-delay: 0.2s;
-}
-
-.invisible {
-  transition-delay: 0s;
+/* Transiciones para la animación de volteo con opacidad */
+.pointer-events-none {
+  pointer-events: none;
 }
 
 /* Mejoras para las tarjetas */
