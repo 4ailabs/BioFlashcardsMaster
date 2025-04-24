@@ -25,6 +25,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
     if ((event.target as HTMLElement).closest('button')) {
       return;
     }
+    console.log('SimpleFlashcard - Volteando tarjeta:', !isFlipped);
     setIsFlipped(!isFlipped);
   };
 

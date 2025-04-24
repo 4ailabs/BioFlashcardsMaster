@@ -78,20 +78,20 @@
   position: relative;
 }
 
-/* Estilos para las flashcards con animación simple de volteo */
+/* Estilos para las flashcards con animación simple */
 .card-container {
-  perspective: 800px;
+  perspective: 1000px;
   width: 100%;
   height: 500px;
   position: relative;
 }
 
 .card {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
+  transition: transform 0.6s;
   transform-style: preserve-3d;
-  transition: transform 0.8s;
 }
 
 .card.flipped {
@@ -102,29 +102,23 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
   border-radius: 16px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  overflow: auto;
 }
 
+/* Cara frontal, inicialmente visible */
+.card-front {
+  z-index: 2;
+}
+
+/* Cara trasera, inicialmente volteada */
 .card-back {
   transform: rotateY(180deg);
 }
 
-/* Corrige el problema de texto espejo */
-.card.flipped .card-back {
-  transform: rotateY(0deg);
-}
-
-.card.flipped .card-front {
-  transform: rotateY(180deg);
-}
-
-/* Mejoras para las tarjetas */
-.card-front, .card-back {
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
+/* Eliminamos estas transiciones que pueden estar interfiriendo con la animación principal */
 
 /* Eliminados efectos de hover */
 

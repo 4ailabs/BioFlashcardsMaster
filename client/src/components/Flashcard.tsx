@@ -25,6 +25,9 @@ const Flashcard = ({ card }: FlashcardProps) => {
     if ((event.target as HTMLElement).closest('button')) {
       return;
     }
+    
+    // Depurar el estado de volteo
+    console.log('Volteando tarjeta:', !isFlipped);
     setIsFlipped(!isFlipped);
   };
 
