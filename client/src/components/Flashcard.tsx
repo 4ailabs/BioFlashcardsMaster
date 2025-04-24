@@ -55,7 +55,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
 
   // Implementación con volteo simple
   return (
-    <div className="card-container w-full max-w-2xl mx-auto mb-8">
+    <div className="card-container w-full max-w-2xl mx-auto mb-20">
       <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
         {/* Cara Frontal */}
         <div className="card-front bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
@@ -115,7 +115,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
         </div>
         
         {/* Cara Trasera */}
-        <div className="card-back bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col" style={{overflowY: 'auto'}}>
+        <div className="card-back bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col" style={{overflowY: 'auto', paddingBottom: '60px'}}>
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">

@@ -82,8 +82,9 @@
 .card-container {
   perspective: 1000px;
   width: 100%;
-  height: 750px; /* Aumentamos aún más la altura de la tarjeta */
+  height: auto; /* Cambio a altura automática */
   position: relative;
+  min-height: 750px; /* Altura mínima */
 }
 
 .card {
@@ -101,7 +102,7 @@
 .card-front, .card-back {
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 750px; /* Garantiza altura mínima */
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
   border-radius: 16px;
@@ -111,12 +112,18 @@
 /* Cara frontal, inicialmente visible */
 .card-front {
   z-index: 2;
+  height: 100%; /* Mantiene altura fija */
 }
 
 /* Cara trasera, inicialmente volteada */
 .card-back {
   transform: rotateY(180deg);
   overflow-y: auto;
+  height: auto; /* Permite crecer automáticamente */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 /* Eliminamos estas transiciones que pueden estar interfiriendo con la animación principal */
