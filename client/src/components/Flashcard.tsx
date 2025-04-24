@@ -117,9 +117,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
         {/* Cara Trasera */}
         <div className="card-back bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col" style={{overflowY: 'auto', paddingBottom: '100px'}}>
           {/* Indicador de scroll */}
-          <div className="absolute right-3 top-0 w-1 h-full bg-gray-200 dark:bg-gray-700 rounded-full opacity-50 z-50 pointer-events-none">
-            <div className="w-full bg-gray-400 dark:bg-gray-500 rounded-full h-20 transform opacity-80"></div>
-          </div>
+          <div className="scroll-indicator"></div>
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
