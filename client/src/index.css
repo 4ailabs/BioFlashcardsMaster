@@ -150,6 +150,54 @@
   letter-spacing: -0.03em;
 }
 
+/* Estilos específicos para móviles */
+@media (max-width: 640px) {
+  .card-back {
+    /* Asegurar que el scroll funcione en dispositivos móviles */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .card-back .space-y-4 {
+    /* Reducir espaciado en secciones para pantallas pequeñas */
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Ajustar el tamaño del texto para mejor legibilidad en móviles */
+  .card-back h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .card-front h2, .card-back h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Mejorar la visibilidad del código de clasificación */
+  .card-back div[class*="text-4xl"] {
+    font-size: 1.75rem;
+  }
+  
+  /* Reducir padding para aprovechar espacio */
+  .card-back .p-3, .card-front .p-6 {
+    padding: 0.75rem;
+  }
+}
+
+/* Mejora de usabilidad táctil para dispositivos móviles */
+@media (hover: none) and (pointer: coarse) {
+  .card-front, .card-back {
+    touch-action: pan-y;
+  }
+  
+  .card-back .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .bg-bacteria {
   background-color: var(--bacteria);
 }
