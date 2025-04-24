@@ -67,7 +67,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             <div className="text-center relative w-full">
               <div className="relative">
                 {card.classificationCode && (
-                  <div className="absolute -right-2 -top-20 text-4xl font-bold text-purple-600 dark:text-purple-400 drop-shadow-sm">
+                  <div className={`absolute -right-2 -top-20 text-4xl font-bold ${categoryColorClass} text-white px-2 py-1 rounded-lg shadow-lg flex items-center justify-center`} style={{minWidth: '75px', textAlign: 'center'}}>
                     {card.classificationCode}
                   </div>
                 )}
@@ -102,7 +102,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             </div>
             
             {card.classificationCode && (
-              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 drop-shadow-sm">
+              <div className={`text-4xl font-bold ${categoryColorClass} text-white px-2 py-1 rounded-lg shadow-lg flex items-center justify-center`} style={{minWidth: '75px', textAlign: 'center'}}>
                 {card.classificationCode}
               </div>
             )}
@@ -111,7 +111,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           <div className="mt-2 relative z-10">
             <div className="flex items-center mb-3">
               <div className={`h-3 w-3 rounded-full ${categoryColorClass} mr-2`}></div>
-              <span className="text-lg font-bold text-purple-600 dark:text-purple-400">{categoryName}</span>
+              <span className={`text-lg font-bold ${categoryColorClass} text-white px-2 py-0.5 rounded`}>{categoryName}</span>
             </div>
             
             <div className="mb-6 p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
