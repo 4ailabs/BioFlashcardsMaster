@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn, getCategoryColor, getCategoryLabel } from "@/lib/utils";
 import { useFlashcards } from "@/context/FlashcardContext";
 import { Flashcard as FlashcardType } from "@/data/flashcards";
@@ -10,7 +10,15 @@ interface FlashcardProps {
 
 const Flashcard = ({ card }: FlashcardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [backSection, setBackSection] = useState<number>(0);
   const { toggleFavorite } = useFlashcards();
+
+  // Reiniciar sección cuando se voltea la tarjeta
+  useEffect(() => {
+    if (!isFlipped) {
+      setBackSection(0);
+    }
+  }, [isFlipped]);
 
   // Verificar si la tarjeta existe
   if (!card) {
@@ -28,6 +36,34 @@ const Flashcard = ({ card }: FlashcardProps) => {
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     toggleFavorite(card.id);
+  };
+
+  const goToNextSection = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Evitar que el clic voltee la tarjeta
+    
+    // Calcular el número máximo de secciones basado en la información disponible
+    const maxSections = 2 + (card.notes ? 1 : 0);
+    
+    if (backSection < maxSections - 1) {
+      setBackSection(backSection + 1);
+    } else {
+      // Volver a la primera sección si estamos en la última
+      setBackSection(0);
+    }
+  };
+
+  const goToPrevSection = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Evitar que el clic voltee la tarjeta
+    
+    // Calcular el número máximo de secciones basado en la información disponible
+    const maxSections = 2 + (card.notes ? 1 : 0);
+    
+    if (backSection > 0) {
+      setBackSection(backSection - 1);
+    } else {
+      // Ir a la última sección si estamos en la primera
+      setBackSection(maxSections - 1);
+    }
   };
 
   // Valores de categoría seguros
@@ -114,84 +150,119 @@ const Flashcard = ({ card }: FlashcardProps) => {
               <span className={`text-sm sm:text-lg font-bold ${categoryColorClass} text-white px-2 py-0.5 rounded`}>{categoryName}</span>
             </div>
             
-            <div className="mb-3 sm:mb-6 p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-slate-900 dark:text-white">Características</h3>
-              {card.characteristics ? 
-                card.characteristics.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className={`${index > 0 ? 'mt-1 sm:mt-2' : ''} text-sm sm:text-base text-slate-700 dark:text-slate-300`}>
-                    {paragraph}
-                  </p>
-                )) : 
-                <p className="text-sm sm:text-base text-slate-500">No hay información disponible</p>
-              }
+            {/* Contenido paginado basado en la sección activa */}
+            <div className="flex-1 relative z-10">
+              {/* Sección 0: Características */}
+              {backSection === 0 && (
+                <div className="mb-3 sm:mb-6 p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-slate-900 dark:text-white">Características</h3>
+                  {card.characteristics ? 
+                    card.characteristics.split('\n\n').map((paragraph, index) => (
+                      <p key={index} className={`${index > 0 ? 'mt-1 sm:mt-2' : ''} text-sm sm:text-base text-slate-700 dark:text-slate-300`}>
+                        {paragraph}
+                      </p>
+                    )) : 
+                    <p className="text-sm sm:text-base text-slate-500">No hay información disponible</p>
+                  }
+                </div>
+              )}
+              
+              {/* Sección 1: Código patógeno */}
+              {backSection === 1 && (
+                <div className="p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 flex items-center text-slate-900 dark:text-white">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
+                    </svg>
+                    Código patógeno
+                  </h3>
+                  {card.codeMapping && card.codeMapping.codigoPatogeno && card.codeMapping.codigoPatogeno.length > 0 ? (
+                    <ul className="list-disc pl-4 sm:pl-5 space-y-0.5 sm:space-y-1">
+                      {card.codeMapping.codigoPatogeno.map((codigo: string, index: number) => (
+                        <li key={index} className="text-sm sm:text-base text-slate-700 dark:text-slate-300">{codigo}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm sm:text-base text-slate-500">No hay información disponible</p>
+                  )}
+                </div>
+              )}
+              
+              {/* Sección 2: Conflicto base */}
+              {backSection === 2 && (
+                <div className="p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 flex items-center text-slate-900 dark:text-white">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                    Conflicto base
+                  </h3>
+                  <div>
+                    {card.conflictBasis ? 
+                      card.conflictBasis.split('\n\n').map((paragraph, index) => (
+                        <p key={index} className={`${index > 0 ? 'mt-1 sm:mt-2' : ''} text-sm sm:text-base text-slate-700 dark:text-slate-300`}>
+                          {paragraph}
+                        </p>
+                      )) : 
+                      <p className="text-sm sm:text-base text-slate-500">No hay información disponible</p>
+                    }
+                  </div>
+                </div>
+              )}
+
+              {/* Sección 3: Notas adicionales - sólo si hay contenido */}
+              {backSection === 3 && card.notes && (
+                <div className="p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 flex items-center text-slate-900 dark:text-white">
+                    <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                      <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
+                      <line x1="9" y1="9" x2="10" y2="9" />
+                      <line x1="9" y1="13" x2="15" y2="13" />
+                      <line x1="9" y1="17" x2="15" y2="17" />
+                    </svg>
+                    Notas adicionales
+                  </h3>
+                  <div>
+                    {card.notes.split('\n\n').map((paragraph, index) => (
+                      <p key={index} className={`${index > 0 ? 'mt-1 sm:mt-2' : ''} text-sm sm:text-base text-slate-700 dark:text-slate-300`}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           
-          {/* Scroll container for the card content */}
-          <div className="flex-1 overflow-y-auto space-y-3 sm:space-y-4 pr-1 sm:pr-2 relative z-10">
-            {/* Código Patógeno */}
-            <div className="p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 flex items-center text-slate-900 dark:text-white">
-                <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
-                </svg>
-                Código patógeno
-              </h3>
-              {card.codeMapping && card.codeMapping.codigoPatogeno && card.codeMapping.codigoPatogeno.length > 0 ? (
-                <ul className="list-disc pl-4 sm:pl-5 space-y-0.5 sm:space-y-1">
-                  {card.codeMapping.codigoPatogeno.map((codigo: string, index: number) => (
-                    <li key={index} className="text-sm sm:text-base text-slate-700 dark:text-slate-300">{codigo}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm sm:text-base text-slate-500">No hay información disponible</p>
-              )}
+          {/* Controles de navegación y botones */}
+          <div className="mt-2 flex items-center justify-between px-1 z-10">
+            <button 
+              onClick={goToPrevSection}
+              className="p-1 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+              aria-label="Sección anterior"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            
+            <div className="flex space-x-1 justify-center">
+              {[0, 1, 2, ...(card.notes ? [3] : [])].map((i) => (
+                <div 
+                  key={i} 
+                  className={`w-2 h-2 rounded-full ${backSection === i ? categoryColorClass : 'bg-slate-300 dark:bg-slate-600'}`}
+                />
+              ))}
             </div>
             
-            {/* Conflicto base */}
-            <div className="p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 flex items-center text-slate-900 dark:text-white">
-                <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-                Conflicto base
-              </h3>
-              <div>
-                {card.conflictBasis ? 
-                  card.conflictBasis.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className={`${index > 0 ? 'mt-1 sm:mt-2' : ''} text-sm sm:text-base text-slate-700 dark:text-slate-300`}>
-                      {paragraph}
-                    </p>
-                  )) : 
-                  <p className="text-sm sm:text-base text-slate-500">No hay información disponible</p>
-                }
-              </div>
-            </div>
-
-            {/* Notas adicionales - sólo si hay contenido */}
-            {card.notes && (
-              <div className="p-2 sm:p-3 bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-sm backdrop-blur-sm">
-                <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2 flex items-center text-slate-900 dark:text-white">
-                  <svg className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                    <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
-                    <line x1="9" y1="9" x2="10" y2="9" />
-                    <line x1="9" y1="13" x2="15" y2="13" />
-                    <line x1="9" y1="17" x2="15" y2="17" />
-                  </svg>
-                  Notas adicionales
-                </h3>
-                <div>
-                  {card.notes.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className={`${index > 0 ? 'mt-1 sm:mt-2' : ''} text-sm sm:text-base text-slate-700 dark:text-slate-300`}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            )}
+            <button 
+              onClick={goToNextSection}
+              className="p-1 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+              aria-label="Siguiente sección"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
           
           <div className="mt-2 sm:mt-4 flex justify-between items-center pb-0 sm:pb-1 relative z-10">
