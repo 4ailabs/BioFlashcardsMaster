@@ -25,11 +25,11 @@
   --radius: 0.5rem;
   
   /* Category colors */
-  --bacteria: 217 91% 60%;
-  --virus-adn: 158 64% 40%;
-  --virus-arn: 0 84% 60%;
-  --parasito: 38 92% 50%;
-  --hongo: 265 83% 64%;
+  --bacteria: #0076E6;
+  --virus-adn: #E68C00;
+  --virus-arn: #FF5C22;
+  --parasito: #009573;
+  --hongo: #007495;
   
   /* Chart colors */
   --chart-1: 217 91% 60%;
@@ -151,81 +151,81 @@
 }
 
 .bg-bacteria {
-  background-color: hsl(var(--bacteria));
+  background-color: var(--bacteria);
 }
 
 .bg-virus-adn {
-  background-color: hsl(var(--virus-adn));
+  background-color: var(--virus-adn);
 }
 
 .bg-virus-arn {
-  background-color: hsl(var(--virus-arn));
+  background-color: var(--virus-arn);
 }
 
 .bg-parasito {
-  background-color: hsl(var(--parasito));
+  background-color: var(--parasito);
 }
 
 .bg-hongo {
-  background-color: hsl(var(--hongo));
+  background-color: var(--hongo);
 }
 
 .text-bacteria {
-  color: hsl(var(--bacteria));
+  color: var(--bacteria);
 }
 
 .text-virus-adn {
-  color: hsl(var(--virus-adn));
+  color: var(--virus-adn);
 }
 
 .text-virus-arn {
-  color: hsl(var(--virus-arn));
+  color: var(--virus-arn);
 }
 
 .text-parasito {
-  color: hsl(var(--parasito));
+  color: var(--parasito);
 }
 
 .text-hongo {
-  color: hsl(var(--hongo));
+  color: var(--hongo);
 }
 
 .hover\:bg-bacteria\/10:hover {
-  background-color: hsl(var(--bacteria) / 0.1);
+  background-color: rgba(0, 118, 230, 0.1); /* #0076E6 with 0.1 opacity */
 }
 
 .hover\:bg-virus-adn\/10:hover {
-  background-color: hsl(var(--virus-adn) / 0.1);
+  background-color: rgba(230, 140, 0, 0.1); /* #E68C00 with 0.1 opacity */
 }
 
 .hover\:bg-virus-arn\/10:hover {
-  background-color: hsl(var(--virus-arn) / 0.1);
+  background-color: rgba(255, 92, 34, 0.1); /* #FF5C22 with 0.1 opacity */
 }
 
 .hover\:bg-parasito\/10:hover {
-  background-color: hsl(var(--parasito) / 0.1);
+  background-color: rgba(0, 149, 115, 0.1); /* #009573 with 0.1 opacity */
 }
 
 .hover\:bg-hongo\/10:hover {
-  background-color: hsl(var(--hongo) / 0.1);
+  background-color: rgba(0, 116, 149, 0.1); /* #007495 with 0.1 opacity */
 }
 
 .dark .hover\:bg-bacteria\/20:hover {
-  background-color: hsl(var(--bacteria) / 0.2);
+  background-color: rgba(0, 118, 230, 0.2); /* #0076E6 with 0.2 opacity */
 }
 
 .dark .hover\:bg-virus-adn\/20:hover {
-  background-color: hsl(var(--virus-adn) / 0.2);
+  background-color: rgba(230, 140, 0, 0.2); /* #E68C00 with 0.2 opacity */
 }
 
 .dark .hover\:bg-virus-arn\/20:hover {
-  background-color: hsl(var(--virus-arn) / 0.2);
+  background-color: rgba(255, 92, 34, 0.2); /* #FF5C22 with 0.2 opacity */
 }
 
 .dark .hover\:bg-parasito\/20:hover {
-  background-color: hsl(var(--parasito) / 0.2);
+  background-color: rgba(0, 149, 115, 0.2); /* #009573 with 0.2 opacity */
 }
 
 .dark .hover\:bg-hongo\/20:hover {
-  background-color: hsl(var(--hongo) / 0.2);
+  background-color: rgba(0, 116, 149, 0.2); /* #007495 with 0.2 opacity */
 }
