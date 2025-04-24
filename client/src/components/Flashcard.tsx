@@ -116,7 +116,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
-              {card.classificationCode || card.category.substring(0, 4).toUpperCase()}
+              {card.classificationCode || `${card.category.substring(0, 1).toUpperCase()}${card.category.substring(1, 4)}`}
             </div>
           </div>
           
