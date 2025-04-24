@@ -27,7 +27,7 @@ function App() {
               <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
               <main className="w-full md:ml-64 p-4 md:p-8">
                 {activeTab === "study" && <StudyView />}
-                {activeTab === "dashboard" && <Dashboard />}
+                {activeTab === "dashboard" && <Dashboard setActiveTab={setActiveTab} />}
                 {activeTab === "favorites" && <Favorites setActiveTab={setActiveTab} />}
                 {activeTab === "assistant" && <AIAssistant />}
                 {activeTab === "gallery" && <GridView setActiveTab={setActiveTab} />}
