@@ -78,13 +78,6 @@
   position: relative;
 }
 
-/* Estilos para las flashcards con animación simple */
-.flashcard {
-  perspective: 1500px;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
 .card-inner {
   transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1);
   transform-style: preserve-3d;
@@ -144,10 +137,6 @@
 .card-front:hover, .card-back:hover {
   box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07);
 }
-
-/* Eliminamos estas transiciones que pueden estar interfiriendo con la animación principal */
-
-/* Eliminados efectos de hover */
 
 /* Estilo para las listas de códigos patógeno */
 .card-back ul li {
