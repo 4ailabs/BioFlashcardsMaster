@@ -79,13 +79,12 @@
 }
 
 .card-inner {
-  transition-property: transform, min-height;
-  transition-duration: 0.8s, 0.3s;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1.1), ease-in-out;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1);
   transform-style: preserve-3d;
   transform-origin: center center;
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 .card-inner.flipped {
@@ -98,49 +97,11 @@
   -moz-backface-visibility: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Nueva implementación para tarjetas expandibles */
-.card-front {
   position: absolute;
   inset: 0;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  position: relative; /* Permitir expansión vertical */
-}
-
-/* Asegurar que el contenido se acorte apropiadamente */
-.card-back p, .card-front p {
-  line-height: 1.3;
-}
-
-.card-back h3 {
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-/* Optimizaciones para móviles */
-@media (max-width: 640px) {
-  .card-back {
-    font-size: 0.9rem;
-  }
-  
-  .card-back h3 {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .card-back .p-3, .card-front .p-6 {
-    padding: 0.75rem;
-  }
-  
-  .card-back div > div {
-    margin-bottom: 0.5rem;
-  }
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
 }
 
 /* Safari fix for backface visibility */
@@ -160,6 +121,67 @@
 @-moz-document url-prefix() {
   .card-front, .card-back {
     backface-visibility: hidden;
+  }
+}
+
+/* Se asegura de que la parte trasera siempre está girada en 180 grados */
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Mejoras para las tarjetas */
+.card-front, .card-back {
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.card-front:hover, .card-back:hover {
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07);
+}
+
+/* Estilo para las listas de códigos patógeno */
+.card-back ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Mejora estilos de títulos en las tarjetas */
+.card-back h3 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Mejoras para scroll en dispositivos móviles */
+.card-back .overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.5) transparent;
+}
+
+.card-back .overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+
+.card-back .overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card-back .overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.5);
+  border-radius: 20px;
+}
+
+/* Ajuste específico para mejorar scroll en iOS */
+@supports (-webkit-touch-callout: none) {
+  .card-back .overflow-y-auto {
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+  }
+}
+
+/* Prevenir problemas con dispositivos táctiles */
+@media (pointer: coarse) {
+  .card-back .overflow-y-auto {
+    padding-right: 8px; /* Proporciona más espacio para el desplazamiento táctil */
   }
 }
 
