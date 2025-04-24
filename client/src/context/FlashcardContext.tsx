@@ -250,9 +250,12 @@ export function FlashcardProvider({ children }: { children: ReactNode }) {
       const categoryMatch = selectedCategory === 'all' || card.category === selectedCategory;
       
       // Filter by search query
-      const searchMatch = searchQuery === '' || 
-        card.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        card.scientificName.toLowerCase().includes(searchQuery.toLowerCase());
+      const searchLower = searchQuery.toLowerCase().trim();
+      const searchMatch = searchLower === '' || 
+        (card.name && card.name.toLowerCase().includes(searchLower)) ||
+        (card.scientificName && card.scientificName.toLowerCase().includes(searchLower)) ||
+        (card.characteristics && card.characteristics.toLowerCase().includes(searchLower)) ||
+        (card.notes && card.notes.toLowerCase().includes(searchLower));
       
       // Filter by favorites
       const favoriteMatch = !favoritesOnly || card.isFavorite;

@@ -15,7 +15,9 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
   const { searchQuery, setSearchQuery, favoritesOnly, setFavoritesOnly } = useFlashcards();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+    const value = e.target.value;
+    console.log(`Búsqueda: "${value}"`);
+    setSearchQuery(value);
   };
 
   const handleFavoritesToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
