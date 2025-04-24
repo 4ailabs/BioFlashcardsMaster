@@ -187,7 +187,9 @@ const AIAssistant: React.FC = () => {
       {/* Cabecera */}
       <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-700 flex items-center">
         <Brain className="h-6 w-6 text-purple-500 mr-2" />
-        <h2 className="text-xl font-semibold text-slate-800 dark:text-white">Asistente de Microbioenergética</h2>
+        <h2 className="text-xl text-slate-800 dark:text-white">
+          Asistente de <span className="font-semibold">Micro</span>bioenergética
+        </h2>
       </div>
       
       {/* Panel de selección de flashcard */}
