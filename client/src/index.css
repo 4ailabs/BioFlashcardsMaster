@@ -102,6 +102,7 @@
   border-radius: 16px;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   overflow: hidden;
+  transition: all 0.6s ease;
 }
 
 /* Safari fix for backface visibility */
@@ -127,6 +128,32 @@
 /* Se asegura de que la parte trasera siempre está girada en 180 grados */
 .card-back {
   transform: rotateY(180deg);
+}
+
+/* Cuando la tarjeta está volteada */
+.card-inner.flipped .card-front {
+  transform: rotateY(180deg);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card-inner.flipped .card-back {
+  transform: rotateY(0deg);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Cuando la tarjeta no está volteada */
+.card-inner:not(.flipped) .card-front {
+  transform: rotateY(0deg);
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-inner:not(.flipped) .card-back {
+  transform: rotateY(180deg);
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Mejoras para las tarjetas */

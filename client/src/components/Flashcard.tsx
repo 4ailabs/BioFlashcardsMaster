@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Star } from "lucide-react";
 import { cn, getCategoryColor, getCategoryLabel } from "@/lib/utils";
 import { useFlashcards } from "@/context/FlashcardContext";
@@ -12,7 +12,6 @@ const Flashcard = ({ card }: FlashcardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const { toggleFavorite } = useFlashcards();
 
-  // Verificar si la tarjeta existe
   if (!card) {
     return (
       <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8 flex items-center justify-center">
@@ -30,12 +29,10 @@ const Flashcard = ({ card }: FlashcardProps) => {
     toggleFavorite(card.id);
   };
 
-  // Valores de categoría seguros
   const category = card.category || 'default';
   const categoryColorClass = getCategoryColor(category);
   const categoryName = getCategoryLabel(category);
 
-  // Función para obtener el color RGB basado en la categoría para efectos de hover
   const getCategoryRgbColor = (category: string): string => {
     switch (category) {
       case 'bacteria': return 'rgba(0, 118, 230, 0.2)'; // #0076E6
@@ -52,12 +49,9 @@ const Flashcard = ({ card }: FlashcardProps) => {
   return (
     <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
       <div
-        className={cn(
-          "card-inner w-full h-full relative transition-all duration-500 ease-out hover:scale-[1.02] rounded-2xl overflow-hidden"
-        )}
+        className={`card-inner w-full h-full relative transition-all duration-500 ease-out hover:scale-[1.02] rounded-2xl overflow-hidden ${isFlipped ? 'flipped' : ''}`}
         style={{
           transformStyle: "preserve-3d",
-          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
           transition: "transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1), box-shadow 0.3s ease",
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
           borderRadius: "1rem",
@@ -72,11 +66,8 @@ const Flashcard = ({ card }: FlashcardProps) => {
       >
         {/* Front of card */}
         <div 
-          className="absolute w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col transition-all duration-300"
-          style={{ 
-            backfaceVisibility: "hidden",
-            transformStyle: "preserve-3d"
-          }}>
+          className="card-front absolute w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col"
+        >
           <div className="flex justify-between items-start mb-2">
             <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white shadow-sm`}>
               {categoryName}
@@ -115,19 +106,27 @@ const Flashcard = ({ card }: FlashcardProps) => {
           <div className="mt-4 text-center">
             <div className="bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-1.5 shadow-inner inline-block">
               <p className="text-sm text-slate-600 dark:text-slate-300">Clic para ver detalles</p>
-              <ArrowDown className="h-4 w-4 mx-auto mt-1 text-slate-400" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4 mx-auto mt-1 text-slate-400"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
             </div>
           </div>
         </div>
         
         {/* Back of card */}
         <div 
-          className="absolute w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto transition-all duration-300"
-          style={{ 
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-            transformStyle: "preserve-3d",
-          }}>
+          className="card-back absolute w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto"
+        >
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
@@ -245,7 +244,19 @@ const Flashcard = ({ card }: FlashcardProps) => {
             <div className="text-center bg-slate-100 dark:bg-slate-700 rounded-full px-4 py-1.5 shadow-sm">
               <div className="flex items-center gap-2">
                 <p className="text-sm text-slate-600 dark:text-slate-300">Clic para volver</p>
-                <ArrowUp className="h-4 w-4 text-slate-400" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4 text-slate-400"
+                >
+                  <line x1="12" y1="19" x2="12" y2="5"></line>
+                  <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
               </div>
             </div>
             
@@ -258,38 +269,5 @@ const Flashcard = ({ card }: FlashcardProps) => {
     </div>
   );
 };
-
-// Custom arrow components for simplicity
-const ArrowDown = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <line x1="12" y1="5" x2="12" y2="19"></line>
-    <polyline points="19 12 12 19 5 12"></polyline>
-  </svg>
-);
-
-const ArrowUp = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <line x1="12" y1="19" x2="12" y2="5"></line>
-    <polyline points="5 12 12 5 19 12"></polyline>
-  </svg>
-);
 
 export default Flashcard;
