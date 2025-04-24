@@ -23,14 +23,16 @@ function App() {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
             <Toaster />
-            <div className="min-h-screen flex flex-col md:flex-row font-sans text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
+            <div className="min-h-screen overflow-hidden w-full flex flex-col md:flex-row font-sans text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
               <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-              <main className="w-full md:ml-64 p-4 md:p-8">
-                {activeTab === "study" && <StudyView />}
-                {activeTab === "dashboard" && <Dashboard setActiveTab={setActiveTab} />}
-                {activeTab === "favorites" && <Favorites setActiveTab={setActiveTab} />}
-                {activeTab === "assistant" && <AIAssistant />}
-                {activeTab === "gallery" && <GridView setActiveTab={setActiveTab} />}
+              <main className="w-full md:ml-64 p-3 md:p-8 overflow-x-hidden">
+                <div className="max-w-screen-lg mx-auto">
+                  {activeTab === "study" && <StudyView />}
+                  {activeTab === "dashboard" && <Dashboard setActiveTab={setActiveTab} />}
+                  {activeTab === "favorites" && <Favorites setActiveTab={setActiveTab} />}
+                  {activeTab === "assistant" && <AIAssistant />}
+                  {activeTab === "gallery" && <GridView setActiveTab={setActiveTab} />}
+                </div>
               </main>
             </div>
           </TooltipProvider>
