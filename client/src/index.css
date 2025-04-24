@@ -121,9 +121,10 @@
 /* Cara trasera, inicialmente volteada */
 .card-back {
   transform: rotateY(180deg);
-  overflow-y: auto;
+  overflow-y: auto; /* Mantiene el scroll vertical */
   display: flex;
   flex-direction: column;
+  max-height: 750px; /* Mismo valor que min-height para mantener consistencia */
 }
 
 /* Eliminamos estas transiciones que pueden estar interfiriendo con la animación principal */

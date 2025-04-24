@@ -116,6 +116,10 @@ const Flashcard = ({ card }: FlashcardProps) => {
         
         {/* Cara Trasera */}
         <div className="card-back bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col" style={{overflowY: 'auto', paddingBottom: '60px'}}>
+          {/* Indicator de scroll */}
+          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-1 h-32 bg-gray-200 dark:bg-gray-700 rounded-full opacity-50 z-50 pointer-events-none">
+            <div className="w-full bg-gray-400 dark:bg-gray-500 rounded-full h-10 transform -translate-x-0 opacity-80"></div>
+          </div>
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
@@ -221,7 +225,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
             )}
           </div>
           
-          <div className="mt-4 flex justify-between items-center pb-1 relative z-10">
+          <div className="mt-4 flex justify-between items-center pb-1 relative z-10 sticky bottom-0 bg-gradient-to-t from-white to-transparent dark:from-slate-800 dark:to-transparent pt-4">
             <button 
               className={cn("text-amber-500 hover:text-amber-600 transition-colors", card.isFavorite && "fill-current")}
               onClick={handleFavoriteClick}
