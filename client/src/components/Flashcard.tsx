@@ -58,6 +58,14 @@ const Flashcard = ({ card }: FlashcardProps) => {
         style={{
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+          transition: "transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1.1), box-shadow 0.3s ease",
+          boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.boxShadow = `0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07), 0 0 0 2px ${categoryRgbColor}`;
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
         }}
         onClick={handleCardClick}
       >
