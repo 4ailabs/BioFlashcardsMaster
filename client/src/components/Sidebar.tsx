@@ -31,9 +31,12 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
   return (
     <aside className="w-full md:w-64 md:h-screen bg-white dark:bg-slate-800 shadow-lg md:fixed left-0 md:overflow-y-auto">
       <div className="p-4 border-b border-slate-200 dark:border-slate-700">
-        <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold text-primary">BioFlashcards</h1>
-          <ThemeToggle />
+        <div className="flex flex-col">
+          <div className="flex items-center justify-between">
+            <h1 className="text-xl font-bold text-primary">MicroBioCards</h1>
+            <ThemeToggle />
+          </div>
+          <span className="text-xs text-slate-500 dark:text-slate-400">Dr. Miguel Ojeda Ríos</span>
         </div>
       </div>
       
