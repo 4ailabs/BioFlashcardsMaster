@@ -1,14 +1,20 @@
 {
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+    { 
+      "source": "/api/asistente-ia", 
+      "destination": "/api/asistente-ia" 
     },
-    {
-      "source": "/(.*)",
-      "destination": "/"
+    { 
+      "source": "/(.*)", 
+      "destination": "/" 
     }
   ],
-  "outputDirectory": "dist",
-  "buildCommand": "npm run build"
+  "outputDirectory": "dist/public",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "regions": ["iad1"],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
