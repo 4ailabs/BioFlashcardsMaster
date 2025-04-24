@@ -82,7 +82,7 @@
 .card-container {
   perspective: 1000px;
   width: 100%;
-  height: 500px;
+  height: 600px; /* Aumentamos la altura de la tarjeta */
   position: relative;
 }
 
@@ -116,6 +116,7 @@
 /* Cara trasera, inicialmente volteada */
 .card-back {
   transform: rotateY(180deg);
+  overflow-y: auto;
 }
 
 /* Eliminamos estas transiciones que pueden estar interfiriendo con la animación principal */
