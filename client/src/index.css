@@ -128,6 +128,7 @@
 /* Se asegura de que la parte trasera siempre está girada en 180 grados */
 .card-back {
   transform: rotateY(180deg);
+  backface-visibility: hidden;
 }
 
 /* Cuando la tarjeta está volteada */
@@ -139,7 +140,7 @@
 }
 
 .card-inner.flipped .card-back {
-  transform: rotateY(0deg);
+  transform: rotateY(0deg); /* Volvemos a 0 grados */
   opacity: 1;
   visibility: visible;
   transition: transform 1s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.5s ease 0.3s;
