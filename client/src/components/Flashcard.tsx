@@ -50,25 +50,16 @@ const Flashcard = ({ card }: FlashcardProps) => {
 
   const categoryRgbColor = getCategoryRgbColor(category);
 
-  // Enfoque sin transformación 3D para evitar problemas de texto al revés
+  // Implementación con efecto de volteo
   return (
-    <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
-      {/* Cara frontal - visible cuando no está volteada */}
+    <div className="flashcard-container w-full max-w-2xl mx-auto h-[500px] mb-8">
       <div 
-        className={`w-full h-full rounded-2xl transition-all duration-700 ease-in-out absolute ${
-          isFlipped ? 'opacity-0 invisible z-0' : 'opacity-100 visible z-10'
-        }`}
+        className={`flashcard w-full h-full ${isFlipped ? 'is-flipped' : ''}`}
+        onClick={handleCardClick}
         style={{
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
           borderRadius: "1rem",
           cursor: "pointer"
-        }}
-        onClick={handleCardClick}
-        onMouseOver={(e) => {
-          e.currentTarget.style.boxShadow = `0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07), 0 0 0 2px ${categoryRgbColor}`;
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
         }}
       >
         {/* Front of card */}
