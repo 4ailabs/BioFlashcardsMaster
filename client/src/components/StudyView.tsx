@@ -33,9 +33,9 @@ const StudyView = () => {
   const progress = getStudyProgress(studyStats.studied, totalFilteredCards);
   
   return (
-    <div>
+    <div className="w-full">
       {/* Card Navigation */}
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-4 sm:mb-6 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center space-x-2">
           <Button
             variant="outline"
@@ -88,40 +88,44 @@ const StudyView = () => {
       </div>
       
       {/* Flashcard */}
-      {totalFilteredCards > 0 && filteredFlashcards[currentCardIndex] ? (
-        <Flashcard card={filteredFlashcards[currentCardIndex]} />
-      ) : (
-        <div className="text-center py-12 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
-          <h3 className="text-lg font-medium mb-2">No hay tarjetas que coincidan con tus filtros</h3>
-          <p className="text-slate-500 dark:text-slate-400 mb-4">Intenta cambiar tu búsqueda o los filtros de categoría</p>
-        </div>
-      )}
+      <div className="w-full">
+        {totalFilteredCards > 0 && filteredFlashcards[currentCardIndex] ? (
+          <Flashcard card={filteredFlashcards[currentCardIndex]} />
+        ) : (
+          <div className="text-center py-12 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
+            <h3 className="text-lg font-medium mb-2">No hay tarjetas que coincidan con tus filtros</h3>
+            <p className="text-slate-500 dark:text-slate-400 mb-4">Intenta cambiar tu búsqueda o los filtros de categoría</p>
+          </div>
+        )}
+      </div>
       
       {/* Progress tracker */}
       {totalFilteredCards > 0 && (
-        <div className="flex items-center justify-between bg-white dark:bg-slate-800 p-4 rounded-lg shadow">
-          <div className="flex items-center">
-            <div className="h-2 w-64 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-primary rounded-full" 
-                style={{ width: `${progress}%` }}
-              ></div>
+        <div className="w-full bg-white dark:bg-slate-800 p-3 sm:p-4 rounded-lg shadow">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center">
+              <div className="h-2 w-full sm:w-64 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-primary rounded-full" 
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+              <span className="ml-3 text-sm font-medium whitespace-nowrap">{progress}% completado</span>
             </div>
-            <span className="ml-3 text-sm font-medium">{progress}% completado</span>
-          </div>
-          
-          <div className="flex space-x-3">
-            <div className="text-center">
-              <p className="text-sm text-slate-500 dark:text-slate-400">Restantes</p>
-              <p className="text-lg font-medium">{totalFilteredCards - studyStats.studied}</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm text-slate-500 dark:text-slate-400">Estudiadas</p>
-              <p className="text-lg font-medium">{studyStats.studied}</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm text-slate-500 dark:text-slate-400">Dominadas</p>
-              <p className="text-lg font-medium">{studyStats.mastered}</p>
+            
+            <div className="flex justify-between w-full sm:w-auto sm:justify-start sm:space-x-4">
+              <div className="text-center px-1">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Restantes</p>
+                <p className="text-base sm:text-lg font-medium">{totalFilteredCards - studyStats.studied}</p>
+              </div>
+              <div className="text-center px-1">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Estudiadas</p>
+                <p className="text-base sm:text-lg font-medium">{studyStats.studied}</p>
+              </div>
+              <div className="text-center px-1">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Dominadas</p>
+                <p className="text-base sm:text-lg font-medium">{studyStats.mastered}</p>
+              </div>
             </div>
           </div>
         </div>
