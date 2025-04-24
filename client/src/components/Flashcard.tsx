@@ -53,12 +53,11 @@ const Flashcard = ({ card }: FlashcardProps) => {
     <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
       <div
         className={cn(
-          "w-full h-full relative transform-gpu transition-all duration-500 ease-out backface-hidden",
-          isFlipped ? "rotate-y-180" : "rotate-y-0",
-          "hover:scale-[1.02]"
+          "card-inner w-full h-full relative transition-all duration-500 ease-out hover:scale-[1.02]"
         )}
         style={{
           transformStyle: "preserve-3d",
+          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
         onClick={handleCardClick}
       >
