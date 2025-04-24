@@ -50,17 +50,18 @@ const Flashcard = ({ card }: FlashcardProps) => {
 
   const categoryRgbColor = getCategoryRgbColor(category);
 
-  // Enfoque sin transformación 3D para evitar problemas de texto al revés
+  // Nuevo enfoque: Dos caras en posición absoluta con animación de opacidad en lugar de rotación 3D
   return (
-    <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
-      {/* Cara frontal - visible cuando no está volteada */}
+    <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8 perspective-1000">
+      {/* Cara frontal */}
       <div 
         className={`w-full h-full rounded-2xl transition-all duration-700 ease-in-out absolute ${
-          isFlipped ? 'opacity-0 invisible z-0' : 'opacity-100 visible z-10'
+          isFlipped ? 'opacity-0 invisible' : 'opacity-100 visible'
         }`}
         style={{
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
           borderRadius: "1rem",
+          backfaceVisibility: "hidden",
           cursor: "pointer"
         }}
         onClick={handleCardClick}
@@ -71,10 +72,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
         }}
       >
-        {/* Front of card */}
-        <div 
-          className="card-front absolute w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col"
-        >
+        <div className="card-front w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
           <div className="flex justify-between items-start mb-2">
             <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white shadow-sm`}>
               {categoryName}
@@ -129,17 +127,17 @@ const Flashcard = ({ card }: FlashcardProps) => {
             </div>
           </div>
         </div>
-        
       </div>
       
-      {/* Cara trasera - visible cuando está volteada */}
+      {/* Cara posterior */}
       <div 
         className={`w-full h-full rounded-2xl transition-all duration-700 ease-in-out absolute ${
-          isFlipped ? 'opacity-100 visible z-10' : 'opacity-0 invisible z-0'
+          isFlipped ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         style={{
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
           borderRadius: "1rem",
+          backfaceVisibility: "hidden",
           cursor: "pointer"
         }}
         onClick={handleCardClick}
@@ -150,9 +148,7 @@ const Flashcard = ({ card }: FlashcardProps) => {
           e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
         }}
       >
-        <div 
-          className="w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto"
-        >
+        <div className="card-back w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
