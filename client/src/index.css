@@ -97,9 +97,7 @@
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.card-front:hover, .card-back:hover {
-  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07);
-}
+/* Eliminados efectos de hover */
 
 /* Estilo para las listas de códigos patógeno */
 .card-back ul li {

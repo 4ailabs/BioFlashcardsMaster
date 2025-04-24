@@ -61,12 +61,6 @@ const Flashcard = ({ card }: FlashcardProps) => {
           cursor: "pointer"
         }}
         onClick={handleCardClick}
-        onMouseOver={(e) => {
-          e.currentTarget.style.boxShadow = `0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07), 0 0 0 2px ${categoryRgbColor}`;
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
-        }}
       >
         <div className="w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col"
         >
@@ -138,12 +132,6 @@ const Flashcard = ({ card }: FlashcardProps) => {
           cursor: "pointer"
         }}
         onClick={handleCardClick}
-        onMouseOver={(e) => {
-          e.currentTarget.style.boxShadow = `0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 15px 15px -8px rgba(0, 0, 0, 0.07), 0 0 0 2px ${categoryRgbColor}`;
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)";
-        }}
       >
         <div 
           className="w-full h-full rounded-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto"
