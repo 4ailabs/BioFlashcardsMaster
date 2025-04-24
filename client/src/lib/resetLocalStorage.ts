@@ -47,6 +47,30 @@ export function forceResetStorage(): void {
   window.location.reload();
 }
 
+/**
+ * Función para reiniciar selectivamente solo el historial de actividad reciente
+ * sin afectar a los favoritos u otras configuraciones
+ */
+export function resetRecentActivity(): void {
+  // Eliminar solo la clave de localStorage relacionada con la actividad reciente
+  localStorage.removeItem('recentActivity');
+  
+  console.log('Historial de actividad reciente reiniciado.');
+  
+  // Establecer una actividad inicial de reinicio
+  const resetActivity = [{
+    type: 'started',
+    title: 'Historial reiniciado',
+    description: 'Reinicio selectivo del historial de actividad reciente',
+    timestamp: new Date().toISOString()
+  }];
+  
+  localStorage.setItem('recentActivity', JSON.stringify(resetActivity));
+  
+  // Recargar la página para aplicar los cambios
+  window.location.reload();
+}
+
 // Función para verificar si hay datos de flashcards en localStorage
 export function hasFlashcardsData(): boolean {
   return localStorage.getItem('flashcards') !== null;
