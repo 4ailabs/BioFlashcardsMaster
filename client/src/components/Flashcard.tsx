@@ -35,14 +35,41 @@ const Flashcard = ({ card }: FlashcardProps) => {
   const categoryColorClass = getCategoryColor(category);
   const categoryName = getCategoryLabel(category);
 
+  // Función para obtener el color RGB basado en la categoría para efectos de hover
+  const getCategoryRgbColor = (category: string): string => {
+    switch (category) {
+      case 'bacteria': return 'rgba(0, 118, 230, 0.2)'; // #0076E6
+      case 'virus_adn': return 'rgba(230, 140, 0, 0.2)'; // #E68C00
+      case 'virus_arn': return 'rgba(255, 92, 34, 0.2)'; // #FF5C22
+      case 'parasito': return 'rgba(0, 149, 115, 0.2)'; // #009573
+      case 'hongo': return 'rgba(0, 116, 149, 0.2)'; // #007495
+      default: return 'rgba(100, 116, 139, 0.2)'; // Slate
+    }
+  };
+
+  const categoryRgbColor = getCategoryRgbColor(category);
+
   return (
     <div className="flashcard w-full max-w-2xl mx-auto h-[500px] mb-8">
       <div
-        className={cn("card-inner w-full h-full relative", isFlipped && "flipped")}
+        className={cn(
+          "w-full h-full relative transform-gpu transition-all duration-500 ease-out backface-hidden",
+          isFlipped ? "rotate-y-180" : "rotate-y-0",
+          "hover:scale-[1.02]"
+        )}
+        style={{
+          transformStyle: "preserve-3d",
+        }}
         onClick={handleCardClick}
       >
         {/* Front of card */}
-        <div className="card-front absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col">
+        <div 
+          className="absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col transition-all duration-300 hover:shadow-xl"
+          style={{ 
+            backfaceVisibility: "hidden",
+            transformStyle: "preserve-3d",
+            boxShadow: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.1)`,
+          }}>
           <div className="flex justify-between items-start mb-2">
             <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium ${categoryColorClass} text-white shadow-sm`}>
               {categoryName}
@@ -87,7 +114,14 @@ const Flashcard = ({ card }: FlashcardProps) => {
         </div>
         
         {/* Back of card */}
-        <div className="card-back absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto">
+        <div 
+          className="absolute w-full h-full rounded-2xl shadow-lg bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 p-6 flex flex-col overflow-auto transition-all duration-300 hover:shadow-xl"
+          style={{ 
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+            transformStyle: "preserve-3d",
+            boxShadow: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.1)`,
+          }}>
           {/* Watermark background for the back */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none opacity-10">
             <div className="text-9xl font-black text-gray-100 dark:text-gray-800 transform rotate-12 select-none">
