@@ -36,7 +36,7 @@ export async function handleAsistenteIA(req: Request, res: Response) {
       
       // Si además tiene código de clasificación, lo añadimos
       if (classificationCode) {
-        infoPatogeno += `, Código Centrobioenergetica: ${classificationCode}`;
+        infoPatogeno += `, Código Patógeno: ${classificationCode}`;
       }
       
       infoPatogeno += `] ${pregunta}`;
