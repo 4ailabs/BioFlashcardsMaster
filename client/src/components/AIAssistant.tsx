@@ -57,7 +57,7 @@ const AIAssistant: React.FC = () => {
         },
         body: JSON.stringify({ 
           pregunta: pregunta,
-          idPatogeno: selectedCardId,
+          idPatogeno: selectedCard?.name || null, // Enviamos el nombre en lugar del ID
           classificationCode: selectedCard?.classificationCode || null
         }),
       });

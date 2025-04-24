@@ -32,7 +32,7 @@ export async function handleAsistenteIA(req: Request, res: Response) {
     
     // Si hay un patógeno seleccionado, añadir esa información al mensaje
     if (idPatogeno) {
-      let infoPatogeno = `[Consulta específica sobre patógeno ID: ${idPatogeno}`;
+      let infoPatogeno = `[Consulta específica sobre patógeno: ${idPatogeno}`;
       
       // Si además tiene código de clasificación, lo añadimos
       if (classificationCode) {
