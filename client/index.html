@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
     <title>MicroBioCards | El código emocional de los microbios</title>
     <meta name="description" content="El código emocional, energético y simbólico de los microbios. Aplicación de estudio de Microbioenergética con flashcards interactivas por Dr. Miguel Ojeda Rios" />
     
@@ -26,6 +26,32 @@
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#6D28D9" />
+    
+    <!-- Mejoras para dispositivos táctiles -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Estilos para mejorar el comportamiento del scroll -->
+    <style>
+      html, body {
+        height: 100%;
+        width: 100%;
+        overflow-x: hidden;
+        position: fixed;
+        overscroll-behavior: none;
+      }
+      #root {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      /* Previene el arrastre de toda la página en dispositivos iOS */
+      * {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
