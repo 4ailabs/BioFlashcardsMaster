@@ -171,4 +171,3 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
 };
 
 export default Sidebar;
-
