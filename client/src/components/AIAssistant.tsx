@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, PaperclipIcon, Brain } from 'lucide-react';
+import { Send, Brain } from 'lucide-react';
 import { consultarAsistenteIA } from '@/lib/openai';
 import { useFlashcards } from '@/context/FlashcardContext';
 import { Flashcard } from '@/data/flashcards';
+import ReactMarkdown from 'react-markdown';
 
 // Definir la estructura de un mensaje
 interface Mensaje {
@@ -31,6 +32,18 @@ const AIAssistant: React.FC = () => {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   }, [mensajes]);
+
+  // Función para limpiar y preparar el texto markdown
+  const limpiarTextoMarkdown = (texto: string): string => {
+    if (!texto) return '';
+    
+    // Eliminar marcadores de fuente como 【4:0†source】 o variaciones similares
+    return texto
+      .replace(/【\d+:\d+†source】/g, '') // Eliminar marcadores específicos
+      .replace(/\[\d+:\d+†source\]/g, '') // Variación con corchetes normales
+      .replace(/\s*\[\d+:\d+.*?\]\s*/g, '') // Cualquier referencia entre corchetes con números y dos puntos
+      .replace(/\\(\[|\]|#|\*|_)/g, '$1'); // Quitar escape de caracteres markdown
+  };
 
   // Función para enviar consulta al asistente
   const enviarConsulta = async (textoConsulta: string, patogenoSeleccionado: Flashcard | null = null) => {
@@ -69,11 +82,14 @@ const AIAssistant: React.FC = () => {
           }
         ]);
       } else {
+        // Limpiar el texto antes de guardarlo en el estado
+        const textoLimpio = limpiarTextoMarkdown(data.texto || "");
+        
         setMensajes(prev => [
           ...prev, 
           {
             tipo: 'asistente',
-            contenido: data.texto || "No se pudo obtener una respuesta del asistente.", // Garantiza un string válido
+            contenido: textoLimpio || "No se pudo obtener una respuesta del asistente.",
             timestamp: new Date()
           }
         ]);
@@ -332,13 +348,19 @@ const AIAssistant: React.FC = () => {
                       : 'bg-white dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600'
               }`}
             >
-              <div className="mb-1">
-                {mensaje.contenido.split('\n').map((line, i) => (
-                  <span key={i} className="block">
-                    {line}
-                    {i < mensaje.contenido.split('\n').length - 1 && <br />}
-                  </span>
-                ))}
+              <div className="mb-1 markdown-content">
+                {mensaje.tipo === 'asistente' ? (
+                  <ReactMarkdown className="prose prose-sm dark:prose-invert max-w-none">
+                    {mensaje.contenido}
+                  </ReactMarkdown>
+                ) : (
+                  mensaje.contenido.split('\n').map((line, i) => (
+                    <span key={i} className="block">
+                      {line}
+                      {i < mensaje.contenido.split('\n').length - 1 && <br />}
+                    </span>
+                  ))
+                )}
               </div>
               <div className="text-xs opacity-70 text-right">
                 {formatearHora(mensaje.timestamp)}
