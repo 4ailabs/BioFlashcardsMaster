@@ -250,3 +250,116 @@
   background-color: rgba(0, 116, 149, 0.2); /* #007495 with 0.2 opacity */
 }
 
+/* Estilos para el contenido markdown en mensajes */
+.markdown-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.markdown-content p {
+  margin-bottom: 0.6rem;
+}
+
+.markdown-content ul, .markdown-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.2rem;
+}
+
+.markdown-content code {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.3rem;
+  font-family: monospace;
+}
+
+.dark .markdown-content code {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para los corchetes de markdown que deben mostrarse como checkbox */
+.markdown-content input[type="checkbox"] {
+  margin-right: 0.4rem;
+}
+
+.prose :where(h1, h2, h3, h4) {
+  color: inherit;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose :where(h1) {
+  font-size: 1.5rem;
+}
+
+.prose :where(h2) {
+  font-size: 1.3rem;
+}
+
+.prose :where(h3) {
+  font-size: 1.1rem;
+}
+
+.prose :where(p) {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.prose :where(ul, ol) {
+  padding-left: 1.3rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.prose :where(li) {
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+}
+
+/* Estilo específico para los elementos de task list en markdown */
+.prose ul li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* Para asegurarnos de que los encabezados ### se muestren correctamente */
+.prose h3::before {
+  content: "";
+  display: block;
+  height: 0.5rem;
+}
+
+/* Estilo específico para los elementos de markdown en modo oscuro */
+.dark .prose {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark .prose strong {
+  color: white;
+}
+
+.dark .prose code {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.3rem;
+}
