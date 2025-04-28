@@ -301,11 +301,6 @@
   margin-right: 0.4rem;
 }
 
-/* Estilos para los elementos específicos de Prose */
-.prose {
-  max-width: 100%;
-}
-
 .prose :where(h1, h2, h3, h4) {
   color: inherit;
   font-weight: 700;
@@ -327,13 +322,13 @@
 
 .prose :where(p) {
   margin-top: 0.3rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.3rem;
 }
 
 .prose :where(ul, ol) {
   padding-left: 1.3rem;
   margin-top: 0.3rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.3rem;
 }
 
 .prose :where(li) {
@@ -341,41 +336,30 @@
   margin-bottom: 0.15rem;
 }
 
-.prose :where(strong) {
-  font-weight: 700;
+/* Estilo específico para los elementos de task list en markdown */
+.prose ul li input[type="checkbox"] {
+  margin-right: 0.5rem;
 }
 
-.prose :where(em) {
-  font-style: italic;
+/* Para asegurarnos de que los encabezados ### se muestren correctamente */
+.prose h3::before {
+  content: "";
+  display: block;
+  height: 0.5rem;
 }
 
-/* Estilos especiales para elementos específicos que podrían aparecer en el texto */
-.prose :where(pre) {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 0.25rem;
-  padding: 0.75rem;
-  overflow-x: auto;
-  margin: 0.5rem 0;
+/* Estilo específico para los elementos de markdown en modo oscuro */
+.dark .prose {
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.dark .prose :where(pre) {
+.dark .prose strong {
+  color: white;
+}
+
+.dark .prose code {
+  color: rgba(255, 255, 255, 0.8);
   background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Eliminar estilos de marcadores de referencia */
-.prose :where(a[href^="#source"]) {
-  display: none !important;
-}
-
-/* Eliminar cualquier texto o elementos con el formato de referencias como [4:0†source] */
-.prose *:not(pre) > [data-source],
-.prose *:not(pre) > [data-reference],
-.prose *:not(pre) > span[class*="source"],
-.prose *:not(pre) > span[class*="reference"] {
-  display: none !important;
-}
-
-/* Para lidiar con los asteriscos dobles que marcan texto en negrita */
-.prose strong {
-  font-weight: 700;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.3rem;
 }
